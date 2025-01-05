@@ -11,7 +11,7 @@ import repository.Repository;
  * @author ognje
  * @param <T>
  */
-public interface DbRepository<T> extends Repository {
+public interface DbRepository<T> extends Repository<T> {
     
     default public void connect() throws Exception {
         DbConnectionFactory.getInstance().getConnection();

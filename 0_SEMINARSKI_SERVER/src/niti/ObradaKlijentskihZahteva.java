@@ -4,6 +4,8 @@
  */
 package niti;
 
+import controller.Controller;
+import domain.Doktor;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.logging.Level;
@@ -33,21 +35,28 @@ public class ObradaKlijentskihZahteva extends Thread {
 
     @Override
     public void run() {
-        while (!kraj) {
-            Request req = (Request) receiver.receiveRequest();
-            Response res = new Response();
+        try {
 
-            if(req.getOperation() == Operation.LOGIN) {
-                System.out.println("login");
-            } else {
-                System.out.println("greska ta operacije ne postoji");
+            while (!kraj) {
+                Request req = (Request) receiver.receiveRequest();
+                Response res = new Response();
+
+                if (req.getOperation() == Operation.LOGIN) {
+                    Doktor d = (Doktor) req.getPayload();
+                    d = Controller.getInstance().login(d);
+                    res.setPayload(d);
+                } else {
+                    System.out.println("greska ta operacije ne postoji");
+                }
+
+                sender.sendResponse(res);
+
             }
-            
-            sender.sendResponse(res);
-            
+        } catch (Exception ex) {
+            Logger.getLogger(ObradaKlijentskihZahteva.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public void prekini() {
         //todo ovo promeni da je malo lepse kao sto si radio na ultu
         try {

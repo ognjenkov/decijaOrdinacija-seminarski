@@ -1,0 +1,60 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package communication;
+
+import domain.Doktor;
+import java.io.IOException;
+import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import network.Operation;
+import network.Receiver;
+import network.Request;
+import network.Response;
+import network.Sender;
+
+/**
+ *
+ * @author ognje
+ */
+public class Communication {
+    private Socket socket;
+    private Sender sender;
+    private Receiver receiver;
+    
+    private static Communication instance;
+    
+    private Communication() {
+
+    }
+    
+    public static Communication getInstance() {
+        if(instance == null) instance = new Communication();
+        return instance;
+    }
+    
+    public void connection() {
+        try {
+            socket = new Socket("localhost", 9000);
+            sender = new Sender(socket);
+            receiver = new Receiver(socket);
+        } catch (IOException ex) {
+            System.out.println("server nije povezan");
+        }
+    }
+    
+    public Doktor login(int id, String email) {
+        Doktor d = new Doktor(id, email);
+        Request req = new Request(Operation.LOGIN, d);
+        
+        sender.sendResponse(req);
+        Response res = (Response) receiver.receiveRequest();
+        
+        Response odg = (Response) receiver.receiveRequest();
+        d = (Doktor) odg.getPayload();
+        
+        return d;
+    }
+}

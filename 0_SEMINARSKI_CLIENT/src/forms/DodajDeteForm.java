@@ -6,6 +6,7 @@ package forms;
 
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
@@ -38,6 +39,9 @@ public class DodajDeteForm extends javax.swing.JFrame {
         jTextFieldDATUMRODJENJA = new javax.swing.JTextField();
         jButtonDODAJ = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jButtonAZURIRAJ = new javax.swing.JButton();
+        jLabelID1 = new javax.swing.JLabel();
+        jLabelID = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,6 +57,10 @@ public class DodajDeteForm extends javax.swing.JFrame {
 
         jLabel4.setText("(1.1.2001)");
 
+        jButtonAZURIRAJ.setText("AZURIRAJ");
+
+        jLabelID1.setText("id");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -66,11 +74,20 @@ public class DodajDeteForm extends javax.swing.JFrame {
                         .addComponent(jButtonDODAJ))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1))
-                        .addGap(32, 32, 32)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel1))
+                                .addGap(32, 32, 32))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelID1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelID)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonAZURIRAJ, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jTextFieldDATUMRODJENJA, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
                             .addComponent(jTextFieldPREZIME)
                             .addComponent(jTextIME))))
@@ -98,7 +115,13 @@ public class DodajDeteForm extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel4)))
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelID1)
+                        .addComponent(jLabelID))
+                    .addComponent(jButtonAZURIRAJ))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
 
         pack();
@@ -107,11 +130,14 @@ public class DodajDeteForm extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAZURIRAJ;
     private javax.swing.JButton jButtonDODAJ;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabelID;
+    private javax.swing.JLabel jLabelID1;
     private javax.swing.JTextField jTextFieldDATUMRODJENJA;
     private javax.swing.JTextField jTextFieldPREZIME;
     private javax.swing.JTextField jTextIME;
@@ -120,7 +146,9 @@ public class DodajDeteForm extends javax.swing.JFrame {
     public void dodajAddActionListener(ActionListener actionListener) {
         jButtonDODAJ.addActionListener(actionListener);
     }
-
+    public void azurirajAddActionListener(ActionListener actionListener) {
+        jButtonAZURIRAJ.addActionListener(actionListener);
+    }
     public JButton getjButtonDODAJ() {
         return jButtonDODAJ;
     }
@@ -136,6 +164,32 @@ public class DodajDeteForm extends javax.swing.JFrame {
     public JTextField getjTextIME() {
         return jTextIME;
     }
+
+    public JButton getjButtonAZURIRAJ() {
+        return jButtonAZURIRAJ;
+    }
+
+    public void setjButtonAZURIRAJ(JButton jButtonAZURIRAJ) {
+        this.jButtonAZURIRAJ = jButtonAZURIRAJ;
+    }
+
+    public JLabel getjLabelID() {
+        return jLabelID;
+    }
+
+    public void setjLabelID(JLabel jLabelID) {
+        this.jLabelID = jLabelID;
+    }
+
+    public JLabel getjLabelID1() {
+        return jLabelID1;
+    }
+
+    public void setjLabelID1(JLabel jLabelID1) {
+        this.jLabelID1 = jLabelID1;
+    }
+    
+    
     
     
 }

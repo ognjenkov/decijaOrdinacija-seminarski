@@ -74,6 +74,16 @@ public class ObradaKlijentskihZahteva extends Thread {
                     } catch (Exception e) {
                         res.setPayload(e);
                     }
+                } else if (req.getOperation() == Operation.IZMENI_DETE) {
+                    System.out.println("Ixmeni dete operacija");
+                    try {
+                        Dete dete = (Dete) req.getPayload();
+                        Controller.getInstance().izmeniDete(dete);
+                        res.setPayload(null);
+
+                    } catch (Exception e) {
+                        res.setPayload(e);
+                    }
                 } else {
                     System.out.println("greska ta operacije ne postoji");
                 }

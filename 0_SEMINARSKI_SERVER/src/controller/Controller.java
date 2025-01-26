@@ -8,6 +8,7 @@ import domain.Dete;
 import domain.Doktor;
 import java.util.List;
 import operations.dete.DodajDeteSO;
+import operations.dete.IzmeniDeteSO;
 import operations.dete.ObrisiDeteSO;
 import operations.dete.UcitajDecuSO;
 import operations.login.LoginOperation;
@@ -54,9 +55,15 @@ public class Controller {
     }
 
     public void dodajDete(Dete dete) throws Exception {
-         System.out.println("Controller - dodajDete");
+        System.out.println("Controller - dodajDete");
 
         DodajDeteSO so = new DodajDeteSO();
+        so.izvrsi(dete, null);
+    }
+
+    public void izmeniDete(Dete dete) throws Exception {
+        System.out.println("Controller - izmeniDete");
+        IzmeniDeteSO so = new IzmeniDeteSO();
         so.izvrsi(dete, null);
     }
 }

@@ -5,8 +5,10 @@
 package forms.models;
 
 import domain.Dete;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -58,6 +60,16 @@ public class ModelTabeleDeca extends AbstractTableModel {
 
     public List<Dete> getLista() {
         return lista;
+    }
+
+    public void pretrazi(String ime, String prezime, LocalDate datumRodnjenja) {
+        List<Dete> filteredList = lista.stream()
+                .filter(d -> (ime == null || ime.isEmpty() || d.getIme().toLowerCase().contains(ime.toLowerCase())))
+                .filter(d -> (prezime == null || prezime.isEmpty() || d.getPrezime().toLowerCase().contains(prezime.toLowerCase())))
+                .filter(d -> (datumRodnjenja == null || datumRodnjenja.isEqual(d.getDatumRodjenja())))
+                .collect(Collectors.toList());
+        this.lista = filteredList;
+        fireTableChanged(null);
     }
 
 }

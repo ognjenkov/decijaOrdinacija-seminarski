@@ -10,9 +10,12 @@ import controllers.MainController;
 import controllers.PrikazDeceController;
 import domain.Doktor;
 import forms.DodajDeteForm;
+import forms.FormMode;
 import forms.LoginForm;
 import forms.MainForm;
 import forms.PrikazDeceForm;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -24,8 +27,12 @@ public class Cordinator {
     private LoginController loginController;
     private MainController mainController;
     private PrikazDeceController prikazDeceController;
+    private DodajDeteController dodajDeteController;
+    
+    private Map<String, Object> parametri;
+    
     private Cordinator() {
-        
+        parametri = new HashMap<>();
     }
     public static Cordinator getInstance() {
         if(instance == null) instance = new Cordinator();
@@ -56,10 +63,24 @@ public class Cordinator {
     }
 
     public void openDodajDeteForm() {
-        DodajDeteController ddc = new DodajDeteController(new DodajDeteForm());
-        ddc.otvoriFormu();
+        dodajDeteController = new DodajDeteController(new DodajDeteForm());
+        dodajDeteController.otvoriFormu(FormMode.DODAJ);
     }
 
 
-    
+    public void dodajParam(String s, Object o) {
+        parametri.put(s, o);
+    }
+    public Object vratiParam(String s) {
+        return parametri.get(s);
+    }
+
+    public void openIzmeniDeteFormu() {
+        dodajDeteController = new DodajDeteController(new DodajDeteForm());
+        dodajDeteController.otvoriFormu(FormMode.IZMENI);
+    }
+
+    public void osveziFormuPrikazDece() {
+        prikazDeceController.pripremiFormu();
+    }
 }

@@ -11,5 +11,5 @@ import java.io.Serializable;
  * @author ognje
  */
 public enum Operation implements Serializable {
-    LOGIN,
+    LOGIN, UCITAJ_DECU, OBRISI_DETE, DODAJ_DETE,
 }

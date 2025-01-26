@@ -9,7 +9,7 @@ import forms.LoginForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-
+import cordinator.Cordinator;
 /**
  *
  * @author ognje
@@ -47,7 +47,9 @@ public class LoginController {
                     JOptionPane.showMessageDialog(lf, "Login UNsuccessful", "Error", JOptionPane.ERROR_MESSAGE);
 
                 } else {
+                    Cordinator.getInstance().setUlogovani(doktor);
                     JOptionPane.showMessageDialog(lf, "Login successful", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    Cordinator.getInstance().openMainForm();
                     lf.dispose();
                     //TODO treba da se otvori sledeca forma
                 }

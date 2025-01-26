@@ -37,6 +37,7 @@ public class Server extends Thread {
                 System.out.println("Klijent je povezan");
                 
                 ObradaKlijentskihZahteva okz = new ObradaKlijentskihZahteva(socket);
+                klijenti.add(okz);
                 okz.start();
             }
         } catch (IOException ex) {

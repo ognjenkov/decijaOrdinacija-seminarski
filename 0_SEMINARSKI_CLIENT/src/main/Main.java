@@ -4,7 +4,7 @@
  */
 package main;
 
-import Cordinator.Cordinator;
+import cordinator.Cordinator;
 
 /**
  *

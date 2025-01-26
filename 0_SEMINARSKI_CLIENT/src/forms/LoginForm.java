@@ -44,6 +44,10 @@ public class LoginForm extends javax.swing.JFrame {
 
         jLabel2.setText("id");
 
+        jTextField1.setText("dok1@dok");
+
+        jPasswordField1.setText("1");
+
         jButton1.setText("LOGIN");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -28,8 +28,11 @@ public class DbRepositoryGeneric<T extends AbstractDomainObject> implements DbRe
         System.out.println(query);
         Statement st = DbConnectionFactory.getInstance().getConnection().createStatement();
         ResultSet rs = st.executeQuery(query);
+        System.out.println("executed query");
         list = (List<T>) param.returnListFromRS(rs);
-        
+        for (T t : list) {
+            System.out.println(t.toString());
+        }
         rs.close();
         st.close();
         

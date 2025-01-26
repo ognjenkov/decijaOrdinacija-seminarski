@@ -22,7 +22,9 @@ public class LoginOperation extends AbstractGenericOperation {
 
     @Override
     protected void preduslovi(Object param) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if(param == null || !(param instanceof Doktor)) {
+            throw new Exception("Sistem nije mogao da uloguje doktora");
+        }
     }
 
     @Override

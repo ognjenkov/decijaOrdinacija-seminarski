@@ -21,6 +21,7 @@ public abstract class AbstractGenericOperation {
     }
 
     public final void izvrsi(Object objekat, String kljuc) throws Exception {
+        System.out.println("izvrsiti");
         try {
             preduslovi(objekat);
             zapocniTransakciju();
@@ -30,7 +31,8 @@ public abstract class AbstractGenericOperation {
             ponistiTransakciju();
             throw e;
         } finally {
-            ugasiKonekciju();
+//            ugasiKonekciju();
+// TODO ugasi konekciju kada se izloguje ili nesto tako
         }
     }
 

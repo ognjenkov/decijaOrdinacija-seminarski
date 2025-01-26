@@ -4,7 +4,12 @@
  */
 package controller;
 
+import domain.Dete;
 import domain.Doktor;
+import java.util.List;
+import operations.dete.DodajDeteSO;
+import operations.dete.ObrisiDeteSO;
+import operations.dete.UcitajDecuSO;
 import operations.login.LoginOperation;
 
 /**
@@ -27,8 +32,31 @@ public class Controller {
     }
 
     public Doktor login(Doktor d) throws Exception {
+        System.out.println("Controller - login");
         LoginOperation op = new LoginOperation();
         op.izvrsi(d, null);
         return op.getDoktor();
+    }
+
+    public List<Dete> ucitajDecu() throws Exception {
+        System.out.println("Controller - ucitajDecu");
+
+        UcitajDecuSO so = new UcitajDecuSO();
+        so.izvrsi(new Dete(), null);
+        return so.getDeca();
+    }
+
+    public void obrisiDete(Dete dete) throws Exception {
+        System.out.println("Controller - obrisiDete");
+
+        ObrisiDeteSO obrisi = new ObrisiDeteSO();
+        obrisi.izvrsi(dete, null);
+    }
+
+    public void dodajDete(Dete dete) throws Exception {
+         System.out.println("Controller - dodajDete");
+
+        DodajDeteSO so = new DodajDeteSO();
+        so.izvrsi(dete, null);
     }
 }

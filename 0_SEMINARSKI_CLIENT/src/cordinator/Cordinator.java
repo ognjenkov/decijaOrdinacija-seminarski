@@ -8,12 +8,14 @@ import controllers.DodajDeteController;
 import controllers.LoginController;
 import controllers.MainController;
 import controllers.PrikazDeceController;
+import controllers.PrikazReceptaController;
 import domain.Doktor;
 import forms.DodajDeteForm;
 import forms.FormMode;
 import forms.LoginForm;
 import forms.MainForm;
 import forms.PrikazDeceForm;
+import forms.PrikazReceptaForm;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,6 +30,7 @@ public class Cordinator {
     private MainController mainController;
     private PrikazDeceController prikazDeceController;
     private DodajDeteController dodajDeteController;
+    private PrikazReceptaController prikazReceptaController;
     
     private Map<String, Object> parametri;
     
@@ -82,5 +85,9 @@ public class Cordinator {
 
     public void osveziFormuPrikazDece() {
         prikazDeceController.pripremiFormu();
+    }
+    public void openPrikaziRacuneForm() {
+        prikazReceptaController = new PrikazReceptaController(new PrikazReceptaForm());
+        prikazReceptaController.otvoriFormu();
     }
 }

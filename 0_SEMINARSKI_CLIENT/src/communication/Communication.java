@@ -6,6 +6,7 @@ package communication;
 
 import domain.Dete;
 import domain.Doktor;
+import domain.Recept;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -116,5 +117,17 @@ public class Communication {
             ((Exception) res.getPayload()).printStackTrace();
             throw new Exception("greska pri azuriranju deteta");
         }
+    }
+
+    public List<Recept> ucitajRecepte() {
+        List<Recept> lista = new ArrayList<>();
+        Request req = new Request(Operation.UCITAJ_RECEPTE, null);
+
+        sender.sendResponse(req);
+        Response res = (Response) receiver.receiveRequest();
+
+        lista = (List<Recept>) res.getPayload();
+        
+        return lista;
     }
 }

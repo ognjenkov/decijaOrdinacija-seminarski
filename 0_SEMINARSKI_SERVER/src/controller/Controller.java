@@ -6,12 +6,14 @@ package controller;
 
 import domain.Dete;
 import domain.Doktor;
+import domain.Recept;
 import java.util.List;
 import operations.dete.DodajDeteSO;
 import operations.dete.IzmeniDeteSO;
 import operations.dete.ObrisiDeteSO;
 import operations.dete.UcitajDecuSO;
 import operations.login.LoginOperation;
+import operations.recept.UcitajRecepteSO;
 
 /**
  *
@@ -65,5 +67,13 @@ public class Controller {
         System.out.println("Controller - izmeniDete");
         IzmeniDeteSO so = new IzmeniDeteSO();
         so.izvrsi(dete, null);
+    }
+
+    public List<Recept> ucitajRecepte() throws Exception {
+        System.out.println("Controller - ucitajRecepte");
+
+        UcitajRecepteSO so = new UcitajRecepteSO();
+        so.izvrsi(new Recept(), null);
+        return so.getRecepti();
     }
 }

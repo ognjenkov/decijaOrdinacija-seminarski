@@ -7,6 +7,7 @@ package niti;
 import controller.Controller;
 import domain.Dete;
 import domain.Doktor;
+import domain.Recept;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.List;
@@ -84,6 +85,10 @@ public class ObradaKlijentskihZahteva extends Thread {
                     } catch (Exception e) {
                         res.setPayload(e);
                     }
+                }  else if (req.getOperation() == Operation.UCITAJ_RECEPTE) {
+                    System.out.println("Ucitaj recepte operacija");
+                    List<Recept> deca = Controller.getInstance().ucitajRecepte();
+                    res.setPayload(deca);
                 } else {
                     System.out.println("greska ta operacije ne postoji");
                 }

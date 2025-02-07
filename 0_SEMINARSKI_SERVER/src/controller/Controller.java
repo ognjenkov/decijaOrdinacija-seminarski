@@ -7,6 +7,7 @@ package controller;
 import domain.Dete;
 import domain.Doktor;
 import domain.Recept;
+import domain.StavkaRecepta;
 import java.util.List;
 import operations.dete.DodajDeteSO;
 import operations.dete.IzmeniDeteSO;
@@ -14,6 +15,7 @@ import operations.dete.ObrisiDeteSO;
 import operations.dete.UcitajDecuSO;
 import operations.login.LoginOperation;
 import operations.recept.UcitajRecepteSO;
+import operations.recept.UcitajStavkeSO;
 
 /**
  *
@@ -75,5 +77,13 @@ public class Controller {
         UcitajRecepteSO so = new UcitajRecepteSO();
         so.izvrsi(new Recept(), null);
         return so.getRecepti();
+    }
+
+    public List<StavkaRecepta> ucitajStavke(int i) throws Exception {
+        System.out.println("Controller - ucitajStavke");
+
+        UcitajStavkeSO so = new UcitajStavkeSO();
+        so.izvrsi(i, null);
+        return so.getStavke();
     }
 }

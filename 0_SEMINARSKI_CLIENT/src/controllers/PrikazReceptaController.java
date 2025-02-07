@@ -5,8 +5,13 @@
 package controllers;
 
 import domain.Recept;
+import domain.StavkaRecepta;
 import forms.PrikazReceptaForm;
 import forms.models.ModelTabeleRecepti;
+import forms.models.ModelTabeleStavke;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,6 +24,7 @@ public class PrikazReceptaController {
     public PrikazReceptaController(PrikazReceptaForm prf) {
         this.prf = prf;
         addActionListenes();
+        addMouseListeners();
     }
 
     private void addActionListenes() {
@@ -97,5 +103,25 @@ public class PrikazReceptaController {
         List<Recept> recepti = communication.Communication.getInstance().ucitajRecepte();
         ModelTabeleRecepti mtr = new ModelTabeleRecepti(recepti);
         prf.getjTableRACUNI().setModel(mtr);
+        
+        List<StavkaRecepta> stavkeRecepata = new ArrayList<>();
+        ModelTabeleStavke mts = new ModelTabeleStavke(stavkeRecepata);
+        prf.getjTableStavke().setModel(mtr);
+    }
+    
+    private void addMouseListeners() {
+        prf.getjTableRACUNI().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int red = prf.getjTableRACUNI().getSelectedRow();
+                if(red != -1) {
+                    ModelTabeleRecepti mtr = (ModelTabeleRecepti) prf.getjTableRACUNI().getModel();
+                    Recept recept = mtr.getLista().get(red);
+                    List<StavkaRecepta> stavke = communication.Communication.getInstance().ucitajStavke(recept.getIdRecept());
+                      ModelTabeleStavke mts = new ModelTabeleStavke(stavke);
+                      prf.getjTableStavke().setModel(mts);
+                }
+            }
+        });
     }
 }

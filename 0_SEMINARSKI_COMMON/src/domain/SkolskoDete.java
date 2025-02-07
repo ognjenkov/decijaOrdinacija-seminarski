@@ -27,6 +27,24 @@ public class SkolskoDete extends Dete implements AbstractDomainObject {
         this.razred = razred;
     }
 
+    public String getOdeljenje() {
+        return odeljenje;
+    }
+
+    public void setOdeljenje(String odeljenje) {
+        this.odeljenje = odeljenje;
+    }
+
+    public String getRazred() {
+        return razred;
+    }
+
+    public void setRazred(String razred) {
+        this.razred = razred;
+    }
+    
+    
+
     @Override
     public String toString() {
         return "SkolskoDete{" + "odeljenje=" + odeljenje + ", razred=" + razred + getIme() + getPrezime() + '}';
@@ -88,6 +106,6 @@ public class SkolskoDete extends Dete implements AbstractDomainObject {
 
     @Override
     public String vratiVrednostiZaIzmenu() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return "razred='" + razred + "', odeljenje='" + odeljenje + "'";
     }
 }

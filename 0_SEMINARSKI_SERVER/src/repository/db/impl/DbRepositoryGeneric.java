@@ -23,7 +23,7 @@ public class DbRepositoryGeneric<T extends AbstractDomainObject> implements DbRe
         //TODO ovo ces da reworkujes dodaces param.returnAllColums koja ce da vrati dete.ime dete.prezime dete.id itd...
         String query = "SELECT * FROM " + param.returnTableName();
         if(uslov != null) { //TODO
-            query = query + " " + uslov;
+            query = query + uslov;
         }
         System.out.println(query);
         Statement st = DbConnectionFactory.getInstance().getConnection().createStatement();

@@ -5,6 +5,7 @@
 package operations.recept;
 
 import domain.Recept;
+import domain.StavkaRecepta;
 import java.util.List;
 import operations.AbstractGenericOperation;
 
@@ -12,22 +13,22 @@ import operations.AbstractGenericOperation;
  *
  * @author ognje
  */
-public class UcitajRecepteSO extends AbstractGenericOperation {
-    private List<Recept> recepti;
-
+public class UcitajStavkeSO extends AbstractGenericOperation {
+    private List<StavkaRecepta> stavke;
+    
     @Override
     protected void preduslovi(Object param) throws Exception {
     }
 
     @Override
     protected void izvrsiOperaciju(Object param, String kljuc) throws Exception {
-        String uslov = " JOIN doktor ON recept.idDoktor = doktor.idDoktor JOIN dete ON recept.idDete = dete.idDete";
-        recepti = broker.getAll(new Recept(), uslov);
+        String uslov = " JOIN lek ON stavkarecepta.idLek = lek.idLek JOIN doktor ON stavkarecepta.idDoktor = doktor.idDoktor JOIN dete ON stavkarecepta.idDete = dete.idDete WHERE stavkarecepta.idRecept="+(int)param;
+        stavke = broker.getAll(new StavkaRecepta(), uslov);
         
     }
 
-    public List<Recept> getRecepti() {
-        return recepti;
+    public List<StavkaRecepta> getStavke() {
+        return stavke;
     }
     
     

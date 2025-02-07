@@ -2,34 +2,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package operations.recept;
+package operations.predskolskoDete;
 
-import domain.Recept;
-import java.util.List;
+import domain.PredskolskoDete;
 import operations.AbstractGenericOperation;
 
 /**
  *
  * @author ognje
  */
-public class UcitajRecepteSO extends AbstractGenericOperation {
-    private List<Recept> recepti;
-
+public class ObrisiPredskolskoDeteSO  extends AbstractGenericOperation {
     @Override
     protected void preduslovi(Object param) throws Exception {
+        if(param == null || !(param instanceof PredskolskoDete)) {
+            throw new Exception("Sistem nije mogao da obrise PredskolskoDete");
+        }
     }
 
     @Override
     protected void izvrsiOperaciju(Object param, String kljuc) throws Exception {
-        String uslov = " JOIN doktor ON recept.idDoktor = doktor.idDoktor JOIN dete ON recept.idDete = dete.idDete";
-        recepti = broker.getAll(new Recept(), uslov);
-        
-    }
+        broker.delete((PredskolskoDete) param);
 
-    public List<Recept> getRecepti() {
-        return recepti;
     }
-    
-    
     
 }

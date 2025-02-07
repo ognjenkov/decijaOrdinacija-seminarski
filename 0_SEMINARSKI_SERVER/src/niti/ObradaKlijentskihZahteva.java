@@ -8,6 +8,7 @@ import controller.Controller;
 import domain.Dete;
 import domain.Doktor;
 import domain.Recept;
+import domain.StavkaRecepta;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.List;
@@ -87,8 +88,12 @@ public class ObradaKlijentskihZahteva extends Thread {
                     }
                 }  else if (req.getOperation() == Operation.UCITAJ_RECEPTE) {
                     System.out.println("Ucitaj recepte operacija");
-                    List<Recept> deca = Controller.getInstance().ucitajRecepte();
-                    res.setPayload(deca);
+                    List<Recept> recepti = Controller.getInstance().ucitajRecepte();
+                    res.setPayload(recepti);
+                } else if (req.getOperation() == Operation.UCITAJ_STAVKE) {
+                    System.out.println("Ucitaj stavke operacija");
+                    List<StavkaRecepta> stavke = Controller.getInstance().ucitajStavke((int) req.getPayload());
+                    res.setPayload(stavke);
                 } else {
                     System.out.println("greska ta operacije ne postoji");
                 }

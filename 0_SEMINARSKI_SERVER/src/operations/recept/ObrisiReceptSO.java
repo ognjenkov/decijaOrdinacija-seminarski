@@ -5,31 +5,23 @@
 package operations.recept;
 
 import domain.Recept;
-import java.util.List;
 import operations.AbstractGenericOperation;
 
 /**
  *
  * @author ognje
  */
-public class UcitajRecepteSO extends AbstractGenericOperation {
-    private List<Recept> recepti;
-
+public class ObrisiReceptSO  extends AbstractGenericOperation  {
     @Override
     protected void preduslovi(Object param) throws Exception {
+        if(param == null || !(param instanceof Recept)) {
+            throw new Exception("Sistem nije mogao da obrise recept");
+        }
     }
 
     @Override
     protected void izvrsiOperaciju(Object param, String kljuc) throws Exception {
-        String uslov = " JOIN doktor ON recept.idDoktor = doktor.idDoktor JOIN dete ON recept.idDete = dete.idDete";
-        recepti = broker.getAll(new Recept(), uslov);
-        
-    }
+        broker.delete((Recept) param);
 
-    public List<Recept> getRecepti() {
-        return recepti;
     }
-    
-    
-    
 }

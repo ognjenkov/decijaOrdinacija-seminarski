@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -78,15 +79,24 @@ public class PrikazDeceController {
         pdf.addBtnPRETRAZIctionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String ime = pdf.getjTextFieldIME().getText();
-                String prezime = pdf.getjTextFieldPREZIME().getText();
-                String datumRodjenjaString = pdf.getjTextFieldDATUMRODJENJA().getText();
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-                LocalDate datumRodnjenja = LocalDate.parse(datumRodjenjaString, formatter);
+                String ime = pdf.getjTextFieldIME().getText().trim();
+                String prezime = pdf.getjTextFieldPREZIME().getText().trim();
+                String datumRodjenjaString = pdf.getjTextFieldDATUMRODJENJA().getText().trim();
 
-                
+                LocalDate datumRodjenja = null;
+                if (!datumRodjenjaString.isEmpty()) {
+                    try {
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+                        datumRodjenja = LocalDate.parse(datumRodjenjaString, formatter);
+                    } catch (DateTimeParseException ex) {
+                        System.err.println("Invalid date format: " + datumRodjenjaString);
+                        return; // Exit early if the date is invalid
+                    }
+                }
+
+                System.out.println("stigli smo do mtd");
                 ModelTabeleDeca mtd = (ModelTabeleDeca) pdf.getjTableDECA().getModel();
-                mtd.pretrazi(ime, prezime, datumRodnjenja);
+                mtd.pretrazi(ime.isEmpty() ? null : ime, prezime.isEmpty() ? null : prezime, datumRodjenja);
             }
 
         });

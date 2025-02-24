@@ -51,8 +51,6 @@ public class DodajDeteForm extends javax.swing.JFrame {
 
         jLabel3.setText("datum rodjenja");
 
-        jTextFieldDATUMRODJENJA.setText("jTextField1");
-
         jButtonDODAJ.setText("DODAJ");
 
         jLabel4.setText("(1.1.2001)");

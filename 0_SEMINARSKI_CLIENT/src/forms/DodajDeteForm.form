@@ -124,9 +124,6 @@
     <Component class="javax.swing.JTextField" name="jTextFieldPREZIME">
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldDATUMRODJENJA">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonDODAJ">
       <Properties>

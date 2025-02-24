@@ -7,7 +7,9 @@ package niti;
 import controller.Controller;
 import domain.Dete;
 import domain.Doktor;
+import domain.PredskolskoDete;
 import domain.Recept;
+import domain.SkolskoDete;
 import domain.StavkaRecepta;
 import java.io.IOException;
 import java.net.Socket;
@@ -94,6 +96,46 @@ public class ObradaKlijentskihZahteva extends Thread {
                     System.out.println("Ucitaj stavke operacija");
                     List<StavkaRecepta> stavke = Controller.getInstance().ucitajStavke((int) req.getPayload());
                     res.setPayload(stavke);
+                } else if (req.getOperation() == Operation.DODAJ_PREDSKOLSKODETE) {
+                    System.out.println("DODAJ_PREDSKOLSKODETE operacija");
+                    try {
+                        PredskolskoDete dete = (PredskolskoDete) req.getPayload();
+                        Controller.getInstance().dodajPredskolskoDete(dete);
+                        res.setPayload(null);
+
+                    } catch (Exception e) {
+                        res.setPayload(e);
+                    }
+                } else if (req.getOperation() == Operation.IZMENI_PREDSKOLSKODETE) {
+                    System.out.println("IZMENI_PREDSKOLSKODETE operacija");
+                    try {
+                        PredskolskoDete dete = (PredskolskoDete) req.getPayload();
+                        Controller.getInstance().izmeniPredskolskoDete(dete);
+                        res.setPayload(null);
+
+                    } catch (Exception e) {
+                        res.setPayload(e);
+                    }
+                } else if (req.getOperation() == Operation.DODAJ_SKOLSKODETE) {
+                    System.out.println("Dodaj DODAJ_SKOLSKODETE operacija");
+                    try {
+                        SkolskoDete dete = (SkolskoDete) req.getPayload();
+                        Controller.getInstance().dodajSkolskoDete(dete);
+                        res.setPayload(null);
+
+                    } catch (Exception e) {
+                        res.setPayload(e);
+                    }
+                } else if (req.getOperation() == Operation.IZMENI_SKOLSKODETE) {
+                    System.out.println("Ixmeni IZMENI_SKOLSKODETE operacija");
+                    try {
+                        SkolskoDete dete = (SkolskoDete) req.getPayload();
+                        Controller.getInstance().izmeniSkolskoDete(dete);
+                        res.setPayload(null);
+
+                    } catch (Exception e) {
+                        res.setPayload(e);
+                    }
                 } else {
                     System.out.println("greska ta operacije ne postoji");
                 }

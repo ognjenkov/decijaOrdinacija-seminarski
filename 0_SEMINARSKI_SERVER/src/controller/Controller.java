@@ -6,7 +6,9 @@ package controller;
 
 import domain.Dete;
 import domain.Doktor;
+import domain.PredskolskoDete;
 import domain.Recept;
+import domain.SkolskoDete;
 import domain.StavkaRecepta;
 import java.util.List;
 import operations.dete.DodajDeteSO;
@@ -16,6 +18,12 @@ import operations.dete.UcitajDecuSO;
 import operations.login.LoginOperation;
 import operations.recept.UcitajRecepteSO;
 import operations.recept.UcitajStavkeSO;
+import operations.predskolskoDete.IzmeniPredskolskoDeteSO;
+import operations.predskolskoDete.DodajPredskolskoDeteSO;
+import operations.skolskoDete.IzmeniSkolskoDeteSO;
+import operations.skolskoDete.DodajSkolskoDeteSO;
+
+
 
 /**
  *
@@ -85,5 +93,31 @@ public class Controller {
         UcitajStavkeSO so = new UcitajStavkeSO();
         so.izvrsi(i, null);
         return so.getStavke();
+    }
+    
+    public void dodajPredskolskoDete(PredskolskoDete predskolskoDete) throws Exception {
+        System.out.println("Controller - DodajPredskolskoDeteSO");
+
+        DodajPredskolskoDeteSO so = new DodajPredskolskoDeteSO();
+        so.izvrsi(predskolskoDete, null);
+    }
+
+    public void izmeniPredskolskoDete(PredskolskoDete predskolskoDete) throws Exception {
+        System.out.println("Controller - izmeniPredskolskoDete");
+        IzmeniPredskolskoDeteSO so = new IzmeniPredskolskoDeteSO();
+        so.izvrsi(predskolskoDete, null);
+    }
+    
+    public void dodajSkolskoDete(SkolskoDete skolskoDete) throws Exception {
+        System.out.println("Controller - DodajPredskolskoDeteSO");
+
+        DodajSkolskoDeteSO so = new DodajSkolskoDeteSO();
+        so.izvrsi(skolskoDete, null);
+    }
+
+    public void izmeniSkolskoDete(SkolskoDete skolskoDete) throws Exception {
+        System.out.println("Controller - izmeniSkolskoDete");
+        IzmeniSkolskoDeteSO so = new IzmeniSkolskoDeteSO();
+        so.izvrsi(skolskoDete, null);
     }
 }

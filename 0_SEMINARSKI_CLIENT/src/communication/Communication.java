@@ -6,7 +6,9 @@ package communication;
 
 import domain.Dete;
 import domain.Doktor;
+import domain.PredskolskoDete;
 import domain.Recept;
+import domain.SkolskoDete;
 import domain.StavkaRecepta;
 import java.io.IOException;
 import java.net.Socket;
@@ -108,6 +110,7 @@ public class Communication {
 
         if (res.getPayload() == null) {
             System.out.println("USPEH");
+            cordinator.Cordinator.getInstance().osveziFormuPrikazDece();
         } else {
 //            TODO mozes da implementiras kod deleta moze da dodje greska da ima constraint u bazi i to da ispises u poruci
             System.out.println("GRESKA");
@@ -161,6 +164,85 @@ public class Communication {
         lista = (List<StavkaRecepta>) res.getPayload();
 
         return lista;
+    }
+
+    public void izmeniPredskolskoDete(PredskolskoDete predskolskoDete) throws Exception {
+        Request req = new Request(Operation.IZMENI_PREDSKOLSKODETE, predskolskoDete);
+        System.out.println("IZMENI PREDSKOLSKODETE komunikacija request SENT");
+
+        sender.sendResponse(req);
+        Response res = (Response) receiver.receiveRequest();
+        System.out.println("IZMENI PREDSKOLSKODETE komunikacija response RECEIVED");
+
+        if (res.getPayload() == null) {
+            System.out.println("USPEH");
+            cordinator.Cordinator.getInstance().osveziFormuPrikazDece();
+        } else {
+//            TODO mozes da implementiras kod deleta moze da dodje greska da ima constraint u bazi i to da ispises u poruci
+            System.out.println("GRESKA");
+            ((Exception) res.getPayload()).printStackTrace();
+            throw new Exception("greska pri azuriranju predskolskog deteta");
+        }
+
+    }
+
+    public void dodajPredskolskoDete(PredskolskoDete predskolskoDete) throws Exception {
+        Request req = new Request(Operation.DODAJ_PREDSKOLSKODETE, predskolskoDete);
+        System.out.println("DODAJ predskolskoDete komunikacija request SENT");
+
+        sender.sendResponse(req);
+        Response res = (Response) receiver.receiveRequest();
+        System.out.println("DODAJ predskolskoDete komunikacija response RECEIVED");
+
+        if (res.getPayload() == null) {
+            System.out.println("USPEH");
+            cordinator.Cordinator.getInstance().osveziFormuPrikazDece();
+
+        } else {
+//            TODO mozes da implementiras kod deleta moze da dodje greska da ima constraint u bazi i to da ispises u poruci
+            System.out.println("GRESKA");
+            ((Exception) res.getPayload()).printStackTrace();
+            throw new Exception("greska pri dodavanjju preskolskog deteta");
+        }
+    }
+
+    public void izmeniSkolskoDete(SkolskoDete skolskoDete) throws Exception {
+        Request req = new Request(Operation.IZMENI_SKOLSKODETE, skolskoDete);
+        System.out.println("IZMENI skolskoDete komunikacija request SENT");
+
+        sender.sendResponse(req);
+        Response res = (Response) receiver.receiveRequest();
+        System.out.println("IZMENI skolskoDete komunikacija response RECEIVED");
+
+        if (res.getPayload() == null) {
+            System.out.println("USPEH");
+            cordinator.Cordinator.getInstance().osveziFormuPrikazDece();
+        } else {
+//            TODO mozes da implementiras kod deleta moze da dodje greska da ima constraint u bazi i to da ispises u poruci
+            System.out.println("GRESKA");
+            ((Exception) res.getPayload()).printStackTrace();
+            throw new Exception("greska pri azuriranju skolskoDete");
+        }
+    }
+
+    public void dodajSkolskoDete(SkolskoDete skolskoDete) throws Exception {
+        Request req = new Request(Operation.DODAJ_SKOLSKODETE, skolskoDete);
+        System.out.println("DODAJ skolskoDete komunikacija request SENT");
+
+        sender.sendResponse(req);
+        Response res = (Response) receiver.receiveRequest();
+        System.out.println("DODAJ skolskoDete komunikacija response RECEIVED");
+
+        if (res.getPayload() == null) {
+            System.out.println("USPEH");
+            cordinator.Cordinator.getInstance().osveziFormuPrikazDece();
+
+        } else {
+//            TODO mozes da implementiras kod deleta moze da dodje greska da ima constraint u bazi i to da ispises u poruci
+            System.out.println("GRESKA");
+            ((Exception) res.getPayload()).printStackTrace();
+            throw new Exception("greska pri dodavanjju skolskoDete deteta");
+        }
     }
 
 }

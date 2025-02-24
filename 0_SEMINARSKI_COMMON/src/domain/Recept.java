@@ -102,17 +102,18 @@ public class Recept implements AbstractDomainObject {
             String prezime = rs.getString("doktor.prezime");
             String email = rs.getString("doktor.email");
             Doktor doktor = new Doktor(idDoktor, ime, prezime, email);
-
             int idRecept = rs.getInt("recept.idRecept");
             LocalDate datumIzdavanja = rs.getDate("recept.datumIzdavanja").toLocalDate();
-
+            
             int idDete = rs.getInt("dete.idDete");
             String imeDete = rs.getString("dete.ime");
             String prezimeDete = rs.getString("dete.prezime");
             java.sql.Date sqlDate = rs.getDate("dete.datumRodjenja");
             LocalDate datumRodjenjaDete = (sqlDate != null) ? sqlDate.toLocalDate() : null;
 
-            list.add(new Recept(idRecept, doktor, dete, datumIzdavanja));
+            Dete dete1 = new Dete(idDete, imeDete, prezimeDete, datumRodjenjaDete);
+            
+            list.add(new Recept(idRecept, doktor, dete1, datumIzdavanja));
         }
 
         return list;

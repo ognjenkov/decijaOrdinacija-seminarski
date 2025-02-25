@@ -45,7 +45,7 @@ public class PrikazDeceForm extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButtonRESETUJ = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jTableDECA.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

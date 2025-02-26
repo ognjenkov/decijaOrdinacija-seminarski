@@ -136,6 +136,14 @@ public class ObradaKlijentskihZahteva extends Thread {
                     } catch (Exception e) {
                         res.setPayload(e);
                     }
+                } else if (req.getOperation() == Operation.UCITAJ_SKOLSKUDECU) {
+                    System.out.println("Ucitaj UCITAJ_SKOLSKUDECU operacija");
+                    List<SkolskoDete> skolskaDeca = Controller.getInstance().ucitajSkolskuDecu();
+                    res.setPayload(skolskaDeca);
+                } else if (req.getOperation() == Operation.UCITAJ_PREDSKOLSKUDECU) {
+                    System.out.println("Ucitaj UCITAJ_PREDSKOLSKUDECU operacija");
+                    List<PredskolskoDete> predskolskaDeca = Controller.getInstance().ucitajPredskolskuDecu();
+                    res.setPayload(predskolskaDeca);
                 } else {
                     System.out.println("greska ta operacije ne postoji");
                 }

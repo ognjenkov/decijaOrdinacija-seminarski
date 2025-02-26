@@ -4,6 +4,12 @@
  */
 package forms;
 
+import domain.Dete;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+
 /**
  *
  * @author ognje
@@ -77,8 +83,6 @@ public class PrikazObrazovanjaForm extends javax.swing.JFrame {
         jButtonSKOOBRISI.setText("OBRISI");
 
         jButtonSKOAZURIRAJ.setText("AZURIRAJ");
-
-        jComboBoxDECA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,37 +177,7 @@ public class PrikazObrazovanjaForm extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PrikazObrazovanjaForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PrikazObrazovanjaForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PrikazObrazovanjaForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PrikazObrazovanjaForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PrikazObrazovanjaForm().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonKATEGORISIPREDSKOLSKO;
@@ -212,7 +186,7 @@ public class PrikazObrazovanjaForm extends javax.swing.JFrame {
     private javax.swing.JButton jButtonPREDOBRISI;
     private javax.swing.JButton jButtonSKOAZURIRAJ;
     private javax.swing.JButton jButtonSKOOBRISI;
-    private javax.swing.JComboBox<String> jComboBoxDECA;
+    private javax.swing.JComboBox<Dete> jComboBoxDECA;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelOBRAZOVANJE;
     private javax.swing.JLabel jLabelPRED1;
@@ -224,4 +198,168 @@ public class PrikazObrazovanjaForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelSKO4;
     private javax.swing.JLabel jLabelSKO5;
     // End of variables declaration//GEN-END:variables
+
+    
+    public void addBtnKATEGORISIPREDSKOLSKOActionListener(ActionListener actionListener) {
+        jButtonKATEGORISIPREDSKOLSKO.addActionListener(actionListener);
+    }
+    public void addBtnKATEGORISISKOLSKOActionListener(ActionListener actionListener) {
+        jButtonKATEGORISISKOLSKO.addActionListener(actionListener);
+    }
+    public void addBtnPREDAZURIRAJActionListener(ActionListener actionListener) {
+        jButtonPREDAZURIRAJ.addActionListener(actionListener);
+    }
+    public void addBtnPREDOBRISIActionListener(ActionListener actionListener) {
+        jButtonPREDOBRISI.addActionListener(actionListener);
+    }
+    public void addBtnSKOAZURIRAJActionListener(ActionListener actionListener) {
+        jButtonSKOAZURIRAJ.addActionListener(actionListener);
+    }
+    public void addBtnSKOOBRISIActionListener(ActionListener actionListener) {
+        jButtonSKOOBRISI.addActionListener(actionListener);
+    }
+    public void addCmbDECAActionListener(ActionListener actionListener) {
+        jComboBoxDECA.addActionListener(actionListener);
+    }
+    
+    
+    
+    
+    public JButton getjButtonKATEGORISIPREDSKOLSKO() {
+        return jButtonKATEGORISIPREDSKOLSKO;
+    }
+
+    public void setjButtonKATEGORISIPREDSKOLSKO(JButton jButtonKATEGORISIPREDSKOLSKO) {
+        this.jButtonKATEGORISIPREDSKOLSKO = jButtonKATEGORISIPREDSKOLSKO;
+    }
+
+    public JButton getjButtonKATEGORISISKOLSKO() {
+        return jButtonKATEGORISISKOLSKO;
+    }
+
+    public void setjButtonKATEGORISISKOLSKO(JButton jButtonKATEGORISISKOLSKO) {
+        this.jButtonKATEGORISISKOLSKO = jButtonKATEGORISISKOLSKO;
+    }
+
+    public JButton getjButtonPREDAZURIRAJ() {
+        return jButtonPREDAZURIRAJ;
+    }
+
+    public void setjButtonPREDAZURIRAJ(JButton jButtonPREDAZURIRAJ) {
+        this.jButtonPREDAZURIRAJ = jButtonPREDAZURIRAJ;
+    }
+
+    public JButton getjButtonPREDOBRISI() {
+        return jButtonPREDOBRISI;
+    }
+
+    public void setjButtonPREDOBRISI(JButton jButtonPREDOBRISI) {
+        this.jButtonPREDOBRISI = jButtonPREDOBRISI;
+    }
+
+    public JButton getjButtonSKOAZURIRAJ() {
+        return jButtonSKOAZURIRAJ;
+    }
+
+    public void setjButtonSKOAZURIRAJ(JButton jButtonSKOAZURIRAJ) {
+        this.jButtonSKOAZURIRAJ = jButtonSKOAZURIRAJ;
+    }
+
+    public JButton getjButtonSKOOBRISI() {
+        return jButtonSKOOBRISI;
+    }
+
+    public void setjButtonSKOOBRISI(JButton jButtonSKOOBRISI) {
+        this.jButtonSKOOBRISI = jButtonSKOOBRISI;
+    }
+
+    public JComboBox<Dete> getjComboBoxDECA() {
+        return jComboBoxDECA;
+    }
+
+    public void setjComboBoxDECA(JComboBox<Dete> jComboBoxDECA) {
+        this.jComboBoxDECA = jComboBoxDECA;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabelOBRAZOVANJE() {
+        return jLabelOBRAZOVANJE;
+    }
+
+    public void setjLabelOBRAZOVANJE(JLabel jLabelOBRAZOVANJE) {
+        this.jLabelOBRAZOVANJE = jLabelOBRAZOVANJE;
+    }
+
+    public JLabel getjLabelPRED1() {
+        return jLabelPRED1;
+    }
+
+    public void setjLabelPRED1(JLabel jLabelPRED1) {
+        this.jLabelPRED1 = jLabelPRED1;
+    }
+
+    public JLabel getjLabelPRED2() {
+        return jLabelPRED2;
+    }
+
+    public void setjLabelPRED2(JLabel jLabelPRED2) {
+        this.jLabelPRED2 = jLabelPRED2;
+    }
+
+    public JLabel getjLabelPRED3() {
+        return jLabelPRED3;
+    }
+
+    public void setjLabelPRED3(JLabel jLabelPRED3) {
+        this.jLabelPRED3 = jLabelPRED3;
+    }
+
+    public JLabel getjLabelSKO1() {
+        return jLabelSKO1;
+    }
+
+    public void setjLabelSKO1(JLabel jLabelSKO1) {
+        this.jLabelSKO1 = jLabelSKO1;
+    }
+
+    public JLabel getjLabelSKO2() {
+        return jLabelSKO2;
+    }
+
+    public void setjLabelSKO2(JLabel jLabelSKO2) {
+        this.jLabelSKO2 = jLabelSKO2;
+    }
+
+    public JLabel getjLabelSKO3() {
+        return jLabelSKO3;
+    }
+
+    public void setjLabelSKO3(JLabel jLabelSKO3) {
+        this.jLabelSKO3 = jLabelSKO3;
+    }
+
+    public JLabel getjLabelSKO4() {
+        return jLabelSKO4;
+    }
+
+    public void setjLabelSKO4(JLabel jLabelSKO4) {
+        this.jLabelSKO4 = jLabelSKO4;
+    }
+
+    public JLabel getjLabelSKO5() {
+        return jLabelSKO5;
+    }
+
+    public void setjLabelSKO5(JLabel jLabelSKO5) {
+        this.jLabelSKO5 = jLabelSKO5;
+    }
+
+
 }

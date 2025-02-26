@@ -5,12 +5,16 @@
 package cordinator;
 
 import controllers.DodajDeteController;
+import controllers.DodajPredskolskoDeteController;
+import controllers.DodajSkolskoDeteController;
 import controllers.LoginController;
 import controllers.MainController;
 import controllers.PrikazDeceController;
 import controllers.PrikazReceptaController;
 import domain.Doktor;
 import forms.DodajDeteForm;
+import forms.DodajPredskolskoDeteForm;
+import forms.DodajSkolskoDeteForm;
 import forms.FormMode;
 import forms.LoginForm;
 import forms.MainForm;
@@ -31,7 +35,9 @@ public class Cordinator {
     private PrikazDeceController prikazDeceController;
     private DodajDeteController dodajDeteController;
     private PrikazReceptaController prikazReceptaController;
-    
+    private DodajSkolskoDeteController dodajSkolskoDeteController;
+    private DodajPredskolskoDeteController dodajPredskolskoDeteController;
+
     private Map<String, Object> parametri;
     
     private Cordinator() {
@@ -89,5 +95,22 @@ public class Cordinator {
     public void openPrikaziRacuneForm() {
         prikazReceptaController = new PrikazReceptaController(new PrikazReceptaForm());
         prikazReceptaController.otvoriFormu();
+    }
+    
+    public void openDodajSkolskoDeteForm(){
+        dodajSkolskoDeteController = new DodajSkolskoDeteController(new DodajSkolskoDeteForm());
+        dodajSkolskoDeteController.otvoriFormu(FormMode.DODAJ);
+    }
+    public void openIzmeniSkolskoDeteForm(){
+        dodajSkolskoDeteController = new DodajSkolskoDeteController(new DodajSkolskoDeteForm());
+        dodajSkolskoDeteController.otvoriFormu(FormMode.IZMENI);
+    }
+    public void openDodajPredskolskoDeteForm(){
+        dodajPredskolskoDeteController = new DodajPredskolskoDeteController(new DodajPredskolskoDeteForm());
+        dodajPredskolskoDeteController.otvoriFormu(FormMode.DODAJ);
+    }
+    public void openIzmeniPredskolskoDeteForm(){
+        dodajPredskolskoDeteController = new DodajPredskolskoDeteController(new DodajPredskolskoDeteForm());
+        dodajPredskolskoDeteController.otvoriFormu(FormMode.IZMENI);
     }
 }

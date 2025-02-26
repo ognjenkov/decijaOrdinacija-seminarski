@@ -20,8 +20,10 @@ import operations.recept.UcitajRecepteSO;
 import operations.recept.UcitajStavkeSO;
 import operations.predskolskoDete.IzmeniPredskolskoDeteSO;
 import operations.predskolskoDete.DodajPredskolskoDeteSO;
+import operations.predskolskoDete.UcitajPredskolskuDecuSO;
 import operations.skolskoDete.IzmeniSkolskoDeteSO;
 import operations.skolskoDete.DodajSkolskoDeteSO;
+import operations.skolskoDete.UcitajSkolskuDecuSO;
 
 
 
@@ -119,5 +121,21 @@ public class Controller {
         System.out.println("Controller - izmeniSkolskoDete");
         IzmeniSkolskoDeteSO so = new IzmeniSkolskoDeteSO();
         so.izvrsi(skolskoDete, null);
+    }
+    
+    public List<SkolskoDete> ucitajSkolskuDecu() throws Exception {
+        System.out.println("Controller - ucitajSkolskuDecu");
+
+        UcitajSkolskuDecuSO so = new UcitajSkolskuDecuSO();
+        so.izvrsi(new SkolskoDete(), null);
+        return so.getSkolskaDeca();
+    }
+    
+    public List<PredskolskoDete> ucitajPredskolskuDecu() throws Exception {
+        System.out.println("Controller - ucitajPredskolskuDecu");
+
+        UcitajPredskolskuDecuSO so = new UcitajPredskolskuDecuSO();
+        so.izvrsi(new PredskolskoDete(), null);
+        return so.getPredskolskaDeca();
     }
 }

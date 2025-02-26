@@ -3,16 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_CLIENT/src/forms/DodajPredskolskoDeteForm.java</file>
-            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_CLIENT/src/forms/PrikazReceptaForm.java</file>
-            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_CLIENT/src/cordinator/Cordinator.java</file>
-            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_CLIENT/src/forms/DodajDeteForm.java</file>
-            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_CLIENT/src/controllers/PrikazReceptaController.java</file>
-            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_CLIENT/src/communication/Communication.java</file>
-            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_CLIENT/src/controllers/DodajPredskolskoDeteController.java</file>
-            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_CLIENT/src/controllers/DodajSkolskoDeteController.java</file>
-            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_CLIENT/src/forms/DodajSkolskoDeteForm.java</file>
-            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_CLIENT/src/controllers/DodajDeteController.java</file>
+            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija-seminarski/0_SEMINARSKI_CLIENT/src/controllers/PrikazObrazovanjaController.java</file>
+            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija-seminarski/0_SEMINARSKI_CLIENT/src/cordinator/Cordinator.java</file>
+            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija-seminarski/0_SEMINARSKI_CLIENT/src/forms/PrikazDeceForm.java</file>
+            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija-seminarski/0_SEMINARSKI_CLIENT/src/controllers/DodajPredskolskoDeteController.java</file>
+            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija-seminarski/0_SEMINARSKI_CLIENT/src/forms/PrikazObrazovanjaForm.java</file>
         </group>
     </open-files>
 </project-private>

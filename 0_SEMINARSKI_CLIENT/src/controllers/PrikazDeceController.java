@@ -86,7 +86,7 @@ public class PrikazDeceController {
                 LocalDate datumRodjenja = null;
                 if (!datumRodjenjaString.isEmpty()) {
                     try {
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.M.yyyy");
                         datumRodjenja = LocalDate.parse(datumRodjenjaString, formatter);
                     } catch (DateTimeParseException ex) {
                         System.err.println("Invalid date format: " + datumRodjenjaString);

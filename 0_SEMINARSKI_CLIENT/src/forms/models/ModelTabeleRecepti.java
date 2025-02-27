@@ -45,7 +45,7 @@ public class ModelTabeleRecepti extends AbstractTableModel{
             case 0:
                 return r.getIdRecept();
             case 1:
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // Custom format
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.M.yyyy"); // Custom format
                 String dateString = r.getDatumIzdavanja().format(formatter);
                 return dateString;
             case 2:

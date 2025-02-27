@@ -39,7 +39,7 @@ public class DodajDeteController {
                 String ime = ddf.getjTextIME().getText();
                 String prezime = ddf.getjTextFieldPREZIME().getText();
                 String datumRodjenjaString = ddf.getjTextFieldDATUMRODJENJA().getText();
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.M.yyyy");
                 LocalDate datumRodnjenja = LocalDate.parse(datumRodjenjaString, formatter);
 
                 Dete dete = new Dete(-1, ime, prezime, datumRodnjenja);
@@ -51,6 +51,7 @@ public class DodajDeteController {
                     ddf.dispose();
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(ddf, "Sistem ne moze da kreira dete", "Greska", JOptionPane.ERROR_MESSAGE);
+                    System.out.println(ex);
                 }
 
             }
@@ -72,7 +73,7 @@ public class DodajDeteController {
                 String ime = ddf.getjTextIME().getText();
                 String prezime = ddf.getjTextFieldPREZIME().getText();
                 String datumRodjenjaString = ddf.getjTextFieldDATUMRODJENJA().getText();
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.M.yyyy");
                 LocalDate datumRodnjenja = LocalDate.parse(datumRodjenjaString, formatter);
                 int id = Integer.parseInt(ddf.getjLabelID().getText());
                 
@@ -123,7 +124,7 @@ public class DodajDeteController {
             ddf.getjTextIME().setText(d.getIme());
             ddf.getjTextFieldPREZIME().setText(d.getPrezime());
             
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.M.yyyy");
 
             ddf.getjTextFieldDATUMRODJENJA().setText(d.getDatumRodjenja().format(formatter));
 

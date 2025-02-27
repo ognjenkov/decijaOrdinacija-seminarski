@@ -51,7 +51,7 @@ public class DbRepositoryGeneric<T extends AbstractDomainObject> implements DbRe
 
     @Override
     public void edit(T param) throws Exception {
-        String query = "UPDATE " + param.returnTableName() + " SET " + param.vratiVrednostiZaIzmenu() + ";";
+        String query = "UPDATE " + param.returnTableName() + " SET " + param.vratiVrednostiZaIzmenu() + " WHERE " + param.vratiPrimarniKljuc() + ";";
         System.out.println(query);
         Statement st = DbConnectionFactory.getInstance().getConnection().createStatement();
         st.executeUpdate(query);

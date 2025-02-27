@@ -18,7 +18,7 @@ public class Sender {
         this.socket = socket;
     }
 
-    public void sendResponse(Object obj) {
+    public void send(Object obj) {
         try {
             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
             oos.writeObject(obj);
@@ -30,3 +30,36 @@ public class Sender {
     }
     
 }
+
+
+
+/*
+public class Sender {
+    private Socket socket;
+    private ObjectOutputStream oos;
+
+    public Sender(Socket socket) throws IOException {
+        this.socket = socket;
+        this.oos = new ObjectOutputStream(socket.getOutputStream());
+    }
+
+    public void send(Object obj) {
+        try {
+            oos.writeObject(obj);
+            oos.flush();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void close() {
+        try {
+            if (oos != null) {
+                oos.close();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+}
+*/

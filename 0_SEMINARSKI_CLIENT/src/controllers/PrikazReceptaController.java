@@ -76,7 +76,7 @@ public class PrikazReceptaController {
 //                String ime = pdf.getjTextFieldIME().getText();
 //                String prezime = pdf.getjTextFieldPREZIME().getText();
 //                String datumRodjenjaString = pdf.getjTextFieldDATUMRODJENJA().getText();
-//                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+//                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.M.yyyy");
 //                LocalDate datumRodnjenja = LocalDate.parse(datumRodjenjaString, formatter);
 //
 //                

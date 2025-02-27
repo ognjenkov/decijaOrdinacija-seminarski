@@ -10,6 +10,7 @@ import controllers.DodajSkolskoDeteController;
 import controllers.LoginController;
 import controllers.MainController;
 import controllers.PrikazDeceController;
+import controllers.PrikazObrazovanjaController;
 import controllers.PrikazReceptaController;
 import domain.Doktor;
 import forms.DodajDeteForm;
@@ -19,6 +20,7 @@ import forms.FormMode;
 import forms.LoginForm;
 import forms.MainForm;
 import forms.PrikazDeceForm;
+import forms.PrikazObrazovanjaForm;
 import forms.PrikazReceptaForm;
 import java.util.HashMap;
 import java.util.Map;
@@ -37,6 +39,7 @@ public class Cordinator {
     private PrikazReceptaController prikazReceptaController;
     private DodajSkolskoDeteController dodajSkolskoDeteController;
     private DodajPredskolskoDeteController dodajPredskolskoDeteController;
+    private PrikazObrazovanjaController prikazObrazovanjaController;
 
     private Map<String, Object> parametri;
     
@@ -112,5 +115,13 @@ public class Cordinator {
     public void openIzmeniPredskolskoDeteForm(){
         dodajPredskolskoDeteController = new DodajPredskolskoDeteController(new DodajPredskolskoDeteForm());
         dodajPredskolskoDeteController.otvoriFormu(FormMode.IZMENI);
+    }
+    
+    public void openPrikazObrazovanjaForm() {
+        prikazObrazovanjaController = new PrikazObrazovanjaController(new PrikazObrazovanjaForm());
+        prikazObrazovanjaController.otvoriFormu();
+    }
+    public void osveziFormuPrikazObrazovanja() {
+        prikazObrazovanjaController.pripremiFormu();
     }
 }

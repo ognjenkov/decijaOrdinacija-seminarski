@@ -10,7 +10,9 @@ import domain.PredskolskoDete;
 import domain.Recept;
 import domain.SkolskoDete;
 import domain.StavkaRecepta;
+import java.util.ArrayList;
 import java.util.List;
+import niti.ObradaKlijentskihZahteva;
 import operations.dete.DodajDeteSO;
 import operations.dete.IzmeniDeteSO;
 import operations.dete.ObrisiDeteSO;
@@ -20,9 +22,11 @@ import operations.recept.UcitajRecepteSO;
 import operations.recept.UcitajStavkeSO;
 import operations.predskolskoDete.IzmeniPredskolskoDeteSO;
 import operations.predskolskoDete.DodajPredskolskoDeteSO;
+import operations.predskolskoDete.ObrisiPredskolskoDeteSO;
 import operations.predskolskoDete.UcitajPredskolskuDecuSO;
 import operations.skolskoDete.IzmeniSkolskoDeteSO;
 import operations.skolskoDete.DodajSkolskoDeteSO;
+import operations.skolskoDete.ObrisiSkolskoDeteSO;
 import operations.skolskoDete.UcitajSkolskuDecuSO;
 
 
@@ -34,9 +38,10 @@ import operations.skolskoDete.UcitajSkolskuDecuSO;
 public class Controller {
 
     private static Controller instance;
+    private List<ObradaKlijentskihZahteva> users;
 
     private Controller() {
-
+        users = new ArrayList<>();
     }
 
     public static Controller getInstance() {
@@ -44,6 +49,10 @@ public class Controller {
             instance = new Controller();
         }
         return instance;
+    }
+
+    public List<ObradaKlijentskihZahteva> getUsers() {
+        return users;
     }
 
     public Doktor login(Doktor d) throws Exception {
@@ -137,5 +146,19 @@ public class Controller {
         UcitajPredskolskuDecuSO so = new UcitajPredskolskuDecuSO();
         so.izvrsi(new PredskolskoDete(), null);
         return so.getPredskolskaDeca();
+    }
+
+    public void obrisiPredskolskoDete(PredskolskoDete predskolskoDete) throws Exception {
+        System.out.println("Controller - predskolskoDete");
+
+        ObrisiPredskolskoDeteSO obrisi = new ObrisiPredskolskoDeteSO();
+        obrisi.izvrsi(predskolskoDete, null);
+    }
+
+    public void obrisiSkolskoDete(SkolskoDete skolskoDete) throws Exception {
+        System.out.println("Controller - skolskoDete");
+
+        ObrisiSkolskoDeteSO obrisi = new ObrisiSkolskoDeteSO();
+        obrisi.izvrsi(skolskoDete, null);
     }
 }

@@ -87,7 +87,7 @@ public class DodajPredskolskoDeteController {
 
             dsdf.getjButtonDODAJ().setVisible(true);
             dsdf.getjButtonAZURIRAJ().setVisible(false);
-            Dete d = (Dete) cordinator.Cordinator.getInstance().vratiParam("predskolskoDete");
+            Dete d = (Dete)cordinator.Cordinator.getInstance().vratiParam("dete");
 
             dsdf.getjLabelIME().setText(d.getIme());
             dsdf.getjLabelID().setText(d.getIdDete() + "");
@@ -95,10 +95,12 @@ public class DodajPredskolskoDeteController {
         } else if (mode == FormMode.IZMENI) {
             dsdf.getjButtonDODAJ().setVisible(false);
             dsdf.getjButtonAZURIRAJ().setVisible(true);
-            Dete d = (Dete) cordinator.Cordinator.getInstance().vratiParam("predskolskoDete");
+            PredskolskoDete d = (PredskolskoDete) cordinator.Cordinator.getInstance().vratiParam("predskolskoDete");
 
             dsdf.getjLabelIME().setText(d.getIme());
             dsdf.getjLabelID().setText(d.getIdDete() + "");
+            
+            dsdf.getjTextFieldGRUPA().setText(d.getGrupa());
 
 
 

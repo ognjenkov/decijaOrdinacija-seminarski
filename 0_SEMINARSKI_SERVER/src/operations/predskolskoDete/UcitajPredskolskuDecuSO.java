@@ -23,7 +23,7 @@ public class UcitajPredskolskuDecuSO extends AbstractGenericOperation {
 
     @Override
     protected void izvrsiOperaciju(Object param, String kljuc) throws Exception {
-        predskolskaDeca = broker.getAll(new PredskolskoDete(), kljuc);
+        predskolskaDeca = broker.getAll(new PredskolskoDete(), " JOIN dete on dete.idDete = predskolskodete.idDete");
     }
 
     public List<PredskolskoDete> getPredskolskaDeca() {

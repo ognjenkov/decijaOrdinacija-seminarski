@@ -50,7 +50,7 @@ public class ModelTabeleDeca extends AbstractTableModel {
             case 2:
                 return d.getPrezime();
             case 3:
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // Custom format
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.M.yyyy"); // Custom format
                 String dateString = d.getDatumRodjenja().format(formatter);
                 return dateString;
             default:

@@ -28,10 +28,11 @@ import network.Sender;
  */
 public class ObradaKlijentskihZahteva extends Thread {
 
-    Socket socket;
-    Sender sender;
-    Receiver receiver;
-    boolean kraj = false;
+    private Socket socket;
+    private Sender sender;
+    private Receiver receiver;
+    private boolean kraj = false;
+    private Doktor user;
 
     public ObradaKlijentskihZahteva(Socket socket) {
         this.socket = socket;
@@ -44,13 +45,14 @@ public class ObradaKlijentskihZahteva extends Thread {
         try {
 
             while (!kraj) {
-                Request req = (Request) receiver.receiveRequest();
+                Request req = (Request) receiver.receive();
                 Response res = new Response();
 
                 if (req.getOperation() == Operation.LOGIN) {
                     Doktor d = (Doktor) req.getPayload();
                     System.out.println("Login operacija sa doktorom: " + d.toString());
                     d = Controller.getInstance().login(d);
+                    user = d;
                     res.setPayload(d);
                 } else if (req.getOperation() == Operation.UCITAJ_DECU) {
                     System.out.println("Ucitaj decu operacija");
@@ -88,7 +90,7 @@ public class ObradaKlijentskihZahteva extends Thread {
                     } catch (Exception e) {
                         res.setPayload(e);
                     }
-                }  else if (req.getOperation() == Operation.UCITAJ_RECEPTE) {
+                } else if (req.getOperation() == Operation.UCITAJ_RECEPTE) {
                     System.out.println("Ucitaj recepte operacija");
                     List<Recept> recepti = Controller.getInstance().ucitajRecepte();
                     res.setPayload(recepti);
@@ -144,6 +146,28 @@ public class ObradaKlijentskihZahteva extends Thread {
                     System.out.println("Ucitaj UCITAJ_PREDSKOLSKUDECU operacija");
                     List<PredskolskoDete> predskolskaDeca = Controller.getInstance().ucitajPredskolskuDecu();
                     res.setPayload(predskolskaDeca);
+                } else if (req.getOperation() == Operation.OBRISI_PREDSKOLSKODETE) {
+                    System.out.println("Obrisi OBRISI_PREDSKOLSKODETE operacija");
+
+                    try {
+                        PredskolskoDete predskolskoDete = (PredskolskoDete) req.getPayload();
+                        Controller.getInstance().obrisiPredskolskoDete(predskolskoDete);
+                        res.setPayload(null);
+                    } catch (Exception e) {
+                        res.setPayload(e);
+                    }
+                } else if (req.getOperation() == Operation.OBRISI_SKOLSKODETE) {
+                    System.out.println("Obrisi OBRISI_SKOLSKODETE operacija");
+
+                    try {
+                        SkolskoDete skolskoDete = (SkolskoDete) req.getPayload();
+                        Controller.getInstance().obrisiSkolskoDete(skolskoDete);
+                        res.setPayload(null);
+                    } catch (Exception e) {
+                        res.setPayload(e);
+                    }
+                } else if (req.getOperation() == Operation.LOGOUT) {
+                    disconnect();
                 } else {
                     System.out.println("greska ta operacije ne postoji");
                 }
@@ -151,7 +175,8 @@ public class ObradaKlijentskihZahteva extends Thread {
                 if (res.getPayload() != null && res.getPayload().toString() != null) {
                     System.out.println("response sent :" + res.getPayload().toString());
                 }
-                sender.sendResponse(res);
+                System.out.println("RESPONSE SENT!");
+                sender.send(res);
 
             }
         } catch (Exception ex) {
@@ -159,19 +184,47 @@ public class ObradaKlijentskihZahteva extends Thread {
         }
     }
 
-    public void prekini() {
-        //todo ovo promeni da je malo lepse kao sto si radio na ultu
+    public void disconnect() {
         try {
-            kraj = true;
+            sender.send(new Response((Object) true));
+
+            this.kraj = true;
+
             socket.close();
+
+            synchronized (Controller.getInstance().getUsers()) {
+                Controller.getInstance().getUsers().remove(this);
+            }
+
             interrupt();
-//            
-//            synchronized (Server.getInstance().getUsers()) {
-//                Server.getInstance().getUsers().remove(this);
-//            }
+
         } catch (IOException ex) {
             Logger.getLogger(ObradaKlijentskihZahteva.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+    }
+
+//    public void prekini() {
+//        //todo ovo promeni da je malo lepse kao sto si radio na ultu
+//        try {
+//            kraj = true;
+//            socket.close();
+//            interrupt();
+////            
+////            synchronized (Server.getInstance().getUsers()) {
+////                Server.getInstance().getUsers().remove(this);
+////            }
+//        } catch (IOException ex) {
+//            Logger.getLogger(ObradaKlijentskihZahteva.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
+
+    public Doktor getUser() {
+        return user;
+    }
+
+    public void setUser(Doktor user) {
+        this.user = user;
     }
 
 }

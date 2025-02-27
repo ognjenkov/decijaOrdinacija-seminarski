@@ -48,7 +48,7 @@ public class PredskolskoDete extends Dete implements AbstractDomainObject {
                 rs.getInt("dete.idDete"),
                 rs.getString("dete.ime"),
                 rs.getString("dete.prezime"),
-                rs.getDate("dete.datumRodnjenja").toLocalDate()
+                rs.getDate("dete.datumRodjenja").toLocalDate()
             );
             lista.add(dete);
         }
@@ -63,7 +63,7 @@ public class PredskolskoDete extends Dete implements AbstractDomainObject {
                 rs.getInt("dete.idDete"),
                 rs.getString("dete.ime"),
                 rs.getString("dete.prezime"),
-                rs.getDate("dete.datumRodnjenja").toLocalDate()
+                rs.getDate("dete.datumRodjenja").toLocalDate()
             );
         }
         return null;

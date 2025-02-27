@@ -6,6 +6,7 @@ package forms;
 
 import cordinator.Cordinator;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
 import javax.swing.JLabel;
 
 /**
@@ -46,7 +47,7 @@ public class MainForm extends javax.swing.JFrame {
 
         jMenuItem3.setText("jMenuItem3");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jLabel1.setText("Ulogovani Doktor:");
 
@@ -91,6 +92,11 @@ public class MainForm extends javax.swing.JFrame {
         jMenu6.setText("Obrazovanje deteta");
 
         jMenuItem4.setText("Pregled");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem4);
 
         jMenuBar1.add(jMenu6);
@@ -137,6 +143,10 @@ public class MainForm extends javax.swing.JFrame {
         Cordinator.getInstance().openPrikaziRacuneForm();
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        Cordinator.getInstance().openPrikazObrazovanjaForm();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -155,7 +165,12 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem8;
     // End of variables declaration//GEN-END:variables
     public void mainAddActionListener(ActionListener actionListener) {
-//        jButton1.addActionListener(actionListener);
+        jButton1.addActionListener(actionListener);
+            
+    }
+    
+    public void closeAddActionListener(WindowAdapter wa) {
+        this.addWindowListener(wa);
     }
 
     public JLabel getjLabelNAME() {

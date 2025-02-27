@@ -21,11 +21,10 @@ public class Server extends Thread {
 
     boolean kraj = false;
     ServerSocket serverSocket;
-    List<ObradaKlijentskihZahteva> klijenti;
+    
 
     //TODO ove klijente ces da premestis u kontroler
     public Server() {
-        klijenti = new ArrayList<>();
     }
 
     @Override
@@ -37,7 +36,9 @@ public class Server extends Thread {
                 System.out.println("Klijent je povezan");
                 
                 ObradaKlijentskihZahteva okz = new ObradaKlijentskihZahteva(socket);
-                klijenti.add(okz);
+                
+                controller.Controller.getInstance().getUsers().add(okz);
+                
                 okz.start();
             }
         } catch (IOException ex) {
@@ -50,8 +51,8 @@ public class Server extends Thread {
         //TODO ovde ces da prekines vezu sa svim klijentima iz liste u kontroleru
         //TODO tako sto ces da pozoves metodu iz obzz.zaustavi
         try {
-            for (ObradaKlijentskihZahteva k : klijenti) {
-                k.prekini();
+            for (ObradaKlijentskihZahteva k : controller.Controller.getInstance().getUsers()) {
+                k.disconnect();
             }
             serverSocket.close();
         } catch (IOException ex) {

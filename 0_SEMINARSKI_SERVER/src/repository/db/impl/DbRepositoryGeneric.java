@@ -9,8 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import repository.db.DbRepository;
 import java.sql.Statement;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import repository.db.DbConnectionFactory;
+import java.sql.Connection;
 /**
  *
  * @author ognje
@@ -22,7 +24,7 @@ public class DbRepositoryGeneric<T extends AbstractDomainObject> implements DbRe
         List<T> list = new ArrayList<>();
         //TODO ovo ces da reworkujes dodaces param.returnAllColums koja ce da vrati dete.ime dete.prezime dete.id itd...
         String query = "SELECT * FROM " + param.returnTableName();
-        if(uslov != null) { //TODO
+        if (uslov != null) { //TODO
             query = query + uslov;
         }
         System.out.println(query);
@@ -35,18 +37,27 @@ public class DbRepositoryGeneric<T extends AbstractDomainObject> implements DbRe
         }
         rs.close();
         st.close();
-        
+
         return list;
     }
 
     @Override
-    public void add(T param) throws Exception {
+    public int add(T param) throws Exception {
         String query = "INSERT INTO " + param.returnTableName() + " (" + param.vratiKoloneZaUbacivanje() + ") VALUES (" + param.vratiVrednostZaUbacivanje() + ");";
         System.out.println(query);
-        Statement st = DbConnectionFactory.getInstance().getConnection().createStatement();
-        st.executeUpdate(query);
+        Connection conn = DbConnectionFactory.getInstance().getConnection();
+        PreparedStatement st = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        st.executeUpdate();
+
+        ResultSet rs = st.getGeneratedKeys();
+        int generatedId = -1;
+        if (rs.next()) {
+            generatedId = rs.getInt(1); // Retrieve the generated ID
+        }
+
+        rs.close();
         st.close();
-        
+        return generatedId;
     }
 
     @Override
@@ -56,7 +67,7 @@ public class DbRepositoryGeneric<T extends AbstractDomainObject> implements DbRe
         Statement st = DbConnectionFactory.getInstance().getConnection().createStatement();
         st.executeUpdate(query);
         st.close();
-        
+
     }
 
     @Override
@@ -66,7 +77,7 @@ public class DbRepositoryGeneric<T extends AbstractDomainObject> implements DbRe
         Statement st = DbConnectionFactory.getInstance().getConnection().createStatement();
         st.executeUpdate(query);
         st.close();
-        
+
     }
 
     @Override
@@ -74,5 +85,4 @@ public class DbRepositoryGeneric<T extends AbstractDomainObject> implements DbRe
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    
 }

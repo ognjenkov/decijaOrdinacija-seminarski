@@ -6,6 +6,7 @@ package communication;
 
 import domain.Dete;
 import domain.Doktor;
+import domain.Lek;
 import domain.PredskolskoDete;
 import domain.Recept;
 import domain.SkolskoDete;
@@ -337,12 +338,98 @@ public class Communication {
         }
     }
 
-    public void obrisiRecept(Recept recept) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void obrisiRecept(Recept recept) throws Exception{
+        Request req = new Request(Operation.OBRISI_RECEPT, recept);
+        System.out.println("OBRISI_RECEPT komunikacija request SENT");
+
+        sender.send(req);
+        Response res = (Response) receiver.receive();
+        System.out.println("OBRISI_RECEPT komunikacija response RECEIVED");
+
+        if (res.getPayload() == null) {
+            System.out.println("USPEH");
+                        cordinator.Cordinator.getInstance().osveziFormuPrikazRecepata();
+
+            
+        } else {
+//            TODO mozes da implementiras kod deleta moze da dodje greska da ima constraint u bazi i to da ispises u poruci
+            System.out.println("GRESKA");
+            ((Exception) res.getPayload()).printStackTrace();
+            throw new Exception("greska pri brisanju recepta");
+        }
     }
 
-    public void obrisiStavkuRecepta(StavkaRecepta stavkaRecepta) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void obrisiStavkuRecepta(StavkaRecepta stavkaRecepta) throws Exception{
+        Request req = new Request(Operation.OBRISI_STAVKURECEPTA, stavkaRecepta);
+        System.out.println("OBRISI_STAVKURECEPTA komunikacija request SENT");
+
+        sender.send(req);
+        Response res = (Response) receiver.receive();
+        System.out.println("OBRISI_STAVKURECEPTA komunikacija response RECEIVED");
+
+        if (res.getPayload() == null) {
+            System.out.println("USPEH");
+                        cordinator.Cordinator.getInstance().osveziFormuPrikazRecepata();
+
+        } else {
+//            TODO mozes da implementiras kod deleta moze da dodje greska da ima constraint u bazi i to da ispises u poruci
+            System.out.println("GRESKA");
+            ((Exception) res.getPayload()).printStackTrace();
+            throw new Exception("greska pri brisanju stavke recepta");
+        }
+    }
+
+    public List<Lek> ucitajLekove(){
+         List<Lek> lista = new ArrayList<>();
+        Request req = new Request(Operation.UCITAJ_LEKOVE, null);
+        System.out.println("UCITAJ ucitajLekove komunikacija request SENT");
+
+        sender.send(req);
+        Response res = (Response) receiver.receive();
+        System.out.println("UCITAJ ucitajLekove komunikacija response RECEIVED");
+
+        lista = (List<Lek>) res.getPayload();
+
+        return lista;
+    }
+
+    public void dodajRecept(StavkaRecepta stavka) throws Exception {
+        Request req = new Request(Operation.DODAJ_RECEPT, stavka);
+        System.out.println("DODAJ_RECEPT komunikacija request SENT");
+
+        sender.send(req);
+        Response res = (Response) receiver.receive();
+        System.out.println("DODAJ_RECEPT komunikacija response RECEIVED");
+
+        if (res.getPayload() == null) {
+            System.out.println("USPEH");
+            cordinator.Cordinator.getInstance().osveziFormuPrikazRecepata();
+
+        } else {
+//            TODO mozes da implementiras kod deleta moze da dodje greska da ima constraint u bazi i to da ispises u poruci
+            System.out.println("GRESKA");
+            ((Exception) res.getPayload()).printStackTrace();
+            throw new Exception("greska pri dodavanjju recepta");
+        }
+    }
+    public void dodajStavkuRecepta(StavkaRecepta stavka) throws Exception {
+        Request req = new Request(Operation.DODAJ_STAVKURECEPTA, stavka);
+        System.out.println("DODAJ_STAVKURECEPTA komunikacija request SENT");
+
+        sender.send(req);
+        Response res = (Response) receiver.receive();
+        System.out.println("DODAJ_STAVKURECEPTA komunikacija response RECEIVED");
+
+        if (res.getPayload() == null) {
+            System.out.println("USPEH");
+            cordinator.Cordinator.getInstance().osveziFormuPrikazRecepata();
+
+        } else {
+//            TODO mozes da implementiras kod deleta moze da dodje greska da ima constraint u bazi i to da ispises u poruci
+            System.out.println("GRESKA");
+            ((Exception) res.getPayload()).printStackTrace();
+            throw new Exception("greska pri dodavanjju stavke recepta");
+        }
     }
 
 }

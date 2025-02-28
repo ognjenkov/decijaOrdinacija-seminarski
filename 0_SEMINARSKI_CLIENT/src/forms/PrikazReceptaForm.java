@@ -40,6 +40,7 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
         jButtonDODAJstavku = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Prikaz izdatih recepta");
 
         jTableRACUNI.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

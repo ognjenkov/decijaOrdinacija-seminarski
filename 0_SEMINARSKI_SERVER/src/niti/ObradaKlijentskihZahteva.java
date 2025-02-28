@@ -176,18 +176,42 @@ public class ObradaKlijentskihZahteva extends Thread {
                     System.out.println("Dodaj DODAJ_RECEPT operacija");
                     try {
                         StavkaRecepta sr = (StavkaRecepta) req.getPayload();
-                        Controller.getInstance().dodajDodajRecept(sr);
+                        Controller.getInstance().dodajRecept(sr);
                         res.setPayload(null);
 
                     } catch (Exception e) {
                         res.setPayload(e);
                     }
                 } else if (req.getOperation() == Operation.OBRISI_RECEPT) {
-                    disconnect();
+                    System.out.println("Obrisi OBRISI_RECEPT operacija");
+
+                    try {
+                        Recept recept = (Recept) req.getPayload();
+                        Controller.getInstance().obrisiRecept(recept);
+                        res.setPayload(null);
+                    } catch (Exception e) {
+                        res.setPayload(e);
+                    }
                 } else if (req.getOperation() == Operation.DODAJ_STAVKURECEPTA) {
-                    disconnect();
+                    System.out.println("Dodaj DODAJ_STAVKURECEPTA operacija");
+                    try {
+                        StavkaRecepta sr = (StavkaRecepta) req.getPayload();
+                        Controller.getInstance().dodajStavkuRecepta(sr);
+                        res.setPayload(null);
+
+                    } catch (Exception e) {
+                        res.setPayload(e);
+                    }
                 } else if (req.getOperation() == Operation.OBRISI_STAVKURECEPTA) {
-                    disconnect();
+                    System.out.println("Obrisi OBRISI_STAVKURECEPTA operacija");
+
+                    try {
+                        StavkaRecepta stavkaRecepta = (StavkaRecepta) req.getPayload();
+                        Controller.getInstance().obrisiStavkuRecepta(stavkaRecepta);
+                        res.setPayload(null);
+                    } catch (Exception e) {
+                        res.setPayload(e);
+                    }
                 } else if (req.getOperation() == Operation.LOGOUT) {
                     disconnect();
                 } else {

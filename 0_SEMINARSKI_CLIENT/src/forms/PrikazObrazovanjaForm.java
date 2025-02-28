@@ -51,6 +51,7 @@ public class PrikazObrazovanjaForm extends javax.swing.JFrame {
         jComboBoxDECA = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Prikaz obrazovanja dece");
 
         jLabel1.setText("Proveri obrazovanje za dete:");
 

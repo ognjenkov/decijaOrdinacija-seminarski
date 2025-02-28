@@ -9,6 +9,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import javax.swing.JLabel;
 import domain.Dete;
+import domain.Lek;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTextArea;
+
 /**
  *
  * @author ognje
@@ -34,7 +39,7 @@ public class MainForm extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         jLabelNAME = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonLOGOUT = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jComboBoxDECA = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
@@ -51,7 +56,6 @@ public class MainForm extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -59,11 +63,12 @@ public class MainForm extends javax.swing.JFrame {
         jMenuItem3.setText("jMenuItem3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Decija ordinacija: Izdaj recept");
 
         jLabel1.setText("Ulogovani Doktor:");
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jButton1.setText("Log out");
+        jButtonLOGOUT.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jButtonLOGOUT.setText("Log out");
 
         jLabel2.setText("Izdajte recept za dete:");
 
@@ -85,8 +90,6 @@ public class MainForm extends javax.swing.JFrame {
                 jButtonIZDAJActionPerformed(evt);
             }
         });
-
-        jComboBoxLEKOVI.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel5.setText("Lek:");
 
@@ -111,9 +114,6 @@ public class MainForm extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu4.setText("Recept");
-
-        jMenuItem7.setText("Dodaj");
-        jMenu4.add(jMenuItem7);
 
         jMenuItem8.setText("Pregled");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
@@ -144,67 +144,59 @@ public class MainForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(394, 394, 394)
-                        .addComponent(jLabelNAME))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxDECA, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboBoxLEKOVI, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonIZDAJ, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60))))
+                        .addComponent(jComboBoxLEKOVI, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(jButtonIZDAJ, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabelNAME, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jComboBoxDECA, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(41, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonLOGOUT, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabelNAME)
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBoxDECA, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3)
-                        .addGap(12, 12, 12)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBoxLEKOVI, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonIZDAJ, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(79, 79, 79))
+                .addContainerGap()
+                .addComponent(jButtonLOGOUT)
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelNAME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jComboBoxDECA, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addGap(12, 12, 12)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxLEKOVI, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonIZDAJ, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(79, 111, Short.MAX_VALUE))
         );
 
         pack();
@@ -230,13 +222,12 @@ public class MainForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonIZDAJActionPerformed
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonIZDAJ;
+    private javax.swing.JButton jButtonLOGOUT;
     private javax.swing.JComboBox<Dete> jComboBoxDECA;
-    private javax.swing.JComboBox<String> jComboBoxLEKOVI;
+    private javax.swing.JComboBox<Lek> jComboBoxLEKOVI;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -251,18 +242,29 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextAreaTERAPIJA;
     private javax.swing.JTextArea jTextAreaZAKLJUCAK;
     // End of variables declaration//GEN-END:variables
-    public void mainAddActionListener(ActionListener actionListener) {
-        jButton1.addActionListener(actionListener);
-            
+    public void LOGOUTAddActionListener(ActionListener actionListener) {
+        jButtonLOGOUT.addActionListener(actionListener);
     }
-    
+
+    public void addComboLEKOVIActionListener(ActionListener actionListener) {
+        jComboBoxLEKOVI.addActionListener(actionListener);
+    }
+
+    public void addComboDECAActionListener(ActionListener actionListener) {
+        jComboBoxDECA.addActionListener(actionListener);
+    }
+
+    public void addBtnIZDAJActionListener(ActionListener actionListener) {
+        jButtonIZDAJ.addActionListener(actionListener);
+
+    }
+
     public void closeAddActionListener(WindowAdapter wa) {
         this.addWindowListener(wa);
     }
@@ -274,5 +276,32 @@ public class MainForm extends javax.swing.JFrame {
     public void setjLabelNAME(JLabel jLabelNAME) {
         this.jLabelNAME = jLabelNAME;
     }
+
+    public JButton getjButtonIZDAJ() {
+        return jButtonIZDAJ;
+    }
+
+    public JButton getjButtonLOGOUT() {
+        return jButtonLOGOUT;
+    }
+
+    public JComboBox<Dete> getjComboBoxDECA() {
+        return jComboBoxDECA;
+    }
+
+    public JComboBox<Lek> getjComboBoxLEKOVI() {
+        return jComboBoxLEKOVI;
+    }
+
+    public JTextArea getjTextAreaTERAPIJA() {
+        return jTextAreaTERAPIJA;
+    }
+
+    public JTextArea getjTextAreaZAKLJUCAK() {
+        return jTextAreaZAKLJUCAK;
+    }
     
+    
+    
+
 }

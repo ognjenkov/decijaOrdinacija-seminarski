@@ -39,6 +39,7 @@ public class LoginForm extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login u deciju ordinaciju");
 
         jLabel1.setText("email");
 

@@ -40,6 +40,7 @@ public class DodajPredskolskoDeteForm extends javax.swing.JFrame {
         jLabelID = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Oznaci dete kao predskolsko");
 
         jLabel1.setText("Dete koje oznacavate kao predskolsko dete:");
 

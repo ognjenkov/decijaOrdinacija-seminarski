@@ -44,6 +44,7 @@ public class DodajDeteForm extends javax.swing.JFrame {
         jLabelID = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Dodaj dete");
 
         jLabel1.setText("ime");
 

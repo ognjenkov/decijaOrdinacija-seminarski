@@ -203,7 +203,7 @@ public class StavkaRecepta implements AbstractDomainObject {
 
     @Override
     public String vratiVrednostZaUbacivanje() {
-        return "'" + recept.getIdRecept() + "','" + rb + "','" + lek.getIdLek() + terapija + "'" + zakljucak + "'";
+        return "'" + recept.getIdRecept() + "','" + rb + "','" + lek.getIdLek()+ "','" + terapija + "','" + zakljucak + "'";
     }
 
     @Override

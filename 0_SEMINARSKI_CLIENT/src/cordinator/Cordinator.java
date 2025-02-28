@@ -7,6 +7,7 @@ package cordinator;
 import controllers.DodajDeteController;
 import controllers.DodajPredskolskoDeteController;
 import controllers.DodajSkolskoDeteController;
+import controllers.DodajStavkuReceptaController;
 import controllers.LoginController;
 import controllers.MainController;
 import controllers.PrikazDeceController;
@@ -16,6 +17,7 @@ import domain.Doktor;
 import forms.DodajDeteForm;
 import forms.DodajPredskolskoDeteForm;
 import forms.DodajSkolskoDeteForm;
+import forms.DodajStavkuReceptaForm;
 import forms.FormMode;
 import forms.LoginForm;
 import forms.MainForm;
@@ -40,6 +42,7 @@ public class Cordinator {
     private DodajSkolskoDeteController dodajSkolskoDeteController;
     private DodajPredskolskoDeteController dodajPredskolskoDeteController;
     private PrikazObrazovanjaController prikazObrazovanjaController;
+    private DodajStavkuReceptaController dodajStavkuReceptaController;
 
     private Map<String, Object> parametri;
     
@@ -93,6 +96,7 @@ public class Cordinator {
     }
 
     public void osveziFormuPrikazDece() {
+        if(prikazDeceController!= null)
         prikazDeceController.pripremiFormu();
     }
     public void openPrikaziRacuneForm() {
@@ -122,6 +126,15 @@ public class Cordinator {
         prikazObrazovanjaController.otvoriFormu();
     }
     public void osveziFormuPrikazObrazovanja() {
+        if(prikazObrazovanjaController!= null)
         prikazObrazovanjaController.pripremiFormu();
+    }
+    public void osveziFormuPrikazRecepata() {
+      if(prikazReceptaController!= null)
+      prikazReceptaController.pripremiFormu();
+    }
+    public void openDodajStavkuRecepta() {
+        dodajStavkuReceptaController = new DodajStavkuReceptaController(new DodajStavkuReceptaForm());
+        dodajStavkuReceptaController.otvoriFormu();
     }
 }

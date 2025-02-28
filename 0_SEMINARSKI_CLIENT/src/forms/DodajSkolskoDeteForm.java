@@ -42,6 +42,7 @@ public class DodajSkolskoDeteForm extends javax.swing.JFrame {
         jLabelID = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Oznaci dete kao skolsko");
 
         jLabel1.setText("Dete koje oznacavate kao skolsko dete:");
 

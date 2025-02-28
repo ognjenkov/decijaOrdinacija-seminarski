@@ -26,12 +26,14 @@ import operations.predskolskoDete.IzmeniPredskolskoDeteSO;
 import operations.predskolskoDete.DodajPredskolskoDeteSO;
 import operations.predskolskoDete.ObrisiPredskolskoDeteSO;
 import operations.predskolskoDete.UcitajPredskolskuDecuSO;
+import operations.recept.DodajReceptSO;
+import operations.recept.ObrisiReceptSO;
 import operations.skolskoDete.IzmeniSkolskoDeteSO;
 import operations.skolskoDete.DodajSkolskoDeteSO;
 import operations.skolskoDete.ObrisiSkolskoDeteSO;
 import operations.skolskoDete.UcitajSkolskuDecuSO;
-
-
+import operations.stavkarecepta.DodajStavkuReceptaSO;
+import operations.stavkarecepta.ObrisiStavkuReceptaSO;
 
 /**
  *
@@ -107,7 +109,7 @@ public class Controller {
         so.izvrsi(i, null);
         return so.getStavke();
     }
-    
+
     public void dodajPredskolskoDete(PredskolskoDete predskolskoDete) throws Exception {
         System.out.println("Controller - DodajPredskolskoDeteSO");
 
@@ -120,7 +122,7 @@ public class Controller {
         IzmeniPredskolskoDeteSO so = new IzmeniPredskolskoDeteSO();
         so.izvrsi(predskolskoDete, null);
     }
-    
+
     public void dodajSkolskoDete(SkolskoDete skolskoDete) throws Exception {
         System.out.println("Controller - DodajPredskolskoDeteSO");
 
@@ -133,7 +135,7 @@ public class Controller {
         IzmeniSkolskoDeteSO so = new IzmeniSkolskoDeteSO();
         so.izvrsi(skolskoDete, null);
     }
-    
+
     public List<SkolskoDete> ucitajSkolskuDecu() throws Exception {
         System.out.println("Controller - ucitajSkolskuDecu");
 
@@ -141,7 +143,7 @@ public class Controller {
         so.izvrsi(new SkolskoDete(), null);
         return so.getSkolskaDeca();
     }
-    
+
     public List<PredskolskoDete> ucitajPredskolskuDecu() throws Exception {
         System.out.println("Controller - ucitajPredskolskuDecu");
 
@@ -151,20 +153,20 @@ public class Controller {
     }
 
     public void obrisiPredskolskoDete(PredskolskoDete predskolskoDete) throws Exception {
-        System.out.println("Controller - predskolskoDete");
+        System.out.println("Controller - obrisiPredskolskoDete");
 
         ObrisiPredskolskoDeteSO obrisi = new ObrisiPredskolskoDeteSO();
         obrisi.izvrsi(predskolskoDete, null);
     }
 
     public void obrisiSkolskoDete(SkolskoDete skolskoDete) throws Exception {
-        System.out.println("Controller - skolskoDete");
+        System.out.println("Controller - obrisiSkolskoDete");
 
         ObrisiSkolskoDeteSO obrisi = new ObrisiSkolskoDeteSO();
         obrisi.izvrsi(skolskoDete, null);
     }
 
-    public List<Lek> ucitajLekove() throws Exception{
+    public List<Lek> ucitajLekove() throws Exception {
         System.out.println("Controller - ucitajLekove");
 
         UcitajLekoveSO so = new UcitajLekoveSO();
@@ -172,10 +174,49 @@ public class Controller {
         return so.getLekovi();
     }
 
-    public void dodajDodajRecept(StavkaRecepta sr) {
-//        Recept recept = sr.getRecept();
+    public void dodajRecept(StavkaRecepta sr) throws Exception {
+        System.out.println("Controller - dodajRecept");
+
+        Recept recept = sr.getRecept();
+
+        DodajReceptSO drso = new DodajReceptSO();
+        drso.izvrsi(recept, null);
+        int receptId = drso.getReceptId();
+        sr.getRecept().setIdRecept(receptId);
+        sr.setRb(1);
+
+        DodajStavkuReceptaSO dsrso = new DodajStavkuReceptaSO();
+        dsrso.izvrsi(sr, null);
+
+    }
+
+    public void obrisiRecept(Recept recept) throws Exception{
+        System.out.println("Controller - obrisiRecept");
+
+        ObrisiReceptSO so = new ObrisiReceptSO();
+        so.izvrsi(recept, null);
+    }
+
+    public void obrisiStavkuRecepta(StavkaRecepta stavkaRecepta) throws Exception {
+        System.out.println("Controller - obrisiStavkuRecepta");
+
+        ObrisiStavkuReceptaSO so = new ObrisiStavkuReceptaSO();
+        so.izvrsi(stavkaRecepta, null);
+    }
+
+    public void dodajStavkuRecepta(StavkaRecepta sr) throws Exception{
+        System.out.println("Controller - dodajStavkuRecepta");
+        int idRecept = sr.getRecept().getIdRecept();
         
-//        DodajReceptSO drso = new DodajReceptSO();
-//        drso.izvrsi(recept, null);
+        UcitajStavkeSO so = new UcitajStavkeSO();
+        so.izvrsi(idRecept, null);
+        List<StavkaRecepta> stavkeRecepta = so.getStavke();
+        
+        int posledjiRb = stavkeRecepta.size();
+        
+        sr.setRb(posledjiRb + 1);
+        
+        DodajStavkuReceptaSO dsrso = new DodajStavkuReceptaSO();
+        dsrso.izvrsi(sr, null);
     }
 }

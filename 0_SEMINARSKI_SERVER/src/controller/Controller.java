@@ -6,6 +6,7 @@ package controller;
 
 import domain.Dete;
 import domain.Doktor;
+import domain.Lek;
 import domain.PredskolskoDete;
 import domain.Recept;
 import domain.SkolskoDete;
@@ -17,6 +18,7 @@ import operations.dete.DodajDeteSO;
 import operations.dete.IzmeniDeteSO;
 import operations.dete.ObrisiDeteSO;
 import operations.dete.UcitajDecuSO;
+import operations.lek.UcitajLekoveSO;
 import operations.login.LoginOperation;
 import operations.recept.UcitajRecepteSO;
 import operations.recept.UcitajStavkeSO;
@@ -160,5 +162,20 @@ public class Controller {
 
         ObrisiSkolskoDeteSO obrisi = new ObrisiSkolskoDeteSO();
         obrisi.izvrsi(skolskoDete, null);
+    }
+
+    public List<Lek> ucitajLekove() throws Exception{
+        System.out.println("Controller - ucitajLekove");
+
+        UcitajLekoveSO so = new UcitajLekoveSO();
+        so.izvrsi(new Lek(), null);
+        return so.getLekovi();
+    }
+
+    public void dodajDodajRecept(StavkaRecepta sr) {
+//        Recept recept = sr.getRecept();
+        
+//        DodajReceptSO drso = new DodajReceptSO();
+//        drso.izvrsi(recept, null);
     }
 }

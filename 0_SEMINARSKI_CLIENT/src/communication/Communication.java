@@ -337,4 +337,12 @@ public class Communication {
         }
     }
 
+    public void obrisiRecept(Recept recept) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void obrisiStavkuRecepta(StavkaRecepta stavkaRecepta) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }

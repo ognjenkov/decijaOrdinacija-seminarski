@@ -4,6 +4,7 @@
  */
 package forms;
 
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTable;
 
@@ -31,11 +32,12 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableRACUNI = new javax.swing.JTable();
-        jButtonDELETE = new javax.swing.JButton();
-        jButtonAZURIRAJ = new javax.swing.JButton();
+        jButtonOBRISIrecept = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableStavke = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jButtonOBRISIstavku = new javax.swing.JButton();
+        jButtonDODAJrecept = new javax.swing.JButton();
+        jButtonDODAJstavku = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -52,9 +54,7 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTableRACUNI);
 
-        jButtonDELETE.setText("OBRISI");
-
-        jButtonAZURIRAJ.setText("AZURIRAJ");
+        jButtonOBRISIrecept.setText("OBRISI RECEPT");
 
         jTableStavke.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -69,7 +69,11 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTableStavke);
 
-        jButton1.setText("Obrisi Stavku");
+        jButtonOBRISIstavku.setText("Obrisi Stavku");
+
+        jButtonDODAJrecept.setText("DODAJ RECEPT");
+
+        jButtonDODAJstavku.setText("Dodaj Stavku");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,38 +81,39 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jButtonDELETE)
-                        .addGap(97, 97, 97)
-                        .addComponent(jButtonAZURIRAJ))
+                        .addComponent(jButtonDODAJrecept, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonOBRISIrecept))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(87, 87, 87)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(87, 87, 87)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jButtonDODAJstavku)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonOBRISIstavku, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)))
+                .addGap(17, 17, 17)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonDELETE)
-                    .addComponent(jButtonAZURIRAJ))
+                    .addComponent(jButtonOBRISIstavku)
+                    .addComponent(jButtonDODAJstavku))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonDODAJrecept)
                 .addGap(38, 38, 38))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(206, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonOBRISIrecept)
+                .addGap(44, 44, 44))
         );
 
         pack();
@@ -120,22 +125,15 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButtonAZURIRAJ;
-    private javax.swing.JButton jButtonDELETE;
+    private javax.swing.JButton jButtonDODAJrecept;
+    private javax.swing.JButton jButtonDODAJstavku;
+    private javax.swing.JButton jButtonOBRISIrecept;
+    private javax.swing.JButton jButtonOBRISIstavku;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableRACUNI;
     private javax.swing.JTable jTableStavke;
     // End of variables declaration//GEN-END:variables
-
-    public JButton getjButtonAZURIRAJ() {
-        return jButtonAZURIRAJ;
-    }
-
-    public JButton getjButtonDELETE() {
-        return jButtonDELETE;
-    }
 
     public JTable getjTableRACUNI() {
         return jTableRACUNI;
@@ -144,6 +142,21 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
     public JTable getjTableStavke() {
         return jTableStavke;
     }
+
+    public void addBtnDODAJreceptActionListener(ActionListener actionListener) {
+        jButtonDODAJrecept.addActionListener(actionListener);
+    }
+    public void addBtnOBRISIreceptActionListener(ActionListener actionListener) {
+        jButtonOBRISIrecept.addActionListener(actionListener);
+    }
+    
+    public void addBtnDODAJstavkuActionListener(ActionListener actionListener) {
+        jButtonDODAJstavku.addActionListener(actionListener);
+    }
+    public void addBtnOBRISIstavkuActionListener(ActionListener actionListener) {
+        jButtonOBRISIstavku.addActionListener(actionListener);
+    }
+
     
 
 }

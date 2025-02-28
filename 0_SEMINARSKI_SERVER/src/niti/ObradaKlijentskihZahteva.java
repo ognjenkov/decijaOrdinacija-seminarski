@@ -7,6 +7,7 @@ package niti;
 import controller.Controller;
 import domain.Dete;
 import domain.Doktor;
+import domain.Lek;
 import domain.PredskolskoDete;
 import domain.Recept;
 import domain.SkolskoDete;
@@ -166,6 +167,27 @@ public class ObradaKlijentskihZahteva extends Thread {
                     } catch (Exception e) {
                         res.setPayload(e);
                     }
+                } else if (req.getOperation() == Operation.UCITAJ_LEKOVE) {
+                    System.out.println("Ucitaj UCITAJ_LEKOVE operacija");
+                    List<Lek> lekovi = Controller.getInstance().ucitajLekove();
+                    res.setPayload(lekovi);
+
+                } else if (req.getOperation() == Operation.DODAJ_RECEPT) {
+                    System.out.println("Dodaj DODAJ_RECEPT operacija");
+                    try {
+                        StavkaRecepta sr = (StavkaRecepta) req.getPayload();
+                        Controller.getInstance().dodajDodajRecept(sr);
+                        res.setPayload(null);
+
+                    } catch (Exception e) {
+                        res.setPayload(e);
+                    }
+                } else if (req.getOperation() == Operation.OBRISI_RECEPT) {
+                    disconnect();
+                } else if (req.getOperation() == Operation.DODAJ_STAVKURECEPTA) {
+                    disconnect();
+                } else if (req.getOperation() == Operation.OBRISI_STAVKURECEPTA) {
+                    disconnect();
                 } else if (req.getOperation() == Operation.LOGOUT) {
                     disconnect();
                 } else {
@@ -218,7 +240,6 @@ public class ObradaKlijentskihZahteva extends Thread {
 //            Logger.getLogger(ObradaKlijentskihZahteva.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //    }
-
     public Doktor getUser() {
         return user;
     }

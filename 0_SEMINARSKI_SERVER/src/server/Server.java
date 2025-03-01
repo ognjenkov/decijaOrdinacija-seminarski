@@ -7,6 +7,7 @@ package server;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -21,7 +22,6 @@ public class Server extends Thread {
 
     boolean kraj = false;
     ServerSocket serverSocket;
-    
 
     //TODO ove klijente ces da premestis u kontroler
     public Server() {
@@ -32,14 +32,21 @@ public class Server extends Thread {
         try {
             serverSocket = new ServerSocket(9000);
             while (!kraj) {
-                Socket socket = serverSocket.accept();
-                System.out.println("Klijent je povezan");
-                
-                ObradaKlijentskihZahteva okz = new ObradaKlijentskihZahteva(socket);
-                
-                controller.Controller.getInstance().getUsers().add(okz);
-                
-                okz.start();
+                try {
+                    Socket socket = serverSocket.accept();
+                    System.out.println("Klijent je povezan");
+
+                    ObradaKlijentskihZahteva okz = new ObradaKlijentskihZahteva(socket);
+                    controller.Controller.getInstance().getUsers().add(okz);
+                    okz.start();
+                } catch (SocketException e) {
+                    // ovaj exception se desi kada ugasim server a .accept() je ukjucen, u prevodu ceka a ja ga gasim tokom cekanja to baci exception
+                    if (kraj) {
+                        System.out.println("Server is shutting down...");
+                        break; // Exit the loop cleanly
+                    }
+                    Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, e);
+                }
             }
         } catch (IOException ex) {
             Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
@@ -51,13 +58,18 @@ public class Server extends Thread {
         //TODO ovde ces da prekines vezu sa svim klijentima iz liste u kontroleru
         //TODO tako sto ces da pozoves metodu iz obzz.zaustavi
         try {
-            for (ObradaKlijentskihZahteva k : controller.Controller.getInstance().getUsers()) {
+            if (serverSocket != null && !serverSocket.isClosed()) {
+                serverSocket.close(); // This will break the `accept()` call
+            }
+
+            List<ObradaKlijentskihZahteva> usersCopy = new ArrayList<>(controller.Controller.getInstance().getUsers());
+            for (ObradaKlijentskihZahteva k : usersCopy) {
+                System.out.println("diskonektovanje usera prilikom zaustaviserver");
                 k.disconnect();
             }
-            serverSocket.close();
         } catch (IOException ex) {
-            ex.printStackTrace();
             Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
 }

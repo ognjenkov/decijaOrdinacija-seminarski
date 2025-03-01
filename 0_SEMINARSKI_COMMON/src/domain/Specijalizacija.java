@@ -5,6 +5,7 @@
 package domain;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -77,12 +78,28 @@ public class Specijalizacija implements AbstractDomainObject {
 
     @Override
     public List<AbstractDomainObject> returnListFromRS(ResultSet rs) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<AbstractDomainObject> list = new ArrayList<>();
+        
+        while (rs.next()) {
+            int idSpecijalizacija = rs.getInt("specijalizacija.idSpecijalizacija");
+            String naziv = rs.getString("specijalizacija.naziv");
+            
+            Specijalizacija specijalizacija = new Specijalizacija(idSpecijalizacija, naziv);
+            list.add(specijalizacija);
+        }
+        
+        return list;
     }
 
     @Override
     public AbstractDomainObject returnObjectFromRS(ResultSet rs) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (rs.next()) {
+            int idSpecijalizacija = rs.getInt("specijalizacija.idSpecijalizacija");
+            String naziv = rs.getString("specijalizacija.naziv");
+            
+            return new Specijalizacija(idSpecijalizacija, naziv);
+        }
+        return null;
     }
 
     @Override

@@ -3,9 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_SERVER/src/operations/stavkarecepta/DodajStavkuReceptaSO.java</file>
-            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_SERVER/src/niti/ObradaKlijentskihZahteva.java</file>
-            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_SERVER/src/controller/Controller.java</file>
+            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_SERVER/src/cordinator/Cordinator.java</file>
+            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_SERVER/src/forms/controllers/PrikazDoktoraController.java</file>
+            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_SERVER/src/forms/controllers/DodajDoktoraController.java</file>
+            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_SERVER/src/forms/DodajDoktoraForm.java</file>
+            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_SERVER/src/forms/controllers/DodajLekController.java</file>
         </group>
     </open-files>
 </project-private>

@@ -4,6 +4,7 @@
  */
 package forms;
 
+import cordinator.Cordinator;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,12 +46,14 @@ public class ServerForm extends javax.swing.JFrame {
         jMenuItemDatabase = new javax.swing.JMenuItem();
         jMenuItemPort = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItemViewDoctors = new javax.swing.JMenuItem();
-        jMenuItemCreateDoctor = new javax.swing.JMenuItem();
-        jMenuItemUpdateDoctor = new javax.swing.JMenuItem();
-        jMenuItemDeleteDoctor = new javax.swing.JMenuItem();
+        jMenuItemDOKTORI = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItemLEKOVI = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Decija Ordinacija: Server");
 
         jButtonZAUSTAVI.setText("ZAUSTAVI SERVER");
         jButtonZAUSTAVI.addActionListener(new java.awt.event.ActionListener() {
@@ -90,21 +93,41 @@ public class ServerForm extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Manage Doctors");
+        jMenu2.setText("Doktori");
 
-        jMenuItemViewDoctors.setText("View Doctors");
-        jMenu2.add(jMenuItemViewDoctors);
-
-        jMenuItemCreateDoctor.setText("Create New Doctor");
-        jMenu2.add(jMenuItemCreateDoctor);
-
-        jMenuItemUpdateDoctor.setText("Update Doctor");
-        jMenu2.add(jMenuItemUpdateDoctor);
-
-        jMenuItemDeleteDoctor.setText("Delete Doctor");
-        jMenu2.add(jMenuItemDeleteDoctor);
+        jMenuItemDOKTORI.setText("Pregled");
+        jMenuItemDOKTORI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemDOKTORIActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItemDOKTORI);
 
         jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Lekovi");
+
+        jMenuItemLEKOVI.setText("Pregled");
+        jMenuItemLEKOVI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLEKOVIActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItemLEKOVI);
+
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Specijalizacije");
+
+        jMenuItem1.setText("Pregled");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
 
@@ -148,6 +171,7 @@ public class ServerForm extends javax.swing.JFrame {
         jLabel2.setText("SERVER ZAUSTAVLJEN");
         jButtonPOKRENI.setEnabled(true);
         jButtonZAUSTAVI.setEnabled(false);
+        jMenuBar1.setVisible(true);
 
 
     }//GEN-LAST:event_jButtonZAUSTAVIActionPerformed
@@ -165,12 +189,33 @@ public class ServerForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemPortActionPerformed
 
     private void jButtonPOKRENIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPOKRENIActionPerformed
+        if (server == null || !server.isAlive()) {
+            server = new Server();
+            server.start();
+            jLabel2.setText("POKRENUT SERVER");
+            System.out.println("POKRENUT SERVER");
 
-        server.start();
-        jLabel2.setText("POKRENUT SERVER");
-        jButtonPOKRENI.setEnabled(false);
-        jButtonZAUSTAVI.setEnabled(true);
+            jButtonPOKRENI.setEnabled(false);
+            jButtonZAUSTAVI.setEnabled(true);
+            jMenuBar1.setVisible(false);
+
+        } else {
+            System.out.println("Server vec radi");
+        }
     }//GEN-LAST:event_jButtonPOKRENIActionPerformed
+
+    private void jMenuItemLEKOVIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLEKOVIActionPerformed
+        Cordinator.getInstance().otvoriPrikazLekovaForm();
+    }//GEN-LAST:event_jMenuItemLEKOVIActionPerformed
+
+    private void jMenuItemDOKTORIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDOKTORIActionPerformed
+        Cordinator.getInstance().otvoriPrikazDoktoraForm();
+
+    }//GEN-LAST:event_jMenuItemDOKTORIActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        Cordinator.getInstance().otvoriPrikazSpecijalizacijeForm();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -180,12 +225,13 @@ public class ServerForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItemCreateDoctor;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItemDOKTORI;
     private javax.swing.JMenuItem jMenuItemDatabase;
-    private javax.swing.JMenuItem jMenuItemDeleteDoctor;
+    private javax.swing.JMenuItem jMenuItemLEKOVI;
     private javax.swing.JMenuItem jMenuItemPort;
-    private javax.swing.JMenuItem jMenuItemUpdateDoctor;
-    private javax.swing.JMenuItem jMenuItemViewDoctors;
     // End of variables declaration//GEN-END:variables
 }

@@ -12,6 +12,7 @@ import domain.PredskolskoDete;
 import domain.Recept;
 import domain.SkolskoDete;
 import domain.StavkaRecepta;
+import java.io.EOFException;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.List;
@@ -47,6 +48,9 @@ public class ObradaKlijentskihZahteva extends Thread {
 
             while (!kraj) {
                 Request req = (Request) receiver.receive();
+                if (req == null) {
+                    break;
+                }
                 Response res = new Response();
 
                 if (req.getOperation() == Operation.LOGIN) {
@@ -225,6 +229,8 @@ public class ObradaKlijentskihZahteva extends Thread {
                 sender.send(res);
 
             }
+        } catch (EOFException e) {
+            System.out.println("Client disconnected.");
         } catch (Exception ex) {
             Logger.getLogger(ObradaKlijentskihZahteva.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -232,7 +238,7 @@ public class ObradaKlijentskihZahteva extends Thread {
 
     public void disconnect() {
         try {
-            sender.send(new Response((Object) true));
+//            sender.send(new Response((Object) true));
 
             this.kraj = true;
 

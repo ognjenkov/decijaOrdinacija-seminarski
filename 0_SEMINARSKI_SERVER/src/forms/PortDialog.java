@@ -36,6 +36,7 @@ public class PortDialog extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Port");
 
         jLabel1.setText("Port");
 

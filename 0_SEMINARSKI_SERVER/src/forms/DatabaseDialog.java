@@ -41,6 +41,7 @@ public class DatabaseDialog extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Database");
 
         jLabel1.setText("URL");
 

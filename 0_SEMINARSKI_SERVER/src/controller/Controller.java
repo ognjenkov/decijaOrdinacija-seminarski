@@ -21,7 +21,7 @@ import operations.dete.UcitajDecuSO;
 import operations.lek.UcitajLekoveSO;
 import operations.login.LoginOperation;
 import operations.recept.UcitajRecepteSO;
-import operations.recept.UcitajStavkeSO;
+import operations.stavkarecepta.UcitajStavkeSO;
 import operations.predskolskoDete.IzmeniPredskolskoDeteSO;
 import operations.predskolskoDete.DodajPredskolskoDeteSO;
 import operations.predskolskoDete.ObrisiPredskolskoDeteSO;

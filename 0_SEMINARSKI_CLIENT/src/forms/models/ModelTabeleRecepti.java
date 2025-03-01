@@ -61,14 +61,17 @@ public class ModelTabeleRecepti extends AbstractTableModel{
         return lista;
     }
 
-//    public void pretrazi(String ime, String prezime, LocalDate datumRodnjenja) {
-//        List<Dete> filteredList = lista.stream()
-//                .filter(d -> (ime == null || ime.isEmpty() || d.getIme().toLowerCase().contains(ime.toLowerCase())))
-//                .filter(d -> (prezime == null || prezime.isEmpty() || d.getPrezime().toLowerCase().contains(prezime.toLowerCase())))
-//                .filter(d -> (datumRodnjenja == null || datumRodnjenja.isEqual(d.getDatumRodjenja())))
-//                .collect(Collectors.toList());
-//        this.lista = filteredList;
-//        fireTableChanged(null);
-//    }
+    public void pretrazi(String imeDeteta, String prezimeDeteta, String imeDoktora, String prezimeDoktora, String emailDoktora, LocalDate datumIzdavanja) {
+        List<Recept> filteredList = lista.stream()
+                .filter(d -> (imeDeteta == null || imeDeteta.isEmpty() || d.getDete().getIme().toLowerCase().contains(imeDeteta.toLowerCase())))
+                .filter(d -> (prezimeDeteta == null || prezimeDeteta.isEmpty() || d.getDete().getPrezime().toLowerCase().contains(prezimeDeteta.toLowerCase())))
+                .filter(d -> (imeDoktora == null || imeDoktora.isEmpty() || d.getDoktor().getIme().toLowerCase().contains(imeDoktora.toLowerCase())))
+                .filter(d -> (prezimeDoktora == null || prezimeDoktora.isEmpty() || d.getDoktor().getPrezime().toLowerCase().contains(prezimeDoktora.toLowerCase())))
+                .filter(d -> (emailDoktora == null || emailDoktora.isEmpty() || d.getDoktor().getEmail().toLowerCase().contains(emailDoktora.toLowerCase())))
+                .filter(d -> (datumIzdavanja == null || datumIzdavanja.isEqual(d.getDatumIzdavanja())))
+                .collect(Collectors.toList());
+        this.lista = filteredList;
+        fireTableChanged(null);
+    }
 
 }

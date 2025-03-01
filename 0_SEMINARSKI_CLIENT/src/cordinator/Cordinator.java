@@ -63,6 +63,10 @@ public class Cordinator {
         mainController = new MainController(new MainForm());
         mainController.otvoriFormu();
     }
+    public void osveziMainFormu() {
+      if(mainController!= null)
+      mainController.pripremiFormu();
+    }
     
     public void openPrikazDeceForm() {
         prikazDeceController = new PrikazDeceController(new PrikazDeceForm());
@@ -99,7 +103,7 @@ public class Cordinator {
         if(prikazDeceController!= null)
         prikazDeceController.pripremiFormu();
     }
-    public void openPrikaziRacuneForm() {
+    public void openPrikaziRecepteForm() {
         prikazReceptaController = new PrikazReceptaController(new PrikazReceptaForm());
         prikazReceptaController.otvoriFormu();
     }
@@ -137,4 +141,5 @@ public class Cordinator {
         dodajStavkuReceptaController = new DodajStavkuReceptaController(new DodajStavkuReceptaForm());
         dodajStavkuReceptaController.otvoriFormu();
     }
+    
 }

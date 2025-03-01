@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_CLIENT/src/forms/PrikazReceptaForm.java</file>
+            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_CLIENT/src/controllers/PrikazDeceController.java</file>
+            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_CLIENT/src/cordinator/Cordinator.java</file>
+            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_CLIENT/src/controllers/PrikazReceptaController.java</file>
+            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_CLIENT/src/forms/models/ModelTabeleRecepti.java</file>
+            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_CLIENT/src/controllers/PrikazObrazovanjaController.java</file>
+            <file>file:/C:/Users/ognje/Documents/NetBeansProjects/decijaOrdinacija_prosoft_seminarski/0_SEMINARSKI_CLIENT/src/controllers/DodajDeteController.java</file>
+        </group>
     </open-files>
 </project-private>

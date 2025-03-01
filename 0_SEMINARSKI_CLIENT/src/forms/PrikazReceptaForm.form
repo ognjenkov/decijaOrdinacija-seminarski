@@ -26,13 +26,35 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jButtonDODAJrecept" min="-2" pref="135" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButtonOBRISIrecept" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jButtonOBRISIrecept" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="689" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jTextFieldImeDETETA" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jTextFieldPrezimeDETETA" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jTextFieldIMEdoktora" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jTextFieldPREZIMEdoktora" alignment="0" pref="280" max="32767" attributes="0"/>
+                          <Component id="jTextFieldDATUMIZDAVANJA" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jButtonPRETRAZI" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButtonRESETUJ" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
               <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -49,24 +71,52 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-              <Component id="jScrollPane2" min="-2" pref="402" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButtonOBRISIstavku" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonDODAJstavku" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButtonDODAJrecept" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace pref="206" max="32767" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButtonOBRISIrecept" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldDATUMIZDAVANJA" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldImeDETETA" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldPrezimeDETETA" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldIMEdoktora" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldPREZIMEdoktora" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonPRETRAZI" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonRESETUJ" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButtonOBRISIrecept" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="jScrollPane2" min="-2" pref="402" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jButtonOBRISIstavku" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonDODAJstavku" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace pref="44" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -79,7 +129,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jTableRACUNI">
+        <Component class="javax.swing.JTable" name="jTableRECEPTI">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="4">
@@ -124,14 +174,59 @@
         <Property name="text" type="java.lang.String" value="Obrisi Stavku"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonDODAJrecept">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="DODAJ RECEPT"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="jButtonDODAJstavku">
       <Properties>
         <Property name="text" type="java.lang.String" value="Dodaj Stavku"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Datum izdavanja:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ime deteta:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Prezime deteta:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ime doktora:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Prezime doktora:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldDATUMIZDAVANJA">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldImeDETETA">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldPrezimeDETETA">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldIMEdoktora">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldPREZIMEdoktora">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonPRETRAZI">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pretrazi"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonRESETUJ">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Resetuj"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel6">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="( 1.1.2001 )"/>
       </Properties>
     </Component>
   </SubComponents>

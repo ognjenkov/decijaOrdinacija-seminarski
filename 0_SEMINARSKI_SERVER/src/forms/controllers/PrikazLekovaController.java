@@ -10,10 +10,9 @@ import forms.PrikazLekovaForm;
 import forms.models.ModelTabeleLekovi;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import operations.lek.ObrisiLekSO;
-import operations.lek.UcitajLekoveSO;
 
 /**
  *
@@ -41,9 +40,7 @@ public class PrikazLekovaController {
                     ModelTabeleLekovi mtl = (ModelTabeleLekovi) plf.getjTableLEK().getModel();
                     Lek lek = mtl.getLista().get(red);
                     try {
-                        ObrisiLekSO so = new ObrisiLekSO();
-                        so.izvrsi(lek, null);
-
+                        controller.Controller.getInstance().obrisiLek(lek);
                         JOptionPane.showMessageDialog(plf, "Sistem je obrisao lek", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
                         pripremiFormu();
                     } catch (Exception ex) {
@@ -109,13 +106,12 @@ public class PrikazLekovaController {
     }
 
     public void pripremiFormu() {
-        UcitajLekoveSO so = new UcitajLekoveSO();
+        List<Lek> lekovi = new ArrayList<>();
         try {
-            so.izvrsi(new Lek(), null);
+            lekovi = controller.Controller.getInstance().ucitajLekove();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        List<Lek> lekovi = so.getLekovi();
         ModelTabeleLekovi mtl = new ModelTabeleLekovi(lekovi);
         plf.getjTableLEK().setModel(mtl);
     }

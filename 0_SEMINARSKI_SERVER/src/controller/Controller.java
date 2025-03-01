@@ -6,10 +6,12 @@ package controller;
 
 import domain.Dete;
 import domain.Doktor;
+import domain.DrSp;
 import domain.Lek;
 import domain.PredskolskoDete;
 import domain.Recept;
 import domain.SkolskoDete;
+import domain.Specijalizacija;
 import domain.StavkaRecepta;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,16 @@ import operations.dete.DodajDeteSO;
 import operations.dete.IzmeniDeteSO;
 import operations.dete.ObrisiDeteSO;
 import operations.dete.UcitajDecuSO;
+import operations.doktor.DodajDoktoraSO;
+import operations.doktor.IzmeniDoktorSO;
+import operations.doktor.ObrisiDoktorSO;
+import operations.doktor.UcitajDoktoreSO;
+import operations.drsp.DodajDRSPSO;
+import operations.drsp.ObrisiDRSPSO;
+import operations.drsp.UcitajDRSPSO;
+import operations.lek.DodajLekSO;
+import operations.lek.IzmeniLekSO;
+import operations.lek.ObrisiLekSO;
 import operations.lek.UcitajLekoveSO;
 import operations.login.LoginOperation;
 import operations.recept.UcitajRecepteSO;
@@ -32,6 +44,9 @@ import operations.skolskoDete.IzmeniSkolskoDeteSO;
 import operations.skolskoDete.DodajSkolskoDeteSO;
 import operations.skolskoDete.ObrisiSkolskoDeteSO;
 import operations.skolskoDete.UcitajSkolskuDecuSO;
+import operations.specijalizacija.DodajSpecijalizacijuSO;
+import operations.specijalizacija.ObrisiSpecijalizacijaSO;
+import operations.specijalizacija.UcitajSpecijalizacijeSO;
 import operations.stavkarecepta.DodajStavkuReceptaSO;
 import operations.stavkarecepta.ObrisiStavkuReceptaSO;
 
@@ -190,7 +205,7 @@ public class Controller {
 
     }
 
-    public void obrisiRecept(Recept recept) throws Exception{
+    public void obrisiRecept(Recept recept) throws Exception {
         System.out.println("Controller - obrisiRecept");
 
         ObrisiReceptSO so = new ObrisiReceptSO();
@@ -204,19 +219,105 @@ public class Controller {
         so.izvrsi(stavkaRecepta, null);
     }
 
-    public void dodajStavkuRecepta(StavkaRecepta sr) throws Exception{
+    public void dodajStavkuRecepta(StavkaRecepta sr) throws Exception {
         System.out.println("Controller - dodajStavkuRecepta");
         int idRecept = sr.getRecept().getIdRecept();
-        
+
         UcitajStavkeSO so = new UcitajStavkeSO();
         so.izvrsi(idRecept, null);
         List<StavkaRecepta> stavkeRecepta = so.getStavke();
-        
+
         int posledjiRb = stavkeRecepta.size();
-        
+
         sr.setRb(posledjiRb + 1);
-        
+
         DodajStavkuReceptaSO dsrso = new DodajStavkuReceptaSO();
         dsrso.izvrsi(sr, null);
     }
+
+    public void dodajSpecijalizaciju(Specijalizacija specijalizacija) throws Exception {
+        System.out.println("Controller - dodajSpecijalizaciju");
+        DodajSpecijalizacijuSO so = new DodajSpecijalizacijuSO();
+        so.izvrsi(specijalizacija, null);
+    }
+
+    public void obrisiSpecijalizaciju(Specijalizacija specijalizacija) throws Exception {
+        System.out.println("Controller - obrisiSpecijalizaciju");
+        ObrisiSpecijalizacijaSO so = new ObrisiSpecijalizacijaSO();
+        so.izvrsi(specijalizacija, null);
+    }
+
+    public List<Specijalizacija> ucitajSpecijalizacije() throws Exception {
+        System.out.println("Controller - ucitajSpecijalizacije");
+
+        UcitajSpecijalizacijeSO so = new UcitajSpecijalizacijeSO();
+        so.izvrsi(new Specijalizacija(), null);
+        return so.getSpecijalizacije();
+    }
+
+    public void obrisiLek(Lek lek) throws Exception {
+        System.out.println("Controller - obrisiLek");
+
+        ObrisiLekSO so = new ObrisiLekSO();
+        so.izvrsi(lek, null);
+    }
+
+    public void obrisiDoktora(Doktor doktor) throws Exception {
+        System.out.println("Controller - obrisiDoktora");
+
+        ObrisiDoktorSO so = new ObrisiDoktorSO();
+        so.izvrsi(doktor, null);
+    }
+
+    public void dodajDRSP(DrSp drsp) throws Exception {
+        System.out.println("Controller - dodajDRSP");
+        DodajDRSPSO so = new DodajDRSPSO();
+        so.izvrsi(drsp, null);
+    }
+
+    public void obrisiDRSP(DrSp drsp) throws Exception {
+        System.out.println("Controller - obrisiDRSP");
+        ObrisiDRSPSO so = new ObrisiDRSPSO();
+        so.izvrsi(drsp, null);
+    }
+
+    public List<DrSp> ucitajDRSP() throws Exception {
+        System.out.println("Controller - ucitajDRSP");
+
+        UcitajDRSPSO so = new UcitajDRSPSO();
+        so.izvrsi(new DrSp(), null);
+
+        return so.getDrsp();
+    }
+
+    public List<Doktor> ucitajDoktore() throws Exception {
+        System.out.println("Controller - ucitajDoktore");
+
+        UcitajDoktoreSO so = new UcitajDoktoreSO();
+        so.izvrsi(new Doktor(), null);
+
+        return so.getDoktori();
+    }
+    
+    public void dodajLek(Lek lek) throws Exception {
+        System.out.println("Controller - dodajLek");
+        DodajLekSO so = new DodajLekSO();
+        so.izvrsi(lek, null);
+    }
+    public void izmeniLek(Lek lek) throws Exception {
+        System.out.println("Controller - izmeniLek");
+        IzmeniLekSO so = new IzmeniLekSO();
+        so.izvrsi(lek, null);
+    }
+    public void dodajDoktora(Doktor doktor) throws Exception {
+        System.out.println("Controller - dodajDoktora");
+        DodajDoktoraSO so = new DodajDoktoraSO();
+        so.izvrsi(doktor, null);
+    }
+    public void izmeniDoktora(Doktor doktor) throws Exception {
+        System.out.println("Controller - izmeniDoktora");
+        IzmeniDoktorSO so = new IzmeniDoktorSO();
+        so.izvrsi(doktor, null);
+    }
+    
 }

@@ -10,8 +10,6 @@ import forms.FormMode;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import operations.lek.DodajLekSO;
-import operations.lek.IzmeniLekSO;
 
 /**
  *
@@ -38,8 +36,7 @@ public class DodajLekController {
                 Lek lek = new Lek(-1, naziv, proizvodjac, aktivniSastojak, farmaceutskaGrupa);
 
                 try {
-                    DodajLekSO so = new DodajLekSO();
-                    so.izvrsi(lek, null);
+                    controller.Controller.getInstance().dodajLek(lek);
                     
                     JOptionPane.showMessageDialog(dlf, "Sistem je kreirao lek", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
                     ocistiPolja();
@@ -64,8 +61,8 @@ public class DodajLekController {
                 Lek l = (Lek) cordinator.Cordinator.getInstance().vratiParam("lek");
                 Lek lek = new Lek(l.getIdLek(), naziv, proizvodjac, aktivniSastojak, farmaceutskaGrupa);
                 try {
-                    IzmeniLekSO so = new IzmeniLekSO();
-                    so.izvrsi(lek, null);
+                    
+                    controller.Controller.getInstance().izmeniLek(lek);
 
                     JOptionPane.showMessageDialog(dlf, "Sistem je izmenio lek", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
                     ocistiPolja();

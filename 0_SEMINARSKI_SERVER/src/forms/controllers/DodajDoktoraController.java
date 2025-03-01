@@ -38,8 +38,7 @@ public class DodajDoktoraController {
                 Doktor doktor = new Doktor(-1, ime, prezime, email);
 
                 try {
-                    DodajDoktoraSO so = new DodajDoktoraSO();
-                    so.izvrsi(doktor, null);
+                    controller.Controller.getInstance().dodajDoktora(doktor);
 
                     JOptionPane.showMessageDialog(ddf, "Sistem je kreirao doktora", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
                     cordinator.Cordinator.getInstance().osveziPrikazDoktoraForm();
@@ -50,7 +49,6 @@ public class DodajDoktoraController {
                     System.out.println(ex);
                 }
             }
-
         });
         ddf.azurirajAddActionListener(new ActionListener() {
             @Override
@@ -64,18 +62,17 @@ public class DodajDoktoraController {
                 Doktor doktor = new Doktor(d.getIdDoktor(), ime, prezime, email);
                 
                 try {
-                    IzmeniDoktorSO so = new IzmeniDoktorSO();
-                    so.izvrsi(doktor, null);
+                    controller.Controller.getInstance().izmeniDoktora(doktor);
 
                     JOptionPane.showMessageDialog(ddf, "Sistem je azurirao doktora", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
                     cordinator.Cordinator.getInstance().osveziPrikazDoktoraForm();
+                    
                     ddf.dispose();
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(ddf, "Sistem ne moze da azurira doktora", "Greska", JOptionPane.ERROR_MESSAGE);
                     System.out.println(ex);
                 }
             }
-
         });
     }
 

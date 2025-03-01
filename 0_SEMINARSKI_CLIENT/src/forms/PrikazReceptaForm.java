@@ -7,6 +7,7 @@ package forms;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -31,18 +32,30 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableRACUNI = new javax.swing.JTable();
+        jTableRECEPTI = new javax.swing.JTable();
         jButtonOBRISIrecept = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableStavke = new javax.swing.JTable();
         jButtonOBRISIstavku = new javax.swing.JButton();
-        jButtonDODAJrecept = new javax.swing.JButton();
         jButtonDODAJstavku = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jTextFieldDATUMIZDAVANJA = new javax.swing.JTextField();
+        jTextFieldImeDETETA = new javax.swing.JTextField();
+        jTextFieldPrezimeDETETA = new javax.swing.JTextField();
+        jTextFieldIMEdoktora = new javax.swing.JTextField();
+        jTextFieldPREZIMEdoktora = new javax.swing.JTextField();
+        jButtonPRETRAZI = new javax.swing.JButton();
+        jButtonRESETUJ = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Prikaz izdatih recepta");
 
-        jTableRACUNI.setModel(new javax.swing.table.DefaultTableModel(
+        jTableRECEPTI.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -53,7 +66,7 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTableRACUNI);
+        jScrollPane1.setViewportView(jTableRECEPTI);
 
         jButtonOBRISIrecept.setText("OBRISI RECEPT");
 
@@ -72,9 +85,23 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
 
         jButtonOBRISIstavku.setText("Obrisi Stavku");
 
-        jButtonDODAJrecept.setText("DODAJ RECEPT");
-
         jButtonDODAJstavku.setText("Dodaj Stavku");
+
+        jLabel1.setText("Datum izdavanja:");
+
+        jLabel2.setText("Ime deteta:");
+
+        jLabel3.setText("Prezime deteta:");
+
+        jLabel4.setText("Ime doktora:");
+
+        jLabel5.setText("Prezime doktora:");
+
+        jButtonPRETRAZI.setText("Pretrazi");
+
+        jButtonRESETUJ.setText("Resetuj");
+
+        jLabel6.setText("( 1.1.2001 )");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,12 +109,30 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonOBRISIrecept, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonDODAJrecept, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonOBRISIrecept))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jTextFieldImeDETETA, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldPrezimeDETETA, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldIMEdoktora, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldPREZIMEdoktora, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                            .addComponent(jTextFieldDATUMIZDAVANJA))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonPRETRAZI)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonRESETUJ))
+                            .addComponent(jLabel6))))
                 .addGap(87, 87, 87)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -99,22 +144,43 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonOBRISIstavku)
-                    .addComponent(jButtonDODAJstavku))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonDODAJrecept)
-                .addGap(38, 38, 38))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(206, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonOBRISIrecept)
-                .addGap(44, 44, 44))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jTextFieldDATUMIZDAVANJA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jTextFieldImeDETETA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jTextFieldPrezimeDETETA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jTextFieldIMEdoktora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jTextFieldPREZIMEdoktora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonPRETRAZI)
+                            .addComponent(jButtonRESETUJ))
+                        .addGap(34, 34, 34)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonOBRISIrecept))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonOBRISIstavku)
+                            .addComponent(jButtonDODAJstavku))))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pack();
@@ -126,27 +192,36 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonDODAJrecept;
     private javax.swing.JButton jButtonDODAJstavku;
     private javax.swing.JButton jButtonOBRISIrecept;
     private javax.swing.JButton jButtonOBRISIstavku;
+    private javax.swing.JButton jButtonPRETRAZI;
+    private javax.swing.JButton jButtonRESETUJ;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTableRACUNI;
+    private javax.swing.JTable jTableRECEPTI;
     private javax.swing.JTable jTableStavke;
+    private javax.swing.JTextField jTextFieldDATUMIZDAVANJA;
+    private javax.swing.JTextField jTextFieldIMEdoktora;
+    private javax.swing.JTextField jTextFieldImeDETETA;
+    private javax.swing.JTextField jTextFieldPREZIMEdoktora;
+    private javax.swing.JTextField jTextFieldPrezimeDETETA;
     // End of variables declaration//GEN-END:variables
 
-    public JTable getjTableRACUNI() {
-        return jTableRACUNI;
+    public JTable getjTableRECEPTI() {
+        return jTableRECEPTI;
     }
 
     public JTable getjTableStavke() {
         return jTableStavke;
     }
 
-    public void addBtnDODAJreceptActionListener(ActionListener actionListener) {
-        jButtonDODAJrecept.addActionListener(actionListener);
-    }
     public void addBtnOBRISIreceptActionListener(ActionListener actionListener) {
         jButtonOBRISIrecept.addActionListener(actionListener);
     }
@@ -156,6 +231,54 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
     }
     public void addBtnOBRISIstavkuActionListener(ActionListener actionListener) {
         jButtonOBRISIstavku.addActionListener(actionListener);
+    }
+    public void addBtnPRETRAZIActionListener(ActionListener actionListener) {
+        jButtonPRETRAZI.addActionListener(actionListener);
+    }
+    public void addBtnRESETUJActionListener(ActionListener actionListener) {
+        jButtonRESETUJ.addActionListener(actionListener);
+    }
+
+    
+
+    public JButton getjButtonDODAJstavku() {
+        return jButtonDODAJstavku;
+    }
+
+    public JButton getjButtonOBRISIrecept() {
+        return jButtonOBRISIrecept;
+    }
+
+    public JButton getjButtonOBRISIstavku() {
+        return jButtonOBRISIstavku;
+    }
+
+    public JButton getjButtonPRETRAZI() {
+        return jButtonPRETRAZI;
+    }
+
+    public JButton getjButtonRESETUJ() {
+        return jButtonRESETUJ;
+    }
+
+    public JTextField getjTextFieldDATUMIZDAVANJA() {
+        return jTextFieldDATUMIZDAVANJA;
+    }
+
+    public JTextField getjTextFieldIMEdoktora() {
+        return jTextFieldIMEdoktora;
+    }
+
+    public JTextField getjTextFieldImeDETETA() {
+        return jTextFieldImeDETETA;
+    }
+
+    public JTextField getjTextFieldPREZIMEdoktora() {
+        return jTextFieldPREZIMEdoktora;
+    }
+
+    public JTextField getjTextFieldPrezimeDETETA() {
+        return jTextFieldPrezimeDETETA;
     }
 
     

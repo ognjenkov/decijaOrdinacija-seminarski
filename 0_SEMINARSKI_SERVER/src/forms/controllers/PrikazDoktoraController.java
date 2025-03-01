@@ -13,14 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
-import operations.doktor.ObrisiDoktorSO;
-import operations.doktor.UcitajDoktoreSO;
-import operations.drsp.DodajDRSPSO;
-import operations.drsp.ObrisiDRSPSO;
-import operations.drsp.UcitajDRSPSO;
-import operations.specijalizacija.UcitajSpecijalizacijeSO;
 
 /**
  *
@@ -59,7 +52,7 @@ public class PrikazDoktoraController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cordinator.Cordinator.getInstance().otvoriDodajDoktoraForm();
-                
+
             }
         });
 
@@ -79,8 +72,7 @@ public class PrikazDoktoraController {
                             throw new Exception();
                         }
 
-                        ObrisiDoktorSO so = new ObrisiDoktorSO();
-                        so.izvrsi(doktor, null);
+                        controller.Controller.getInstance().obrisiDoktora(doktor);
 
                         JOptionPane.showMessageDialog(pdf, "Sistem je obrisao doktora", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
                         pripremiFormu();
@@ -109,8 +101,7 @@ public class PrikazDoktoraController {
                         }
                         drsp.setSpecijalizacija(spec);
 
-                        DodajDRSPSO so = new DodajDRSPSO();
-                        so.izvrsi(drsp, null);
+                        controller.Controller.getInstance().dodajDRSP(drsp);
 
                         JOptionPane.showMessageDialog(pdf, "Sistem je specijalizovao doktora", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
                         pripremiFormu();
@@ -124,7 +115,7 @@ public class PrikazDoktoraController {
         pdf.OBRISISPECIJALIZACIJUaddActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                 int red = pdf.getjTableDOKTORI().getSelectedRow();
+                int red = pdf.getjTableDOKTORI().getSelectedRow();
                 if (red == -1) {
                     //TODO poruke u joption pane moraju da budu kao u dokumentaciji
                     JOptionPane.showMessageDialog(pdf, "Sistem ne moze da despecijalizuje doktora", "Greska", JOptionPane.ERROR_MESSAGE);
@@ -136,8 +127,7 @@ public class PrikazDoktoraController {
                             throw new Exception();
                         }
 
-                        ObrisiDRSPSO so = new ObrisiDRSPSO();
-                        so.izvrsi(drsp, null);
+                        controller.Controller.getInstance().obrisiDRSP(drsp);
 
                         JOptionPane.showMessageDialog(pdf, "Sistem je despecijalizovao doktora", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
                         pripremiFormu();
@@ -157,23 +147,22 @@ public class PrikazDoktoraController {
     }
 
     public void pripremiFormu() {
-        UcitajDRSPSO so = new UcitajDRSPSO();
+        List<DrSp> drsps = new ArrayList<>();
+
         try {
-            so.izvrsi(new DrSp(), null);
+            drsps = controller.Controller.getInstance().ucitajDRSP();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        List<DrSp> drsps = so.getDrsp();
 
-        UcitajDoktoreSO so3 = new UcitajDoktoreSO();
+        List<Doktor> doktori = new ArrayList<>();
         try {
-            so3.izvrsi(new Doktor(), null);
+            doktori = controller.Controller.getInstance().ucitajDoktore();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        List<Doktor> doktori = so3.getDoktori();
 
-        List<DrSp> newDrsps = new ArrayList<>(drsps); 
+        List<DrSp> newDrsps = new ArrayList<>(drsps);
 
         for (Doktor doktor : doktori) {
             boolean exists = drsps.stream().anyMatch(d -> d.getDoktor().getIdDoktor() == doktor.getIdDoktor());
@@ -185,13 +174,12 @@ public class PrikazDoktoraController {
         ModelTabeleDoktori mtd = new ModelTabeleDoktori(newDrsps);
         pdf.getjTableDOKTORI().setModel(mtd);
 
-        UcitajSpecijalizacijeSO so2 = new UcitajSpecijalizacijeSO();
+        List<Specijalizacija> specijalizacije = new ArrayList<>();
         try {
-            so2.izvrsi(new Specijalizacija(), null);
-
+            specijalizacije = controller.Controller.getInstance().ucitajSpecijalizacije();
         } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-        List<Specijalizacija> specijalizacije = so2.getSpecijalizacije();
 
         pdf.getjComboBoxSPECIJALIZACIJA().removeAllItems();
         for (Specijalizacija specijalizacija : specijalizacije) {

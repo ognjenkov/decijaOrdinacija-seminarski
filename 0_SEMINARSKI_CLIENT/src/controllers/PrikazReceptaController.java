@@ -13,6 +13,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -32,21 +35,16 @@ public class PrikazReceptaController {
     }
 
     private void addActionListenes() {
-        prf.addBtnDODAJreceptActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
+        
         prf.addBtnOBRISIreceptActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int red = prf.getjTableRACUNI().getSelectedRow();
+                int red = prf.getjTableRECEPTI().getSelectedRow();
                 if (red == -1) {
                     //TODO poruke u joption pane moraju da budu kao u dokumentaciji
                     JOptionPane.showMessageDialog(prf, "Sistem ne moze da obrise recept", "Greska", JOptionPane.ERROR_MESSAGE);
                 } else {
-                    ModelTabeleRecepti mtr = (ModelTabeleRecepti) prf.getjTableRACUNI().getModel();
+                    ModelTabeleRecepti mtr = (ModelTabeleRecepti) prf.getjTableRECEPTI().getModel();
                     Recept recept = mtr.getLista().get(red);
                     try {
                         communication.Communication.getInstance().obrisiRecept(recept);
@@ -62,12 +60,12 @@ public class PrikazReceptaController {
         prf.addBtnDODAJstavkuActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int red = prf.getjTableRACUNI().getSelectedRow();
+                int red = prf.getjTableRECEPTI().getSelectedRow();
                 if (red == -1) {
                     //TODO poruke u joption pane moraju da budu kao u dokumentaciji
                     JOptionPane.showMessageDialog(prf, "Sistem ne moze da doda stavku", "Greska", JOptionPane.ERROR_MESSAGE);
                 } else {
-                    ModelTabeleRecepti mtr = (ModelTabeleRecepti) prf.getjTableRACUNI().getModel();
+                    ModelTabeleRecepti mtr = (ModelTabeleRecepti) prf.getjTableRECEPTI().getModel();
                     Recept recept = mtr.getLista().get(red);
 
                     cordinator.Cordinator.getInstance().dodajParam("recept", recept);
@@ -99,37 +97,54 @@ public class PrikazReceptaController {
             }
         });
 
-//        pdf.addBtnPRETRAZIctionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                String ime = pdf.getjTextFieldIME().getText();
-//                String prezime = pdf.getjTextFieldPREZIME().getText();
-//                String datumRodjenjaString = pdf.getjTextFieldDATUMRODJENJA().getText();
-//                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.M.yyyy");
-//                LocalDate datumRodnjenja = LocalDate.parse(datumRodjenjaString, formatter);
-//
-//                
-//                ModelTabeleDeca mtd = (ModelTabeleDeca) pdf.getjTableDECA().getModel();
-//                mtd.pretrazi(ime, prezime, datumRodnjenja);
-//            }
-//
-//        });
-//        pdf.addBtnRESETUJctionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                pripremiFormu();
-//            }
-//
-//        });
+        prf.addBtnPRETRAZIActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                String datumIzdavanjaString = prf.getjTextFieldDATUMIZDAVANJA().getText();
+
+                LocalDate datumIzdavanja = null;
+                if (!datumIzdavanjaString.isEmpty()) {
+                    try {
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.M.yyyy");
+                        datumIzdavanja = LocalDate.parse(datumIzdavanjaString, formatter);
+                    } catch (DateTimeParseException ex) {
+                        System.err.println("Invalid date format: " + datumIzdavanjaString);
+                        JOptionPane.showMessageDialog(prf, "Sistem ne moze da pretrazi recept", "Greska", JOptionPane.ERROR_MESSAGE);
+                        return; // Exit early if the date is invalid
+                    }
+                }
+
+                String imeDeteta = prf.getjTextFieldImeDETETA().getText();
+                String prezimeDeteta = prf.getjTextFieldPrezimeDETETA().getText();
+                String imeDoktora = prf.getjTextFieldIMEdoktora().getText();
+                String prezimeDoktora = prf.getjTextFieldPREZIMEdoktora().getText();
+
+                ModelTabeleRecepti mtr = (ModelTabeleRecepti) prf.getjTableRECEPTI().getModel();
+                mtr.pretrazi(imeDeteta, prezimeDeteta, imeDoktora, prezimeDoktora, imeDoktora, datumIzdavanja);
+
+                List<StavkaRecepta> stavkeRecepata = new ArrayList<>();
+                ModelTabeleStavke mts = new ModelTabeleStavke(stavkeRecepata);
+                prf.getjTableStavke().setModel(mts);
+            }
+
+        });
+        prf.addBtnRESETUJActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pripremiFormu();
+            }
+
+        });
     }
 
     private void addMouseListeners() {
-        prf.getjTableRACUNI().addMouseListener(new MouseAdapter() {
+        prf.getjTableRECEPTI().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                int red = prf.getjTableRACUNI().getSelectedRow();
+                int red = prf.getjTableRECEPTI().getSelectedRow();
                 if (red != -1) {
-                    ModelTabeleRecepti mtr = (ModelTabeleRecepti) prf.getjTableRACUNI().getModel();
+                    ModelTabeleRecepti mtr = (ModelTabeleRecepti) prf.getjTableRECEPTI().getModel();
                     Recept recept = mtr.getLista().get(red);
                     List<StavkaRecepta> stavke = communication.Communication.getInstance().ucitajStavke(recept.getIdRecept());
                     ModelTabeleStavke mts = new ModelTabeleStavke(stavke);
@@ -147,10 +162,10 @@ public class PrikazReceptaController {
     public void pripremiFormu() {
         List<Recept> recepti = communication.Communication.getInstance().ucitajRecepte();
         ModelTabeleRecepti mtr = new ModelTabeleRecepti(recepti);
-        prf.getjTableRACUNI().setModel(mtr);
+        prf.getjTableRECEPTI().setModel(mtr);
 
         List<StavkaRecepta> stavkeRecepata = new ArrayList<>();
         ModelTabeleStavke mts = new ModelTabeleStavke(stavkeRecepata);
-        prf.getjTableStavke().setModel(mtr);
+        prf.getjTableStavke().setModel(mts);
     }
 }

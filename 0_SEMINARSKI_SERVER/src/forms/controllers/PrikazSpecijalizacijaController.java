@@ -9,6 +9,7 @@ import forms.PrikazSpecijalizacijaForm;
 import forms.models.ModelTabeleSpecijalizacije;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import operations.specijalizacija.DodajSpecijalizacijuSO;
@@ -36,8 +37,8 @@ public class PrikazSpecijalizacijaController {
                 Specijalizacija specijalizacija = new Specijalizacija(-1, naziv);
 
                 try {
-                    DodajSpecijalizacijuSO so = new DodajSpecijalizacijuSO();
-                    so.izvrsi(specijalizacija, null);
+                    controller.Controller.getInstance().dodajSpecijalizaciju(specijalizacija);
+                    
                     
                     JOptionPane.showMessageDialog(psf, "Sistem je kreirao specijalizaciju", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
                     pripremiFormu();
@@ -61,8 +62,7 @@ public class PrikazSpecijalizacijaController {
                     ModelTabeleSpecijalizacije mts = (ModelTabeleSpecijalizacije) psf.getjTableSPECIJALIZACIJA().getModel();
                     Specijalizacija specijalizacija = mts.getLista().get(red);
                     try {
-                        ObrisiSpecijalizacijaSO so = new ObrisiSpecijalizacijaSO();
-                        so.izvrsi(specijalizacija, null);
+                        controller.Controller.getInstance().obrisiSpecijalizaciju(specijalizacija);
 
                         JOptionPane.showMessageDialog(psf, "Sistem je obrisao specijalizaciju", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
                         pripremiFormu();
@@ -86,13 +86,12 @@ public class PrikazSpecijalizacijaController {
 
     public void pripremiFormu() {
         ocistiPolja();
-        UcitajSpecijalizacijeSO so = new UcitajSpecijalizacijeSO();
+        List<Specijalizacija> specijalizacije = new ArrayList<>();
         try {
-            so.izvrsi(new Specijalizacija(), null);
+            specijalizacije = controller.Controller.getInstance().ucitajSpecijalizacije();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        List<Specijalizacija> specijalizacije = so.getSpecijalizacije();
         ModelTabeleSpecijalizacije mts = new ModelTabeleSpecijalizacije(specijalizacije);
         psf.getjTableSPECIJALIZACIJA().setModel(mts);
     }

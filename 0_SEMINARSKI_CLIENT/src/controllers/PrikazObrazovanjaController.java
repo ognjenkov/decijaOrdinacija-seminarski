@@ -9,12 +9,8 @@ import domain.PredskolskoDete;
 import domain.SkolskoDete;
 
 import forms.PrikazObrazovanjaForm;
-import forms.models.ModelTabeleDeca;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.List;
 import javax.swing.JOptionPane;
 

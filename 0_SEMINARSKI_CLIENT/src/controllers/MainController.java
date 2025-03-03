@@ -68,7 +68,6 @@ public class MainController {
                     JOptionPane.showMessageDialog(mainForm, "Logout error", "Error", JOptionPane.ERROR_MESSAGE);
 
                 } else {
-                    communication.Communication.getInstance().disconnect();
                     Cordinator.getInstance().setUlogovani(null);
 
                     JOptionPane.showMessageDialog(mainForm, "Izlogovali ste se", "Success", JOptionPane.INFORMATION_MESSAGE);

@@ -33,6 +33,7 @@ public class LoginOperation extends AbstractGenericOperation {
         System.out.println("KLASA loginOperacija" + sviDoktori);
 
         if (sviDoktori.contains((Doktor) param)) {
+            System.out.println("TRUE");
             for (Doktor doktor1 : sviDoktori) {
                 if (doktor1.equals((Doktor) param)) {
                     doktor = doktor1;

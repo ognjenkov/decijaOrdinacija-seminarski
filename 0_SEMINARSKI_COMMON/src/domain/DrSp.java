@@ -59,7 +59,7 @@ public class DrSp implements AbstractDomainObject {
             int idSpecijalizacija = rs.getInt("drsp.idSpecijalizacija");
             String nazivSpecijalizacija = rs.getString("specijalizacija.naziv");
 
-            Doktor doktor = new Doktor(idDoktor, imeDoktor, prezimeDoktor, emailDoktor);
+            Doktor doktor = new Doktor(idDoktor, imeDoktor, prezimeDoktor, emailDoktor, "");
             Specijalizacija specijalizacija = new Specijalizacija(idSpecijalizacija, nazivSpecijalizacija);
 
             DrSp drSp = new DrSp(doktor, specijalizacija);
@@ -80,7 +80,7 @@ public class DrSp implements AbstractDomainObject {
             int idSpecijalizacija = rs.getInt("drsp.idSpecijalizacija");
             String nazivSpecijalizacija = rs.getString("specijalizacija.naziv");
 
-            Doktor doktor = new Doktor(idDoktor, imeDoktor, prezimeDoktor, emailDoktor);
+            Doktor doktor = new Doktor(idDoktor, imeDoktor, prezimeDoktor, emailDoktor, "");
             Specijalizacija specijalizacija = new Specijalizacija(idSpecijalizacija, nazivSpecijalizacija);
 
             return new DrSp(doktor, specijalizacija);

@@ -18,20 +18,22 @@ public class Doktor implements AbstractDomainObject {
     private String ime;
     private String prezime;
     private String email;
-
+    private String sifra;
+    
     public Doktor() {
     }
 
-    public Doktor(int idDoktor, String ime, String prezime, String email) {
+    public Doktor(int idDoktor, String ime, String prezime, String email, String sifra) {
         this.idDoktor = idDoktor;
         this.ime = ime;
         this.prezime = prezime;
         this.email = email;
+        this.sifra = sifra;
     }
     
-    public Doktor(int idDoktor, String email) {
-        this.idDoktor = idDoktor;
+    public Doktor(String email, String sifra) {
         this.email = email;
+        this.sifra = sifra;
     }
     
     public Doktor(String ime, String prezime, String email) {
@@ -63,10 +65,11 @@ public class Doktor implements AbstractDomainObject {
             return false;
         }
         final Doktor other = (Doktor) obj;
-        if (this.idDoktor != other.idDoktor) {
+        if (!Objects.equals(this.sifra,other.getSifra())) {
             return false;
         }
-        return Objects.equals(this.email, other.email);
+        
+        return Objects.equals(this.email, other.getEmail());
     }
 
     public int getIdDoktor() {
@@ -101,6 +104,15 @@ public class Doktor implements AbstractDomainObject {
         this.email = email;
     }
 
+    public String getSifra() {
+        return sifra;
+    }
+
+    public void setSifra(String sifra) {
+        this.sifra = sifra;
+    }
+    
+
     @Override
     public String returnTableName() {
         return "doktor";
@@ -115,8 +127,9 @@ public class Doktor implements AbstractDomainObject {
             String ime = rs.getString("doktor.ime");
             String prezime = rs.getString("doktor.prezime");
             String email = rs.getString("doktor.email");
+            String sifra = rs.getString("doktor.sifra");
             
-            Doktor doktor = new Doktor(idDoktor, ime, prezime, email);
+            Doktor doktor = new Doktor(idDoktor, ime, prezime, email, sifra);
             list.add(doktor);
         }
         
@@ -130,20 +143,21 @@ public class Doktor implements AbstractDomainObject {
             String ime = rs.getString("doktor.ime");
             String prezime = rs.getString("doktor.prezime");
             String email = rs.getString("doktor.email");
+            String sifra = rs.getString("doktor.sifra");
             
-            return new Doktor(idDoktor, ime, prezime, email);
+            return new Doktor(idDoktor, ime, prezime, email, sifra);
         }
         return null;
     }
 
     @Override
     public String vratiKoloneZaUbacivanje() {
-        return "ime, prezime, email";
+        return "ime, prezime, email, sifra";
     }
 
     @Override
     public String vratiVrednostZaUbacivanje() {
-        return "'" + ime + "','" + prezime + "','" + email + "'";
+        return "'" + ime + "','" + prezime + "','" + email + "','" + sifra + "'";
     }
 
     @Override
@@ -153,6 +167,6 @@ public class Doktor implements AbstractDomainObject {
 
     @Override
     public String vratiVrednostiZaIzmenu() {
-        return "ime='" + ime + "', prezime='" + prezime + "', email='" + email + "'";
+        return "ime='" + ime + "', prezime='" + prezime + "', email='" + email + "', sifra='" + sifra + "'";
     }
 }

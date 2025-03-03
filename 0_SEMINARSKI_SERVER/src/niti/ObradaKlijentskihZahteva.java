@@ -238,7 +238,7 @@ public class ObradaKlijentskihZahteva extends Thread {
 
     public void disconnect() {
         try {
-//            sender.send(new Response((Object) true));
+            sender.send(new Response((boolean) true));
 
             this.kraj = true;
 

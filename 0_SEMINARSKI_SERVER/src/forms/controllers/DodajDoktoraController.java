@@ -33,9 +33,9 @@ public class DodajDoktoraController {
                 String email = ddf.getjTextFieldEMAIL().getText();
                 String ime = ddf.getjTextFieldIME().getText();
                 String prezime = ddf.getjTextFieldPREZIME().getText();
-//            ddf.getjPasswordFieldSIFRA().setText(l.getProizvodjac());
+                String sifra = String.valueOf(ddf.getjPasswordFieldSIFRA().getPassword());
 
-                Doktor doktor = new Doktor(-1, ime, prezime, email);
+                Doktor doktor = new Doktor(-1, ime, prezime, email, sifra);
 
                 try {
                     controller.Controller.getInstance().dodajDoktora(doktor);
@@ -56,17 +56,17 @@ public class DodajDoktoraController {
                 String email = ddf.getjTextFieldEMAIL().getText();
                 String ime = ddf.getjTextFieldIME().getText();
                 String prezime = ddf.getjTextFieldPREZIME().getText();
-//            ddf.getjPasswordFieldSIFRA().setText(l.getProizvodjac());
+                String sifra = String.valueOf(ddf.getjPasswordFieldSIFRA().getPassword());
 
                 Doktor d = (Doktor) cordinator.Cordinator.getInstance().vratiParam("doktor");
-                Doktor doktor = new Doktor(d.getIdDoktor(), ime, prezime, email);
-                
+                Doktor doktor = new Doktor(d.getIdDoktor(), ime, prezime, email, sifra);
+
                 try {
                     controller.Controller.getInstance().izmeniDoktora(doktor);
 
                     JOptionPane.showMessageDialog(ddf, "Sistem je azurirao doktora", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
                     cordinator.Cordinator.getInstance().osveziPrikazDoktoraForm();
-                    
+
                     ddf.dispose();
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(ddf, "Sistem ne moze da azurira doktora", "Greska", JOptionPane.ERROR_MESSAGE);

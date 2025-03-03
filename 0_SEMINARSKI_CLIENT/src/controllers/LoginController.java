@@ -32,15 +32,10 @@ public class LoginController {
 
             private void prijava(ActionEvent e) {
                 String email = lf.getjTextField1().getText().trim();
-                String id = String.valueOf(lf.getjPasswordField1().getPassword());
-                int idInt;
-                try {
-                    idInt = Integer.parseInt(id);
-                } catch (Exception ex) {
-                    throw ex;
-                }
+                String sifra = String.valueOf(lf.getjPasswordField1().getPassword());
+                
                 communication.Communication.getInstance().connection();
-                Doktor doktor = communication.Communication.getInstance().login(idInt, email);
+                Doktor doktor = communication.Communication.getInstance().login(email, sifra);
 
                 if (doktor == null) {
                     //TODO

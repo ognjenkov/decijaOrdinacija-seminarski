@@ -101,7 +101,7 @@ public class Recept implements AbstractDomainObject {
             String ime = rs.getString("doktor.ime");
             String prezime = rs.getString("doktor.prezime");
             String email = rs.getString("doktor.email");
-            Doktor doktor = new Doktor(idDoktor, ime, prezime, email);
+            Doktor doktor = new Doktor(idDoktor, ime, prezime, email, "");
             int idRecept = rs.getInt("recept.idRecept");
             LocalDate datumIzdavanja = rs.getDate("recept.datumIzdavanja").toLocalDate();
             
@@ -126,7 +126,7 @@ public class Recept implements AbstractDomainObject {
             String ime = rs.getString("doktor.ime");
             String prezime = rs.getString("doktor.prezime");
             String email = rs.getString("doktor.email");
-            Doktor doktor = new Doktor(idDoktor, ime, prezime, email);
+            Doktor doktor = new Doktor(idDoktor, ime, prezime, email, "");
 
             int idRecept = rs.getInt("recept.idRecept");
             LocalDate datumIzdavanja = rs.getDate("recept.datumIzdavanja").toLocalDate();

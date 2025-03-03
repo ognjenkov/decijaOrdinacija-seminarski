@@ -55,32 +55,23 @@ public class Communication {
             System.out.println("server nije povezan");
         }
     }
-    
+
     public void disconnect() {
         try {
-            if (sender != null) {
-//                sender.close(); 
-                sender = null;
-            }
-            if (receiver != null) {
-//                receiver.close();
-                receiver = null;
-            }
             if (socket != null && !socket.isClosed()) {
                 socket.close();
             }
-        } catch (IOException ex) {
-            System.out.println("Error closing socket: " + ex.getMessage());
-        } finally {
             socket = null;
             sender = null;
             receiver = null;
-            instance = null; // Allow reconnection with a new instance
+            instance = null;
+        } catch (IOException ex) {
+            System.out.println("Error closing socket: " + ex.getMessage());
         }
     }
 
-    public Doktor login(int id, String email) {
-        Doktor d = new Doktor(id, email);
+    public Doktor login(String email, String sifra) {
+        Doktor d = new Doktor(email, sifra);
         Request req = new Request(Operation.LOGIN, d);
         System.out.println("LOGIN komunikacija request SENT");
         sender.send(req);
@@ -91,10 +82,23 @@ public class Communication {
 
         return d;
     }
-    
+
     public boolean logout() {
-//        Request req = new Request(Operation.LOGOUT, null);
-    return true;
+        Request req = new Request(Operation.LOGOUT, null);
+        System.out.println("LOGOUT komunikacija request SENT");
+        sender.send(req);
+        Response res = (Response) receiver.receive();
+        System.out.println("LOGOUT komunikacija response RECEIVED");
+
+//        boolean d = (boolean) res.getPayload();
+//        if (d) {
+//            disconnect();
+//
+//        }
+//        return d;
+        disconnect();
+
+        return true;
     }
 
     public List<Dete> ucitajDecu() {
@@ -338,7 +342,7 @@ public class Communication {
         }
     }
 
-    public void obrisiRecept(Recept recept) throws Exception{
+    public void obrisiRecept(Recept recept) throws Exception {
         Request req = new Request(Operation.OBRISI_RECEPT, recept);
         System.out.println("OBRISI_RECEPT komunikacija request SENT");
 
@@ -348,9 +352,8 @@ public class Communication {
 
         if (res.getPayload() == null) {
             System.out.println("USPEH");
-                        cordinator.Cordinator.getInstance().osveziFormuPrikazRecepata();
+            cordinator.Cordinator.getInstance().osveziFormuPrikazRecepata();
 
-            
         } else {
 //            TODO mozes da implementiras kod deleta moze da dodje greska da ima constraint u bazi i to da ispises u poruci
             System.out.println("GRESKA");
@@ -359,7 +362,7 @@ public class Communication {
         }
     }
 
-    public void obrisiStavkuRecepta(StavkaRecepta stavkaRecepta) throws Exception{
+    public void obrisiStavkuRecepta(StavkaRecepta stavkaRecepta) throws Exception {
         Request req = new Request(Operation.OBRISI_STAVKURECEPTA, stavkaRecepta);
         System.out.println("OBRISI_STAVKURECEPTA komunikacija request SENT");
 
@@ -369,7 +372,7 @@ public class Communication {
 
         if (res.getPayload() == null) {
             System.out.println("USPEH");
-                        cordinator.Cordinator.getInstance().osveziFormuPrikazRecepata();
+            cordinator.Cordinator.getInstance().osveziFormuPrikazRecepata();
 
         } else {
 //            TODO mozes da implementiras kod deleta moze da dodje greska da ima constraint u bazi i to da ispises u poruci
@@ -379,8 +382,8 @@ public class Communication {
         }
     }
 
-    public List<Lek> ucitajLekove(){
-         List<Lek> lista = new ArrayList<>();
+    public List<Lek> ucitajLekove() {
+        List<Lek> lista = new ArrayList<>();
         Request req = new Request(Operation.UCITAJ_LEKOVE, null);
         System.out.println("UCITAJ ucitajLekove komunikacija request SENT");
 
@@ -412,6 +415,7 @@ public class Communication {
             throw new Exception("greska pri dodavanjju recepta");
         }
     }
+
     public void dodajStavkuRecepta(StavkaRecepta stavka) throws Exception {
         Request req = new Request(Operation.DODAJ_STAVKURECEPTA, stavka);
         System.out.println("DODAJ_STAVKURECEPTA komunikacija request SENT");

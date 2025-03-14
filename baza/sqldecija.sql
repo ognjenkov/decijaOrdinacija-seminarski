@@ -26,7 +26,7 @@ CREATE TABLE `dete` (
   `prezime` varchar(50) NOT NULL,
   `datumRodjenja` date NOT NULL,
   PRIMARY KEY (`idDete`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `doktor` */
 
@@ -37,8 +37,9 @@ CREATE TABLE `doktor` (
   `ime` varchar(50) NOT NULL,
   `prezime` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
+  `sifra` varchar(50) NOT NULL,
   PRIMARY KEY (`idDoktor`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `drsp` */
 
@@ -64,7 +65,7 @@ CREATE TABLE `lek` (
   `aktivniSastojak` varchar(50) NOT NULL,
   `farmaceutskaGrupa` varchar(50) NOT NULL,
   PRIMARY KEY (`idLek`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `predskolskodete` */
 
@@ -75,7 +76,7 @@ CREATE TABLE `predskolskodete` (
   `grupa` varchar(50) NOT NULL,
   PRIMARY KEY (`idDete`),
   CONSTRAINT `predskolskodete_ibfk_1` FOREIGN KEY (`idDete`) REFERENCES `dete` (`idDete`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `recept` */
 
@@ -85,13 +86,13 @@ CREATE TABLE `recept` (
   `idRecept` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `idDoktor` int(10) unsigned NOT NULL,
   `idDete` int(10) unsigned NOT NULL,
-  `DatumIzdavanja` date NOT NULL,
+  `datumIzdavanja` date NOT NULL,
   PRIMARY KEY (`idRecept`,`idDoktor`,`idDete`),
   KEY `idDoktor` (`idDoktor`),
   KEY `idDete` (`idDete`),
   CONSTRAINT `recept_ibfk_1` FOREIGN KEY (`idDoktor`) REFERENCES `doktor` (`idDoktor`),
   CONSTRAINT `recept_ibfk_2` FOREIGN KEY (`idDete`) REFERENCES `dete` (`idDete`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `skolskodete` */
 
@@ -103,7 +104,7 @@ CREATE TABLE `skolskodete` (
   `razred` varchar(50) NOT NULL,
   PRIMARY KEY (`idDete`),
   CONSTRAINT `fk1` FOREIGN KEY (`idDete`) REFERENCES `dete` (`idDete`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `specijalizacija` */
 
@@ -113,7 +114,7 @@ CREATE TABLE `specijalizacija` (
   `idSpecijalizacija` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `naziv` varchar(50) NOT NULL,
   PRIMARY KEY (`idSpecijalizacija`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `stavkarecepta` */
 
@@ -123,8 +124,8 @@ CREATE TABLE `stavkarecepta` (
   `idRecept` int(10) unsigned NOT NULL,
   `rb` int(10) unsigned NOT NULL,
   `idLek` int(10) unsigned NOT NULL,
-  `Terapija` varchar(500) NOT NULL,
-  `Zakljucak` varchar(500) NOT NULL,
+  `terapija` varchar(500) NOT NULL,
+  `zakljucak` varchar(500) NOT NULL,
   PRIMARY KEY (`idRecept`,`rb`,`idLek`),
   KEY `rb` (`rb`),
   KEY `idLek` (`idLek`),

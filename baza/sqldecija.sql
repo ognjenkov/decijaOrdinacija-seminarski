@@ -87,12 +87,13 @@ CREATE TABLE `recept` (
   `idDoktor` int(10) unsigned NOT NULL,
   `idDete` int(10) unsigned NOT NULL,
   `datumIzdavanja` date NOT NULL,
+  `dijagnoza` varchar(50) NOT NULL,
   PRIMARY KEY (`idRecept`,`idDoktor`,`idDete`),
   KEY `idDoktor` (`idDoktor`),
   KEY `idDete` (`idDete`),
   CONSTRAINT `recept_ibfk_1` FOREIGN KEY (`idDoktor`) REFERENCES `doktor` (`idDoktor`),
   CONSTRAINT `recept_ibfk_2` FOREIGN KEY (`idDete`) REFERENCES `dete` (`idDete`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `skolskodete` */
 

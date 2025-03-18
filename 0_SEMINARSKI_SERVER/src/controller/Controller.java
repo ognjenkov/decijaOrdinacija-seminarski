@@ -39,6 +39,7 @@ import operations.predskolskoDete.DodajPredskolskoDeteSO;
 import operations.predskolskoDete.ObrisiPredskolskoDeteSO;
 import operations.predskolskoDete.UcitajPredskolskuDecuSO;
 import operations.recept.DodajReceptSO;
+import operations.recept.IzmeniReceptSO;
 import operations.recept.ObrisiReceptSO;
 import operations.skolskoDete.IzmeniSkolskoDeteSO;
 import operations.skolskoDete.DodajSkolskoDeteSO;
@@ -203,6 +204,13 @@ public class Controller {
         DodajStavkuReceptaSO dsrso = new DodajStavkuReceptaSO();
         dsrso.izvrsi(sr, null);
 
+    }
+    
+    public void izmeniRecept(Recept recept) throws Exception {
+        System.out.println("Controller - izmeniRecept");
+        
+        IzmeniReceptSO so = new IzmeniReceptSO();
+        so.izvrsi(recept, null);
     }
 
     public void obrisiRecept(Recept recept) throws Exception {

@@ -17,7 +17,7 @@ import javax.swing.table.AbstractTableModel;
 public class ModelTabeleRecepti extends AbstractTableModel{
 
     List<Recept> lista;
-    String[] kolone = {"idRecept", "datumIzavanja", "Doktor", "Dete"};
+    String[] kolone = {"idRecept", "datumIzavanja", "Doktor", "Dete", "dijagnoza"};
 
     public ModelTabeleRecepti(List<Recept> lista) {
         this.lista = lista;
@@ -52,6 +52,8 @@ public class ModelTabeleRecepti extends AbstractTableModel{
                 return r.getDoktor().getIme();
             case 3:
                 return r.getDete().getIme();
+            case 4:
+                return r.getDijagnoza();
             default:
                 return "error";
         }
@@ -61,13 +63,14 @@ public class ModelTabeleRecepti extends AbstractTableModel{
         return lista;
     }
 
-    public void pretrazi(String imeDeteta, String prezimeDeteta, String imeDoktora, String prezimeDoktora, String emailDoktora, LocalDate datumIzdavanja) {
+    public void pretrazi(String imeDeteta, String prezimeDeteta, String imeDoktora, String prezimeDoktora, String emailDoktora, LocalDate datumIzdavanja, String dijagnoza) {
         List<Recept> filteredList = lista.stream()
                 .filter(d -> (imeDeteta == null || imeDeteta.isEmpty() || d.getDete().getIme().toLowerCase().contains(imeDeteta.toLowerCase())))
                 .filter(d -> (prezimeDeteta == null || prezimeDeteta.isEmpty() || d.getDete().getPrezime().toLowerCase().contains(prezimeDeteta.toLowerCase())))
                 .filter(d -> (imeDoktora == null || imeDoktora.isEmpty() || d.getDoktor().getIme().toLowerCase().contains(imeDoktora.toLowerCase())))
                 .filter(d -> (prezimeDoktora == null || prezimeDoktora.isEmpty() || d.getDoktor().getPrezime().toLowerCase().contains(prezimeDoktora.toLowerCase())))
                 .filter(d -> (emailDoktora == null || emailDoktora.isEmpty() || d.getDoktor().getEmail().toLowerCase().contains(emailDoktora.toLowerCase())))
+                .filter(d -> (dijagnoza == null || dijagnoza.isEmpty() || d.getDijagnoza().toLowerCase().contains(dijagnoza.toLowerCase())))
                 .filter(d -> (datumIzdavanja == null || datumIzdavanja.isEqual(d.getDatumIzdavanja())))
                 .collect(Collectors.toList());
         this.lista = filteredList;

@@ -92,33 +92,39 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jComboBoxLEKOVI" min="-2" pref="353" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                      <Component id="jButtonIZDAJ" min="-2" pref="219" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jScrollPane2" alignment="1" min="-2" pref="353" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jComboBoxDIJAGNOZA" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel1" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabelNAME" min="-2" pref="251" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jComboBoxDECA" max="32767" attributes="0"/>
+                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="112" max="32767" attributes="0"/>
+                      <Component id="jButtonLOGOUT" min="-2" pref="164" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel1" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabelNAME" min="-2" pref="251" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="jComboBoxDECA" max="32767" attributes="0"/>
-                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" alignment="0" pref="359" max="32767" attributes="0"/>
-                      <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" min="-2" pref="353" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jComboBoxLEKOVI" min="-2" pref="353" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <Component id="jButtonIZDAJ" min="-2" pref="219" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="41" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButtonLOGOUT" min="-2" pref="164" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -126,20 +132,30 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButtonLOGOUT" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jLabelNAME" max="32767" attributes="0"/>
-                  <Component id="jLabel1" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButtonLOGOUT" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jLabelNAME" max="32767" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace pref="44" max="32767" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jComboBoxDECA" min="-2" pref="48" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jComboBoxDIJAGNOZA" min="-2" pref="48" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="125" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
@@ -149,10 +165,10 @@
               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jComboBoxLEKOVI" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
-                  <Component id="jButtonIZDAJ" alignment="3" min="-2" pref="58" max="-2" attributes="0"/>
+                  <Component id="jComboBoxLEKOVI" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="jButtonIZDAJ" alignment="3" pref="48" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="79" pref="111" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -190,7 +206,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Problem/ Bolest:"/>
+        <Property name="text" type="java.lang.String" value="Zakljucak:"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -249,6 +265,54 @@
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
         <Property name="text" type="java.lang.String" value="Lek:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jComboBoxDIJAGNOZA">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="32">
+            <StringItem index="0" value="Povi&#x161;ena telesna temperatura (febrilnost)"/>
+            <StringItem index="1" value="Povrede (posekotine, opekotine, modrice)"/>
+            <StringItem index="2" value="Vakcinacija (reakcije na vakcine)"/>
+            <StringItem index="3" value="Dehidracija kod dece"/>
+            <StringItem index="4" value="Konjunktivitis"/>
+            <StringItem index="5" value="Akutne respiratorne infekcije (prehlada, virusne infekcije)"/>
+            <StringItem index="6" value="Streptokokna angina"/>
+            <StringItem index="7" value="Upala uha (otitis media)"/>
+            <StringItem index="8" value="Bronhitis i bronhiolitis"/>
+            <StringItem index="9" value="Upala plu&#x107;a (pneumonija)"/>
+            <StringItem index="10" value="Alergijski rinitis"/>
+            <StringItem index="11" value="Astma kod dece"/>
+            <StringItem index="12" value="Gastroenteritis (stoma&#x10d;ni virus)"/>
+            <StringItem index="13" value="Ospice (morbili)"/>
+            <StringItem index="14" value="Vodene boginje (varicella)"/>
+            <StringItem index="15" value="De&#x10d;iji ekcem (atopijski dermatitis)"/>
+            <StringItem index="16" value="Urinarna infekcija"/>
+            <StringItem index="17" value="Karijes mle&#x10d;nih i stalnih zuba"/>
+            <StringItem index="18" value="Gingivitis kod dece"/>
+            <StringItem index="19" value="Aftozni stomatitis"/>
+            <StringItem index="20" value="Trauma zuba (udari, prelomi)"/>
+            <StringItem index="21" value="Malokluzija (nepravilan zagrizaj)"/>
+            <StringItem index="22" value="Ka&#x161;njenje u razvoju govora"/>
+            <StringItem index="23" value="Dislalija (pogre&#x161;an izgovor glasova)"/>
+            <StringItem index="24" value="Razvojna dizartrija"/>
+            <StringItem index="25" value="O&#x161;te&#x107;enje sluha povezano sa govorom"/>
+            <StringItem index="26" value="Mucanje (balbuties)"/>
+            <StringItem index="27" value="Poreme&#x107;aj pa&#x17e;nje i hiperaktivnost (ADHD)"/>
+            <StringItem index="28" value="Anksioznost kod dece"/>
+            <StringItem index="29" value="Poreme&#x107;aji u pona&#x161;anju"/>
+            <StringItem index="30" value="Problemi sa prilago&#x111;avanjem u &#x161;koli"/>
+            <StringItem index="31" value="No&#x107;ni strahovi i no&#x107;ne more"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel6">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Dijagnoza"/>
       </Properties>
     </Component>
   </SubComponents>

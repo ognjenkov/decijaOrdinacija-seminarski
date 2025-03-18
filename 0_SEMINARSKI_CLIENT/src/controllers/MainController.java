@@ -84,14 +84,14 @@ public class MainController {
         mainForm.addBtnIZDAJActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                String dijagnoza = (String) mainForm.getjComboBoxDIJAGNOZA().getSelectedItem();
                 String terapija = mainForm.getjTextAreaTERAPIJA().getText();
                 String zakljucak = mainForm.getjTextAreaZAKLJUCAK().getText();
                 Dete dete = (Dete) mainForm.getjComboBoxDECA().getSelectedItem();
                 Lek lek = (Lek) mainForm.getjComboBoxLEKOVI().getSelectedItem();
                 Doktor doktor = Cordinator.getInstance().getUlogovani();
 
-                Recept recept = new Recept(-1, doktor, dete, LocalDate.now());
+                Recept recept = new Recept(-1, doktor, dete, LocalDate.now(), dijagnoza);
                 StavkaRecepta stavka = new StavkaRecepta(1, recept, lek, terapija, zakljucak);
 
                 try {

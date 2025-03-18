@@ -141,6 +141,8 @@ public class StavkaRecepta implements AbstractDomainObject {
 
             int idRecept = rs.getInt("recept.idRecept");
             LocalDate datumIzdavanja = rs.getDate("recept.datumIzdavanja").toLocalDate();
+            String dijagnoza = rs.getString("recept.dijagnoza");
+
 
             int idDete = rs.getInt("dete.idDete");
             String imeDete = rs.getString("dete.ime");
@@ -150,7 +152,7 @@ public class StavkaRecepta implements AbstractDomainObject {
 
             Dete dete = new Dete(idDete, imeDete, prezimeDete, datumRodjenjaDete);
 
-            Recept recept = new Recept(idRecept, doktor, dete, datumIzdavanja);
+            Recept recept = new Recept(idRecept, doktor, dete, datumIzdavanja, dijagnoza);
 
             list.add(new StavkaRecepta(rb, recept, lek, terapija, zakljucak));
         }
@@ -180,6 +182,7 @@ public class StavkaRecepta implements AbstractDomainObject {
 
             int idRecept = rs.getInt("recept.idRecept");
             LocalDate datumIzdavanja = rs.getDate("recept.datumIzdavanja").toLocalDate();
+            String dijagnoza = rs.getString("recept.dijagnoza");
 
             int idDete = rs.getInt("dete.idDete");
             String imeDete = rs.getString("dete.ime");
@@ -189,7 +192,7 @@ public class StavkaRecepta implements AbstractDomainObject {
 
             Dete dete = new Dete(idDete, imeDete, prezimeDete, datumRodjenjaDete);
 
-            Recept recept = new Recept(idRecept, doktor, dete, datumIzdavanja);
+            Recept recept = new Recept(idRecept, doktor, dete, datumIzdavanja, dijagnoza);
 
             return new StavkaRecepta(rb, recept, lek, terapija, zakljucak);
         }

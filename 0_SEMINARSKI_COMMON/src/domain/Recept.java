@@ -19,15 +19,17 @@ public class Recept implements AbstractDomainObject {
     private Doktor doktor;
     private Dete dete;
     private LocalDate datumIzdavanja;
+    private String dijagnoza;
 
     public Recept() {
     }
 
-    public Recept(int idRecept, Doktor doktor, Dete dete, LocalDate datumIzdavanja) {
+    public Recept(int idRecept, Doktor doktor, Dete dete, LocalDate datumIzdavanja, String dijagnoza) {
         this.idRecept = idRecept;
         this.doktor = doktor;
         this.dete = dete;
         this.datumIzdavanja = datumIzdavanja;
+        this.dijagnoza = dijagnoza;
     }
 
     public int getIdRecept() {
@@ -62,9 +64,18 @@ public class Recept implements AbstractDomainObject {
         this.datumIzdavanja = datumIzdavanja;
     }
 
+    public String getDijagnoza() {
+        return dijagnoza;
+    }
+
+    public void setDijagnoza(String dijagnoza) {
+        this.dijagnoza = dijagnoza;
+    }
+    
+
     @Override
     public String toString() {
-        return "Recept{" + "idRecept=" + idRecept + ", doktor=" + doktor + ", dete=" + dete + ", datumIzdavanja=" + datumIzdavanja + '}';
+        return "Recept{" + "idRecept=" + idRecept + ", doktor=" + doktor + ", dete=" + dete + ", datumIzdavanja=" + datumIzdavanja + ", dijagnoza=" + dijagnoza + "}";
     }
 
     @Override
@@ -104,6 +115,7 @@ public class Recept implements AbstractDomainObject {
             Doktor doktor = new Doktor(idDoktor, ime, prezime, email, "");
             int idRecept = rs.getInt("recept.idRecept");
             LocalDate datumIzdavanja = rs.getDate("recept.datumIzdavanja").toLocalDate();
+            String dijagnoza = rs.getString("recept.dijagnoza");
             
             int idDete = rs.getInt("dete.idDete");
             String imeDete = rs.getString("dete.ime");
@@ -113,7 +125,7 @@ public class Recept implements AbstractDomainObject {
 
             Dete dete1 = new Dete(idDete, imeDete, prezimeDete, datumRodjenjaDete);
             
-            list.add(new Recept(idRecept, doktor, dete1, datumIzdavanja));
+            list.add(new Recept(idRecept, doktor, dete1, datumIzdavanja, dijagnoza));
         }
 
         return list;
@@ -130,6 +142,7 @@ public class Recept implements AbstractDomainObject {
 
             int idRecept = rs.getInt("recept.idRecept");
             LocalDate datumIzdavanja = rs.getDate("recept.datumIzdavanja").toLocalDate();
+            String dijagnoza = rs.getString("recept.dijagnoza");
 
             int idDete = rs.getInt("dete.idDete");
             String imeDete = rs.getString("dete.ime");
@@ -139,29 +152,28 @@ public class Recept implements AbstractDomainObject {
 
             Dete dete = new Dete(idDete, imeDete, prezimeDete, datumRodjenjaDete);
 
-            return new Recept(idRecept, doktor, dete, datumIzdavanja);
+            return new Recept(idRecept, doktor, dete, datumIzdavanja, dijagnoza);
         }
         return null;
     }
 
     @Override
     public String vratiKoloneZaUbacivanje() {
-        return "idDoktor, idDete, datumIzdavanja";
+        return "idDoktor, idDete, datumIzdavanja, dijagnoza";
     }
 
     @Override
     public String vratiVrednostZaUbacivanje() {
-        return "'" + doktor.getIdDoktor() + "','" + dete.getIdDete() + "','" + datumIzdavanja + "'";
+        return "'" + doktor.getIdDoktor() + "','" + dete.getIdDete() + "','" + datumIzdavanja + "','" + dijagnoza + "'";
     }
 
     @Override
     public String vratiPrimarniKljuc() {
         return "recept.idDoktor = " + doktor.getIdDoktor() + " AND recept.idRecept = " + idRecept + " AND recept.idDete = " + dete.getIdDete();
-
     }
 
     @Override
     public String vratiVrednostiZaIzmenu() {//TODO mislim da ovo nije dobro
-        return "datumIzdavanja='" + datumIzdavanja + "'";
+        return "datumIzdavanja='" + datumIzdavanja + "', dijagnoza='" + dijagnoza + "'";
     }
 }

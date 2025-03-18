@@ -51,6 +51,8 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
         jButtonPRETRAZI = new javax.swing.JButton();
         jButtonRESETUJ = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jTextFieldDIJAGNOZA = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Prikaz izdatih recepta");
@@ -103,6 +105,8 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
 
         jLabel6.setText("( 1.1.2001 )");
 
+        jLabel7.setText("Dijagnoza:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,14 +122,16 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel5))
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel7))
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jTextFieldImeDETETA, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldPrezimeDETETA, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldIMEdoktora, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldPREZIMEdoktora, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                            .addComponent(jTextFieldDATUMIZDAVANJA))
+                            .addComponent(jTextFieldDATUMIZDAVANJA)
+                            .addComponent(jTextFieldDIJAGNOZA))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -148,6 +154,18 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonOBRISIstavku)
+                            .addComponent(jButtonDODAJstavku))
+                        .addContainerGap(262, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jTextFieldDIJAGNOZA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(jTextFieldDATUMIZDAVANJA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -170,17 +188,11 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
                             .addComponent(jTextFieldPREZIMEdoktora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonPRETRAZI)
                             .addComponent(jButtonRESETUJ))
-                        .addGap(34, 34, 34)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonOBRISIrecept))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonOBRISIstavku)
-                            .addComponent(jButtonDODAJstavku))))
-                .addContainerGap(44, Short.MAX_VALUE))
+                        .addComponent(jButtonOBRISIrecept)
+                        .addGap(29, 29, 29))))
         );
 
         pack();
@@ -203,11 +215,13 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableRECEPTI;
     private javax.swing.JTable jTableStavke;
     private javax.swing.JTextField jTextFieldDATUMIZDAVANJA;
+    private javax.swing.JTextField jTextFieldDIJAGNOZA;
     private javax.swing.JTextField jTextFieldIMEdoktora;
     private javax.swing.JTextField jTextFieldImeDETETA;
     private javax.swing.JTextField jTextFieldPREZIMEdoktora;
@@ -279,6 +293,10 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
 
     public JTextField getjTextFieldPrezimeDETETA() {
         return jTextFieldPrezimeDETETA;
+    }
+
+    public JTextField getjTextFieldDIJAGNOZA() {
+        return jTextFieldDIJAGNOZA;
     }
 
     

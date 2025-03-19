@@ -436,4 +436,23 @@ public class Communication {
         }
     }
 
+    public void izmeniRecept(Recept r) throws Exception {
+        Request req = new Request(Operation.IZMENI_RECEPT, r);
+        System.out.println("IZMENI RECEPT komunikacija request SENT");
+
+        sender.send(req);
+        Response res = (Response) receiver.receive();
+        System.out.println("IZMENI RECEPT komunikacija response RECEIVED");
+
+        if (res.getPayload() == null) {
+            System.out.println("USPEH");
+            cordinator.Cordinator.getInstance().osveziFormuPrikazRecepata();
+        } else {
+//            TODO mozes da implementiras kod deleta moze da dodje greska da ima constraint u bazi i to da ispises u poruci
+            System.out.println("GRESKA");
+            ((Exception) res.getPayload()).printStackTrace();
+            throw new Exception("greska pri azuriranju recepta");
+        }
+    }
+
 }

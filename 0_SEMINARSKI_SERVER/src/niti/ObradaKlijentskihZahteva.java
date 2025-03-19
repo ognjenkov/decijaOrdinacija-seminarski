@@ -216,6 +216,16 @@ public class ObradaKlijentskihZahteva extends Thread {
                     } catch (Exception e) {
                         res.setPayload(e);
                     }
+                } else if (req.getOperation() == Operation.IZMENI_RECEPT) {
+                    System.out.println("Obrisi IZMENI_RECEPT operacija");
+
+                    try {
+                        Recept recept = (Recept) req.getPayload();
+                        Controller.getInstance().izmeniRecept(recept);
+                        res.setPayload(null);
+                    } catch (Exception e) {
+                        res.setPayload(e);
+                    }
                 } else if (req.getOperation() == Operation.LOGOUT) {
                     disconnect();
                 } else {

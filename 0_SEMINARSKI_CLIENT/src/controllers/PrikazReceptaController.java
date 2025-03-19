@@ -35,7 +35,7 @@ public class PrikazReceptaController {
     }
 
     private void addActionListenes() {
-        
+
         prf.addBtnOBRISIreceptActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -134,6 +134,24 @@ public class PrikazReceptaController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pripremiFormu();
+            }
+
+        });
+
+        prf.addBtnAZURIRAJRECEPTActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int red = prf.getjTableRECEPTI().getSelectedRow();
+                if (red == -1) {
+                    //TODO poruke u joption pane moraju da budu kao u dokumentaciji
+                    JOptionPane.showMessageDialog(prf, "Sistem ne moze da azurira recept", "Greska", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    ModelTabeleRecepti mtr = (ModelTabeleRecepti) prf.getjTableRECEPTI().getModel();
+                    Recept recept = mtr.getLista().get(red);
+                    cordinator.Cordinator.getInstance().dodajParam("recept", recept);
+                    cordinator.Cordinator.getInstance().openIzmeniReceptForm();
+
+                }
             }
 
         });

@@ -53,6 +53,7 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jTextFieldDIJAGNOZA = new javax.swing.JTextField();
+        jButtonAZURIRAJRECEPT = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Prikaz izdatih recepta");
@@ -107,14 +108,19 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
 
         jLabel7.setText("Dijagnoza:");
 
+        jButtonAZURIRAJRECEPT.setText("AZURIRAJ RECEPT");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonOBRISIrecept, javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonAZURIRAJRECEPT, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonOBRISIrecept))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +167,6 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
                             .addComponent(jButtonDODAJstavku))
                         .addContainerGap(262, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
                             .addComponent(jTextFieldDIJAGNOZA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -191,7 +196,9 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonOBRISIrecept)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonOBRISIrecept)
+                            .addComponent(jButtonAZURIRAJRECEPT))
                         .addGap(29, 29, 29))))
         );
 
@@ -204,6 +211,7 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAZURIRAJRECEPT;
     private javax.swing.JButton jButtonDODAJstavku;
     private javax.swing.JButton jButtonOBRISIrecept;
     private javax.swing.JButton jButtonOBRISIstavku;
@@ -252,7 +260,13 @@ public class PrikazReceptaForm extends javax.swing.JFrame {
     public void addBtnRESETUJActionListener(ActionListener actionListener) {
         jButtonRESETUJ.addActionListener(actionListener);
     }
+    public void addBtnAZURIRAJRECEPTActionListener(ActionListener actionListener) {
+        jButtonAZURIRAJRECEPT.addActionListener(actionListener);
+    }
 
+    public JButton getjButtonAZURIRAJRECEPT() {
+        return jButtonAZURIRAJRECEPT;
+    }
     
 
     public JButton getjButtonDODAJstavku() {

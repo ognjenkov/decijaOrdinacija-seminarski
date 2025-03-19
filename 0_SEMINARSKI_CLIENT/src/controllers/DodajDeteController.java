@@ -53,12 +53,7 @@ public class DodajDeteController {
                     JOptionPane.showMessageDialog(ddf, "Sistem ne moze da kreira dete", "Greska", JOptionPane.ERROR_MESSAGE);
                     System.out.println(ex);
                 }
-
             }
-            
-            
-            
-
         });
         
         

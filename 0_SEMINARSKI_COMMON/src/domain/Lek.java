@@ -17,18 +17,29 @@ public class Lek implements AbstractDomainObject {
     private int idLek;
     private String naziv;
     private String proizvodjac;
-    private String aktivniSastojak;
-    private String farmaceutskaGrupa;
+    private String inn;
+    private String atcKlasifikacija;
+    private String farmakoloskaHemijskaPodgrupa;
+    private String farmaceutskiOblik;
+    private String sadrzajAktivneSupstance;
+    private String pakovanje;
+    private String terapijskaGrupa;
 
     public Lek() {
     }
 
-    public Lek(int idLek, String naziv, String proizvodjac, String aktivniSastojak, String farmaceutskaGrupa) {
+    public Lek(int idLek, String naziv, String proizvodjac, String inn, String atcKlasifikacija, String farmakoloskaHemijskaPodgrupa, String farmaceutskiOblik, String sadrzajAktivneSupstance, String pakovanje, String terapijskaGrupa) {
         this.idLek = idLek;
         this.naziv = naziv;
         this.proizvodjac = proizvodjac;
-        this.aktivniSastojak = aktivniSastojak;
-        this.farmaceutskaGrupa = farmaceutskaGrupa;
+        this.inn = inn;
+        this.atcKlasifikacija = atcKlasifikacija;
+        this.farmakoloskaHemijskaPodgrupa = farmakoloskaHemijskaPodgrupa;
+        this.farmaceutskiOblik = farmaceutskiOblik;
+        this.sadrzajAktivneSupstance = sadrzajAktivneSupstance;
+        this.pakovanje = pakovanje;
+        this.terapijskaGrupa = terapijskaGrupa;
+
     }
 
     public int getIdLek() {
@@ -55,20 +66,60 @@ public class Lek implements AbstractDomainObject {
         this.proizvodjac = proizvodjac;
     }
 
-    public String getAktivniSastojak() {
-        return aktivniSastojak;
+    public String getInn() {
+        return inn;
     }
 
-    public void setAktivniSastojak(String aktivniSastojak) {
-        this.aktivniSastojak = aktivniSastojak;
+    public void setInn(String inn) {
+        this.inn = inn;
     }
 
-    public String getFarmaceutskaGrupa() {
-        return farmaceutskaGrupa;
+    public String getAtcKlasifikacija() {
+        return atcKlasifikacija;
     }
 
-    public void setFarmaceutskaGrupa(String farmaceutskaGrupa) {
-        this.farmaceutskaGrupa = farmaceutskaGrupa;
+    public void setAtcKlasifikacija(String atcKlasifikacija) {
+        this.atcKlasifikacija = atcKlasifikacija;
+    }
+
+    public String getFarmakoloskaHemijskaPodgrupa() {
+        return farmakoloskaHemijskaPodgrupa;
+    }
+
+    public void setFarmakoloskaHemijskaPodgrupa(String farmakoloskaHemijskaPodgrupa) {
+        this.farmakoloskaHemijskaPodgrupa = farmakoloskaHemijskaPodgrupa;
+    }
+
+    public String getFarmaceutskiOblik() {
+        return farmaceutskiOblik;
+    }
+
+    public void setFarmaceutskiOblik(String farmaceutskiOblik) {
+        this.farmaceutskiOblik = farmaceutskiOblik;
+    }
+
+    public String getSadrzajAktivneSupstance() {
+        return sadrzajAktivneSupstance;
+    }
+
+    public void setSadrzajAktivneSupstance(String sadrzajAktivneSupstance) {
+        this.sadrzajAktivneSupstance = sadrzajAktivneSupstance;
+    }
+
+    public String getPakovanje() {
+        return pakovanje;
+    }
+
+    public void setPakovanje(String pakovanje) {
+        this.pakovanje = pakovanje;
+    }
+
+    public String getTerapijskaGrupa() {
+        return terapijskaGrupa;
+    }
+
+    public void setTerapijskaGrupa(String terapijskaGrupa) {
+        this.terapijskaGrupa = terapijskaGrupa;
     }
 
     @Override
@@ -94,7 +145,7 @@ public class Lek implements AbstractDomainObject {
 
     @Override
     public String toString() {
-        return "Lek{" + "naziv=" + naziv + ", proizvodjac=" + proizvodjac + ", aktivniSastojak=" + aktivniSastojak + ", farmaceutskaGrupa=" + farmaceutskaGrupa + '}';
+        return (naziv + " - " + proizvodjac).toUpperCase();
     }
 
     @Override
@@ -104,7 +155,7 @@ public class Lek implements AbstractDomainObject {
 
     @Override
     public String vratiKoloneZaUbacivanje() {
-        return "naziv, proizvodjac, aktivniSastojak, farmaceutskaGrupa";
+        return "naziv, proizvodjac, inn, atcKlasifikacija, farmakoloskaHemijskaPodgrupa, farmaceutskiOblik, sadrzajAktivneSupstance, pakovanje, terapijskaGrupa";
     }
 
     @Override
@@ -114,8 +165,13 @@ public class Lek implements AbstractDomainObject {
                     rs.getInt("lek.idLek"),
                     rs.getString("lek.naziv"),
                     rs.getString("lek.proizvodjac"),
-                    rs.getString("lek.aktivniSastojak"),
-                    rs.getString("lek.farmaceutskaGrupa")
+                    rs.getString("lek.inn"),
+                    rs.getString("lek.atcKlasifikacija"),
+                    rs.getString("lek.farmakoloskaHemijskaPodgrupa"),
+                    rs.getString("lek.farmaceutskiOblik"),
+                    rs.getString("lek.sadrzajAktivneSupstance"),
+                    rs.getString("lek.pakovanje"),
+                    rs.getString("lek.terapijskaGrupa")
             );
         }
         return null;
@@ -129,8 +185,13 @@ public class Lek implements AbstractDomainObject {
                     rs.getInt("lek.idLek"),
                     rs.getString("lek.naziv"),
                     rs.getString("lek.proizvodjac"),
-                    rs.getString("lek.aktivniSastojak"),
-                    rs.getString("lek.farmaceutskaGrupa")
+                    rs.getString("lek.inn"),
+                    rs.getString("lek.atcKlasifikacija"),
+                    rs.getString("lek.farmakoloskaHemijskaPodgrupa"),
+                    rs.getString("lek.farmaceutskiOblik"),
+                    rs.getString("lek.sadrzajAktivneSupstance"),
+                    rs.getString("lek.pakovanje"),
+                    rs.getString("lek.terapijskaGrupa")
             );
             lekovi.add(lek);
         }
@@ -139,7 +200,7 @@ public class Lek implements AbstractDomainObject {
 
     @Override
     public String vratiVrednostZaUbacivanje() {
-        return "'" + naziv + "', '" + proizvodjac + "', '" + aktivniSastojak + "', '" + farmaceutskaGrupa + "'";
+        return "'" + naziv + "', '" + proizvodjac + "', '" + inn + "', '" + atcKlasifikacija + "', '" + farmakoloskaHemijskaPodgrupa + "', '" + farmaceutskiOblik + "', '" + sadrzajAktivneSupstance + "', '" + pakovanje + "', '" + terapijskaGrupa + "'";
     }
 
     @Override
@@ -150,7 +211,12 @@ public class Lek implements AbstractDomainObject {
     @Override
     public String vratiVrednostiZaIzmenu() {
         return "naziv = '" + naziv + "', proizvodjac = '" + proizvodjac
-                + "', aktivniSastojak = '" + aktivniSastojak
-                + "', farmaceutskaGrupa = '" + farmaceutskaGrupa + "'";
+                + "', inn = '" + inn
+                + "', atcKlasifikacija = '" + atcKlasifikacija
+                + "', farmakoloskaHemijskaPodgrupa = '" + farmakoloskaHemijskaPodgrupa
+                + "', farmaceutskiOblik = '" + farmaceutskiOblik
+                + "', sadrzajAktivneSupstance = '" + sadrzajAktivneSupstance
+                + "', pakovanje = '" + pakovanje
+                + "', terapijskaGrupa = '" + terapijskaGrupa + "'";
     }
 }

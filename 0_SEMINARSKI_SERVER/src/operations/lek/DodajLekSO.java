@@ -19,11 +19,26 @@ public class DodajLekSO extends AbstractGenericOperation{
             throw new Exception("Sistem nije mogao da doda lek #1");
         }
         Lek lek = (Lek) param;
-        if(lek.getNaziv()== null || lek.getProizvodjac() == null || lek.getAktivniSastojak() == null
-                || lek.getFarmaceutskaGrupa() == null) {
+        if(lek.getNaziv()== null 
+                || lek.getProizvodjac() == null 
+                || lek.getInn() == null
+                || lek.getAtcKlasifikacija() == null
+                || lek.getFarmakoloskaHemijskaPodgrupa() == null
+                || lek.getFarmaceutskiOblik() == null
+                || lek.getSadrzajAktivneSupstance() == null
+                || lek.getPakovanje() == null
+                || lek.getTerapijskaGrupa() == null) {
             throw new Exception("Sistem nije mogao da doda lek #2");
         }
-        if(lek.getNaziv().length() > 50 || lek.getProizvodjac().length() > 50 || lek.getAktivniSastojak().length() > 50 || lek.getFarmaceutskaGrupa().length() > 50) {
+        if(lek.getNaziv().length() > 50 
+                || lek.getProizvodjac().length() > 50 
+                || lek.getInn().length() > 50
+                || lek.getAtcKlasifikacija().length() > 50
+                || lek.getFarmakoloskaHemijskaPodgrupa().length() > 50
+                || lek.getFarmaceutskiOblik().length() > 50
+                || lek.getSadrzajAktivneSupstance().length() > 50
+                || lek.getPakovanje().length() > 50
+                || lek.getTerapijskaGrupa().length() > 50) {
             throw new Exception("Sistem nije mogao da doda lek #3");
         }
     }

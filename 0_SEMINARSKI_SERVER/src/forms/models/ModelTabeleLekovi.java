@@ -16,7 +16,7 @@ import javax.swing.table.AbstractTableModel;
 public class ModelTabeleLekovi extends AbstractTableModel {
 
     List<Lek> lista;
-    String[] kolone = {"idLek", "Naziv", "Proizvodjac", "Aktivni sastojak", "Farmaceutska grupa"};
+    String[] kolone = {"idLek", "Naziv", "Proizvodjac", "Pakovanje"};
     
     public ModelTabeleLekovi(List<Lek> lista) {
         this.lista = lista;
@@ -49,9 +49,7 @@ public class ModelTabeleLekovi extends AbstractTableModel {
             case 2:
                 return l.getProizvodjac();
             case 3:
-                return l.getAktivniSastojak();
-            case 4:
-                return l.getFarmaceutskaGrupa();
+                return l.getPakovanje();
             default:
                 return "error";
         }
@@ -61,10 +59,8 @@ public class ModelTabeleLekovi extends AbstractTableModel {
         return lista;
     }
     
-    public void pretrazi(String aktivniSastojak, String farmaceutskaGrupa, String naziv, String proizvodjac) {
+    public void pretrazi(String naziv, String proizvodjac) {
         List<Lek> filteredList = lista.stream()
-                .filter(d -> (aktivniSastojak == null || aktivniSastojak.isEmpty() || d.getAktivniSastojak().toLowerCase().contains(aktivniSastojak.toLowerCase())))
-                .filter(d -> (farmaceutskaGrupa == null || farmaceutskaGrupa.isEmpty() || d.getFarmaceutskaGrupa().toLowerCase().contains(farmaceutskaGrupa.toLowerCase())))
                 .filter(d -> (naziv == null || naziv.isEmpty() || d.getNaziv().toLowerCase().contains(naziv.toLowerCase())))
                 .filter(d -> (proizvodjac == null || proizvodjac.isEmpty() || d.getProizvodjac().toLowerCase().contains(proizvodjac.toLowerCase())))
                 .collect(Collectors.toList());

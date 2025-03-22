@@ -124,10 +124,15 @@ public class StavkaRecepta implements AbstractDomainObject {
             int idLek = rs.getInt("lek.idLek");
             String naziv = rs.getString("lek.naziv");
             String proizvodjac = rs.getString("lek.proizvodjac");
-            String aktivniSastojak = rs.getString("lek.aktivniSastojak");
-            String farmaceutskaGrupa = rs.getString("lek.farmaceutskaGrupa");
+            String inn = rs.getString("lek.inn");
+            String atcKlasifikacija = rs.getString("lek.atcKlasifikacija");
+            String farmakoloskaHemijskaPodgrupa = rs.getString("lek.farmakoloskaHemijskaPodgrupa");
+            String farmaceutskiOblik = rs.getString("lek.farmaceutskiOblik");
+            String sadrzajAktivneSupstance = rs.getString("lek.sadrzajAktivneSupstance");
+            String pakovanje = rs.getString("lek.pakovanje");
+            String terapijskaGrupa = rs.getString("lek.terapijskaGrupa");
 
-            Lek lek = new Lek(idLek, naziv, proizvodjac, aktivniSastojak, farmaceutskaGrupa);
+            Lek lek = new Lek(idLek, naziv, proizvodjac, inn, atcKlasifikacija, farmakoloskaHemijskaPodgrupa, farmaceutskiOblik, sadrzajAktivneSupstance, pakovanje, terapijskaGrupa);
 
             int rb = rs.getInt("stavkarecepta.rb");
             String terapija = rs.getString("stavkarecepta.terapija");
@@ -142,7 +147,6 @@ public class StavkaRecepta implements AbstractDomainObject {
             int idRecept = rs.getInt("recept.idRecept");
             LocalDate datumIzdavanja = rs.getDate("recept.datumIzdavanja").toLocalDate();
             String dijagnoza = rs.getString("recept.dijagnoza");
-
 
             int idDete = rs.getInt("dete.idDete");
             String imeDete = rs.getString("dete.ime");
@@ -165,10 +169,15 @@ public class StavkaRecepta implements AbstractDomainObject {
             int idLek = rs.getInt("lek.idLek");
             String naziv = rs.getString("lek.naziv");
             String proizvodjac = rs.getString("lek.proizvodjac");
-            String aktivniSastojak = rs.getString("lek.aktivniSastojak");
-            String farmaceutskaGrupa = rs.getString("lek.farmaceutskaGrupa");
+            String inn = rs.getString("lek.inn");
+            String atcKlasifikacija = rs.getString("lek.atcKlasifikacija");
+            String farmakoloskaHemijskaPodgrupa = rs.getString("lek.farmakoloskaHemijskaPodgrupa");
+            String farmaceutskiOblik = rs.getString("lek.farmaceutskiOblik");
+            String sadrzajAktivneSupstance = rs.getString("lek.sadrzajAktivneSupstance");
+            String pakovanje = rs.getString("lek.pakovanje");
+            String terapijskaGrupa = rs.getString("lek.terapijskaGrupa");
 
-            Lek lek = new Lek(idLek, naziv, proizvodjac, aktivniSastojak, farmaceutskaGrupa);
+            Lek lek = new Lek(idLek, naziv, proizvodjac, inn, atcKlasifikacija, farmakoloskaHemijskaPodgrupa, farmaceutskiOblik, sadrzajAktivneSupstance, pakovanje, terapijskaGrupa);
 
             int rb = rs.getInt("stavkarecepta.rb");
             String terapija = rs.getString("stavkarecepta.terapija");
@@ -206,7 +215,7 @@ public class StavkaRecepta implements AbstractDomainObject {
 
     @Override
     public String vratiVrednostZaUbacivanje() {
-        return "'" + recept.getIdRecept() + "','" + rb + "','" + lek.getIdLek()+ "','" + terapija + "','" + zakljucak + "'";
+        return "'" + recept.getIdRecept() + "','" + rb + "','" + lek.getIdLek() + "','" + terapija + "','" + zakljucak + "'";
     }
 
     @Override

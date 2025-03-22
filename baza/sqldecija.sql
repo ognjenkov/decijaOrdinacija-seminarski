@@ -62,8 +62,13 @@ CREATE TABLE `lek` (
   `idLek` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `naziv` varchar(50) NOT NULL,
   `proizvodjac` varchar(50) NOT NULL,
-  `aktivniSastojak` varchar(50) NOT NULL,
-  `farmaceutskaGrupa` varchar(50) NOT NULL,
+  `inn` varchar(50) NOT NULL,
+  `atcKlasifikacija` varchar(50) NOT NULL,
+  `farmakoloskaHemijskaPodgrupa` varchar(50) NOT NULL,
+  `farmaceutskiOblik` varchar(50) NOT NULL,
+  `sadrzajAktivneSupstance` varchar(50) NOT NULL,
+  `pakovanje` varchar(50) NOT NULL,
+  `terapijskaGrupa` varchar(50) NOT NULL,
   PRIMARY KEY (`idLek`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 

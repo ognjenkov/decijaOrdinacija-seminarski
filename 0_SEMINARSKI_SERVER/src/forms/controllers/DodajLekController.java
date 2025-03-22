@@ -28,16 +28,22 @@ public class DodajLekController {
         dlf.dodajAddActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String aktivniSastojak = dlf.getjTextFieldAKTIVNISASTOJAK().getText();
-                String farmaceutskaGrupa = dlf.getjTextFieldFARMACEUTSKAGRUPA().getText();
+
                 String naziv = dlf.getjTextFieldNAZIV().getText();
                 String proizvodjac = dlf.getjTextFieldPROIZVODJAC().getText();
-                
-                Lek lek = new Lek(-1, naziv, proizvodjac, aktivniSastojak, farmaceutskaGrupa);
+                String inn = dlf.getjTextFieldINN().getText();
+                String atcKlasifikacija = dlf.getjTextFieldATCKLASIFIKACIJA().getText();
+                String farmakoloskaHemijskaPodgrupa = dlf.getjTextFieldFARMAKOLOSKA().getText();
+                String farmaceutskiOblik = dlf.getjTextFieldFARMACEUTSKIOBLIK().getText();
+                String sadrzajAktivneSupstance = dlf.getjTextFieldSADRZAJAKTIVNESUPSTANCE().getText();
+                String pakovanje = dlf.getjTextFieldPAKOVANJE().getText();
+                String terapijskaGrupa = dlf.getjTextFieldTERAPIJSKAGRUPA().getText();
+
+                Lek lek = new Lek(-1, naziv, proizvodjac, inn, atcKlasifikacija, farmakoloskaHemijskaPodgrupa, farmaceutskiOblik, sadrzajAktivneSupstance, pakovanje, terapijskaGrupa);
 
                 try {
                     controller.Controller.getInstance().dodajLek(lek);
-                    
+
                     JOptionPane.showMessageDialog(dlf, "Sistem je kreirao lek", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
                     ocistiPolja();
                     cordinator.Cordinator.getInstance().osveziPrikazLekovaForm();
@@ -53,15 +59,20 @@ public class DodajLekController {
         dlf.azurirajAddActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String aktivniSastojak = dlf.getjTextFieldAKTIVNISASTOJAK().getText();
-                String farmaceutskaGrupa = dlf.getjTextFieldFARMACEUTSKAGRUPA().getText();
                 String naziv = dlf.getjTextFieldNAZIV().getText();
                 String proizvodjac = dlf.getjTextFieldPROIZVODJAC().getText();
-                
+                String inn = dlf.getjTextFieldINN().getText();
+                String atcKlasifikacija = dlf.getjTextFieldATCKLASIFIKACIJA().getText();
+                String farmakoloskaHemijskaPodgrupa = dlf.getjTextFieldFARMAKOLOSKA().getText();
+                String farmaceutskiOblik = dlf.getjTextFieldFARMACEUTSKIOBLIK().getText();
+                String sadrzajAktivneSupstance = dlf.getjTextFieldSADRZAJAKTIVNESUPSTANCE().getText();
+                String pakovanje = dlf.getjTextFieldPAKOVANJE().getText();
+                String terapijskaGrupa = dlf.getjTextFieldTERAPIJSKAGRUPA().getText();
+
                 Lek l = (Lek) cordinator.Cordinator.getInstance().vratiParam("lek");
-                Lek lek = new Lek(l.getIdLek(), naziv, proizvodjac, aktivniSastojak, farmaceutskaGrupa);
+                Lek lek = new Lek(l.getIdLek(), naziv, proizvodjac, inn, atcKlasifikacija, farmakoloskaHemijskaPodgrupa, farmaceutskiOblik, sadrzajAktivneSupstance, pakovanje, terapijskaGrupa);
                 try {
-                    
+
                     controller.Controller.getInstance().izmeniLek(lek);
 
                     JOptionPane.showMessageDialog(dlf, "Sistem je izmenio lek", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
@@ -83,11 +94,15 @@ public class DodajLekController {
     }
 
     private void ocistiPolja() {
-        dlf.getjTextFieldAKTIVNISASTOJAK().setText("");
-        dlf.getjTextFieldFARMACEUTSKAGRUPA().setText("");
         dlf.getjTextFieldNAZIV().setText("");
         dlf.getjTextFieldPROIZVODJAC().setText("");
-
+        dlf.getjTextFieldINN().setText("");
+        dlf.getjTextFieldATCKLASIFIKACIJA().setText("");
+        dlf.getjTextFieldFARMAKOLOSKA().setText("");
+        dlf.getjTextFieldFARMACEUTSKIOBLIK().setText("");
+        dlf.getjTextFieldSADRZAJAKTIVNESUPSTANCE().setText("");
+        dlf.getjTextFieldPAKOVANJE().setText("");
+        dlf.getjTextFieldTERAPIJSKAGRUPA().setText("");
     }
 
     private void pripremiFormu(FormMode mode) {
@@ -106,10 +121,15 @@ public class DodajLekController {
             Lek l = (Lek) cordinator.Cordinator.getInstance().vratiParam("lek");
 
             dlf.getjLabelID2().setText(l.getIdLek() + "");
-            dlf.getjTextFieldAKTIVNISASTOJAK().setText(l.getAktivniSastojak());
-            dlf.getjTextFieldFARMACEUTSKAGRUPA().setText(l.getFarmaceutskaGrupa());
             dlf.getjTextFieldNAZIV().setText(l.getNaziv());
             dlf.getjTextFieldPROIZVODJAC().setText(l.getProizvodjac());
+            dlf.getjTextFieldINN().setText(l.getInn());
+            dlf.getjTextFieldATCKLASIFIKACIJA().setText(l.getAtcKlasifikacija());
+            dlf.getjTextFieldFARMAKOLOSKA().setText(l.getFarmakoloskaHemijskaPodgrupa());
+            dlf.getjTextFieldFARMACEUTSKIOBLIK().setText(l.getFarmaceutskiOblik());
+            dlf.getjTextFieldSADRZAJAKTIVNESUPSTANCE().setText(l.getSadrzajAktivneSupstance());
+            dlf.getjTextFieldPAKOVANJE().setText(l.getPakovanje());
+            dlf.getjTextFieldTERAPIJSKAGRUPA().setText(l.getTerapijskaGrupa());
 
         }
     }

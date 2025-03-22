@@ -31,98 +31,74 @@ public class DodajLekForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jTextFieldNAZIV = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         jTextFieldPROIZVODJAC = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextFieldAKTIVNISASTOJAK = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextFieldFARMACEUTSKAGRUPA = new javax.swing.JTextField();
         jButtonDODAJ = new javax.swing.JButton();
         jButtonAZURIRAJ = new javax.swing.JButton();
         jLabelID1 = new javax.swing.JLabel();
         jLabelID2 = new javax.swing.JLabel();
+        jTextFieldINN = new javax.swing.JTextField();
+        jTextFieldATCKLASIFIKACIJA = new javax.swing.JTextField();
+        jTextFieldFARMAKOLOSKA = new javax.swing.JTextField();
+        jTextFieldFARMACEUTSKIOBLIK = new javax.swing.JTextField();
+        jTextFieldSADRZAJAKTIVNESUPSTANCE = new javax.swing.JTextField();
+        jTextFieldPAKOVANJE = new javax.swing.JTextField();
+        jTextFieldTERAPIJSKAGRUPA = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Lek");
+        setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(900, 550));
+        setMinimumSize(new java.awt.Dimension(900, 550));
+        setPreferredSize(new java.awt.Dimension(900, 550));
+        setResizable(false);
+        getContentPane().setLayout(null);
+        getContentPane().add(jTextFieldNAZIV);
+        jTextFieldNAZIV.setBounds(30, 80, 170, 22);
+        getContentPane().add(jTextFieldPROIZVODJAC);
+        jTextFieldPROIZVODJAC.setBounds(200, 80, 180, 22);
 
-        jLabel1.setText("Naziv:");
-
-        jLabel2.setText("Proizvodjac:");
-
-        jLabel3.setText("Aktivni sastojak:");
-
-        jLabel4.setText("Farmaceutska grupa");
-
-        jButtonDODAJ.setText("Dodaj");
+        jButtonDODAJ.setText("DODAJ");
         jButtonDODAJ.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDODAJActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonDODAJ);
+        jButtonDODAJ.setBounds(720, 360, 130, 70);
 
-        jButtonAZURIRAJ.setText("Azuriraj");
+        jButtonAZURIRAJ.setText("AZURIRAJ");
+        getContentPane().add(jButtonAZURIRAJ);
+        jButtonAZURIRAJ.setBounds(580, 360, 130, 70);
 
         jLabelID1.setText("Id za azuriranje:");
+        getContentPane().add(jLabelID1);
+        jLabelID1.setBounds(380, 410, 81, 16);
 
         jLabelID2.setText("jLabel6");
+        getContentPane().add(jLabelID2);
+        jLabelID2.setBounds(480, 410, 37, 16);
+        getContentPane().add(jTextFieldINN);
+        jTextFieldINN.setBounds(30, 150, 220, 22);
+        getContentPane().add(jTextFieldATCKLASIFIKACIJA);
+        jTextFieldATCKLASIFIKACIJA.setBounds(250, 150, 100, 22);
+        getContentPane().add(jTextFieldFARMAKOLOSKA);
+        jTextFieldFARMAKOLOSKA.setBounds(30, 190, 310, 22);
+        getContentPane().add(jTextFieldFARMACEUTSKIOBLIK);
+        jTextFieldFARMACEUTSKIOBLIK.setBounds(80, 240, 160, 22);
+        getContentPane().add(jTextFieldSADRZAJAKTIVNESUPSTANCE);
+        jTextFieldSADRZAJAKTIVNESUPSTANCE.setBounds(270, 240, 100, 22);
+        getContentPane().add(jTextFieldPAKOVANJE);
+        jTextFieldPAKOVANJE.setBounds(390, 240, 140, 22);
+        getContentPane().add(jTextFieldTERAPIJSKAGRUPA);
+        jTextFieldTERAPIJSKAGRUPA.setBounds(530, 150, 120, 22);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelID2)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButtonAZURIRAJ)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                            .addComponent(jButtonDODAJ))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelID1)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel1)
-                                .addComponent(jTextFieldNAZIV, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                                .addComponent(jTextFieldPROIZVODJAC)
-                                .addComponent(jTextFieldAKTIVNISASTOJAK)
-                                .addComponent(jTextFieldFARMACEUTSKAGRUPA)))))
-                .addContainerGap(36, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelID1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelID2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldNAZIV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldPROIZVODJAC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldAKTIVNISASTOJAK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldFARMACEUTSKAGRUPA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonDODAJ)
-                    .addComponent(jButtonAZURIRAJ))
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\ognje\\Documents\\NetBeansProjects\\decijaOrdinacija_prosoft_seminarski\\dokumentacija\\lek.png")); // NOI18N
+        jLabel6.setText("jLabel6");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(0, -10, 880, 490);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -139,16 +115,18 @@ public class DodajLekForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAZURIRAJ;
     private javax.swing.JButton jButtonDODAJ;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelID1;
     private javax.swing.JLabel jLabelID2;
-    private javax.swing.JTextField jTextFieldAKTIVNISASTOJAK;
-    private javax.swing.JTextField jTextFieldFARMACEUTSKAGRUPA;
+    private javax.swing.JTextField jTextFieldATCKLASIFIKACIJA;
+    private javax.swing.JTextField jTextFieldFARMACEUTSKIOBLIK;
+    private javax.swing.JTextField jTextFieldFARMAKOLOSKA;
+    private javax.swing.JTextField jTextFieldINN;
     private javax.swing.JTextField jTextFieldNAZIV;
+    private javax.swing.JTextField jTextFieldPAKOVANJE;
     private javax.swing.JTextField jTextFieldPROIZVODJAC;
+    private javax.swing.JTextField jTextFieldSADRZAJAKTIVNESUPSTANCE;
+    private javax.swing.JTextField jTextFieldTERAPIJSKAGRUPA;
     // End of variables declaration//GEN-END:variables
 
     public JButton getjButtonAZURIRAJ() {
@@ -167,14 +145,6 @@ public class DodajLekForm extends javax.swing.JFrame {
         return jLabelID2;
     }
 
-    public JTextField getjTextFieldAKTIVNISASTOJAK() {
-        return jTextFieldAKTIVNISASTOJAK;
-    }
-
-    public JTextField getjTextFieldFARMACEUTSKAGRUPA() {
-        return jTextFieldFARMACEUTSKAGRUPA;
-    }
-
     public JTextField getjTextFieldNAZIV() {
         return jTextFieldNAZIV;
     }
@@ -189,5 +159,35 @@ public class DodajLekForm extends javax.swing.JFrame {
     public void azurirajAddActionListener(ActionListener a) {
         jButtonAZURIRAJ.addActionListener(a);
     }
+
+    public JTextField getjTextFieldATCKLASIFIKACIJA() {
+        return jTextFieldATCKLASIFIKACIJA;
+    }
+
+    public JTextField getjTextFieldFARMACEUTSKIOBLIK() {
+        return jTextFieldFARMACEUTSKIOBLIK;
+    }
+
+    public JTextField getjTextFieldFARMAKOLOSKA() {
+        return jTextFieldFARMAKOLOSKA;
+    }
+
+    public JTextField getjTextFieldINN() {
+        return jTextFieldINN;
+    }
+
+    public JTextField getjTextFieldPAKOVANJE() {
+        return jTextFieldPAKOVANJE;
+    }
+
+    public JTextField getjTextFieldSADRZAJAKTIVNESUPSTANCE() {
+        return jTextFieldSADRZAJAKTIVNESUPSTANCE;
+    }
+
+    public JTextField getjTextFieldTERAPIJSKAGRUPA() {
+        return jTextFieldTERAPIJSKAGRUPA;
+    }
+    
+    
 
 }

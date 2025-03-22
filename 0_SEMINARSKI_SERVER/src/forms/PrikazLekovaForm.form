@@ -31,19 +31,15 @@
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextFieldNAZIV" min="-2" pref="250" max="-2" attributes="0"/>
-                              <Component id="jTextFieldPROIZVODJAC" min="-2" pref="250" max="-2" attributes="0"/>
-                              <Component id="jTextFieldAKTIVNISASTOJAK" min="-2" pref="250" max="-2" attributes="0"/>
+                              <Component id="jTextFieldNAZIV" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jTextFieldFARMACEUTSKAGRUPA" min="-2" pref="250" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldPROIZVODJAC" min="-2" pref="250" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButtonPRETRAZI" min="-2" pref="153" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButtonRESETUJ" max="32767" attributes="0"/>
@@ -76,20 +72,10 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextFieldPROIZVODJAC" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldAKTIVNISASTOJAK" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldFARMACEUTSKAGRUPA" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonPRETRAZI" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonRESETUJ" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="56" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="441" max="-2" attributes="0"/>
@@ -99,7 +85,7 @@
                   <Component id="jButtonDODAJ" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                   <Component id="jButtonAZURIRAJ" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <EmptySpace pref="25" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -155,20 +141,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Proizvodjac"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Aktivni sastojak"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Farmaceutska grupa"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldFARMACEUTSKAGRUPA">
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldAKTIVNISASTOJAK">
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldPROIZVODJAC">
     </Component>

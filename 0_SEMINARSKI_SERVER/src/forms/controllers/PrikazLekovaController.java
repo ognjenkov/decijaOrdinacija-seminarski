@@ -81,13 +81,11 @@ public class PrikazLekovaController {
         plf.addBTNpretraziAddActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String aktivniSastojak = plf.getjTextFieldAKTIVNISASTOJAK().getText().trim();
-                String farmaceutskaGrupa = plf.getjTextFieldFARMACEUTSKAGRUPA().getText().trim();
                 String naziv = plf.getjTextFieldNAZIV().getText().trim();
                 String proizvodjac = plf.getjTextFieldPROIZVODJAC().getText().trim();
 
                 ModelTabeleLekovi mtl = (ModelTabeleLekovi) plf.getjTableLEK().getModel();
-                mtl.pretrazi(aktivniSastojak.isEmpty() ? null : aktivniSastojak, farmaceutskaGrupa.isEmpty() ? null : farmaceutskaGrupa, naziv.isEmpty() ? null : naziv, proizvodjac.isEmpty() ? null : proizvodjac);
+                mtl.pretrazi(naziv.isEmpty() ? null : naziv, proizvodjac.isEmpty() ? null : proizvodjac);
             }
 
         });

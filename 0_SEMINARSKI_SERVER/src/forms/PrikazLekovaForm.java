@@ -39,10 +39,6 @@ public class PrikazLekovaForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextFieldFARMACEUTSKAGRUPA = new javax.swing.JTextField();
-        jTextFieldAKTIVNISASTOJAK = new javax.swing.JTextField();
         jTextFieldPROIZVODJAC = new javax.swing.JTextField();
         jTextFieldNAZIV = new javax.swing.JTextField();
         jButtonPRETRAZI = new javax.swing.JButton();
@@ -76,10 +72,6 @@ public class PrikazLekovaForm extends javax.swing.JFrame {
 
         jLabel3.setText("Proizvodjac");
 
-        jLabel4.setText("Aktivni sastojak");
-
-        jLabel5.setText("Farmaceutska grupa");
-
         jButtonPRETRAZI.setText("Pretrazi");
 
         jButtonRESETUJ.setText("Resetuj");
@@ -95,18 +87,14 @@ public class PrikazLekovaForm extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel4)
                                 .addComponent(jLabel3)
                                 .addComponent(jLabel2))
-                            .addGap(18, 18, 18)
+                            .addGap(70, 70, 70)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTextFieldNAZIV, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldPROIZVODJAC, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldAKTIVNISASTOJAK, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jTextFieldFARMACEUTSKAGRUPA, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jTextFieldPROIZVODJAC, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jButtonPRETRAZI, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jButtonRESETUJ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -129,18 +117,10 @@ public class PrikazLekovaForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextFieldPROIZVODJAC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextFieldAKTIVNISASTOJAK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextFieldFARMACEUTSKAGRUPA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPROIZVODJAC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonPRETRAZI)
                     .addComponent(jButtonRESETUJ))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,7 +129,7 @@ public class PrikazLekovaForm extends javax.swing.JFrame {
                     .addComponent(jButtonOBRISI, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonDODAJ, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonAZURIRAJ, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -169,12 +149,8 @@ public class PrikazLekovaForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableLEK;
-    private javax.swing.JTextField jTextFieldAKTIVNISASTOJAK;
-    private javax.swing.JTextField jTextFieldFARMACEUTSKAGRUPA;
     private javax.swing.JTextField jTextFieldNAZIV;
     private javax.swing.JTextField jTextFieldPROIZVODJAC;
     // End of variables declaration//GEN-END:variables
@@ -201,14 +177,6 @@ public class PrikazLekovaForm extends javax.swing.JFrame {
 
     public JTable getjTableLEK() {
         return jTableLEK;
-    }
-
-    public JTextField getjTextFieldAKTIVNISASTOJAK() {
-        return jTextFieldAKTIVNISASTOJAK;
-    }
-
-    public JTextField getjTextFieldFARMACEUTSKAGRUPA() {
-        return jTextFieldFARMACEUTSKAGRUPA;
     }
 
     public JTextField getjTextFieldNAZIV() {

@@ -15,21 +15,22 @@ public class DodajPredskolskoDeteSO extends AbstractGenericOperation {
 
     @Override
     protected void preduslovi(Object param) throws Exception {
-         if(param == null || !(param instanceof PredskolskoDete)) {
+        if (param == null || !(param instanceof PredskolskoDete)) {
             throw new Exception("Sistem nije mogao da doda predskolsko dete #1");
         }
         PredskolskoDete dete = (PredskolskoDete) param;
-        if(dete.getGrupa()== null || dete.getIdDete() < 0) { //TODO manje od nula ili od 1
+        if (dete.getGrupa() == null || dete.getIdDete() < 0) { //TODO manje od nula ili od 1
             throw new Exception("Sistem nije mogao da doda predskolsko dete #2");
         }
-        if(dete.getGrupa().length() > 50) {
+        if (dete.getGrupa().length() > 50) {
             throw new Exception("Sistem nije mogao da doda predskolsko dete #3");
         }
     }
 
     @Override
     protected void izvrsiOperaciju(Object param, String kljuc) throws Exception {
+        System.out.println("SO");
         broker.add((PredskolskoDete) param);
     }
-    
+
 }

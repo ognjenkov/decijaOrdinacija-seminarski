@@ -12,24 +12,27 @@ import operations.AbstractGenericOperation;
  *
  * @author ognje
  */
-public class DodajReceptSO extends AbstractGenericOperation{
+public class DodajReceptSO extends AbstractGenericOperation {
+
     private int receptId;
+
     @Override
     protected void preduslovi(Object param) throws Exception {
-        if(param == null || !(param instanceof Recept)) {
+        if (param == null || !(param instanceof Recept)) {
             throw new Exception("Sistem nije mogao da doda Recept #1");
         }
         Recept recept = (Recept) param;
-        if(recept.getDete() == null || recept.getDoktor() == null) {
+        if (recept.getDete() == null || recept.getDoktor() == null) {
             throw new Exception("Sistem nije mogao da doda Recept #2");
         }
-        if(recept.getDete().getIdDete() < 1 || recept.getDoktor().getIdDoktor() < 1) {
+        if (recept.getDete().getIdDete() < 1 || recept.getDoktor().getIdDoktor() < 1) {
             throw new Exception("Sistem nije mogao da doda Recept #3");
         }
     }
 
     @Override
     protected void izvrsiOperaciju(Object param, String kljuc) throws Exception {
+        System.out.println("SO");
         Recept recept = (Recept) param;
         recept.setDatumIzdavanja(LocalDate.now());
         receptId = broker.add((Recept) param);
@@ -38,5 +41,5 @@ public class DodajReceptSO extends AbstractGenericOperation{
     public int getReceptId() {
         return receptId;
     }
-    
+
 }

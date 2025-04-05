@@ -29,6 +29,7 @@ public class DodajDoktoraSO extends AbstractGenericOperation {
 
     @Override
     protected void izvrsiOperaciju(Object param, String kljuc) throws Exception {
+        System.out.println("SO");
         broker.add((Doktor) param);
 
     }

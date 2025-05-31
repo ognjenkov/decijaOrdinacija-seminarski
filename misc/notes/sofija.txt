@@ -1,0 +1,24 @@
+sofija
+Faza Projektovanja
+arhitektura softverskog sistema
+
+projektovanje ekranskih formi (skrinovi sa SK)
+PROJEKTOVANJE KONTROLERA KORISNICKOG INTERFEJSA
+projektovanje aplikacione logike
+prokejtovanje kontrolera aplikacione logike
+poslovna logikka
+sistemske operacije (ugovori)
+
+
+klase
+slike tabela
+mali grafik
+
+
+
+OSTALO JE - 
+da ispisem imena svih fajlova
+da napravim glavni grafik celog sistema
+da prepravim sav tekst koji sam kopirao
+da se nadam bogu da ce ugovori proci
+da odradim skrinove SK

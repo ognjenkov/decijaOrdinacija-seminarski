@@ -1,0 +1,15 @@
+desetka
+Projektovanje
+arhitektura softverskog sistema
+projektovanje korisnickog interfejsa
+Projektovanje ekranskih form (skrinovi sa SK)
+PROJEKTOVANJE KONTROLERA KORISNICKOG INTERFEJSA
+Projektovanje aplikacione logike
+kontroler aplikacione logike
+
+poslovna logika (ugovori)
+
+BLA BLA BLA
+klase
+slike tabela
+veliki grafici

@@ -11,16 +11,16 @@ import domain.Lek;
  *
  * @author ognje
  */
-public class DodajLekSO extends AbstractGenericOperation{
+public class DodajLekSO extends AbstractGenericOperation {
 
     @Override
     protected void preduslovi(Object param) throws Exception {
-         if(param == null || !(param instanceof Lek)) {
+        if (param == null || !(param instanceof Lek)) {
             throw new Exception("Sistem nije mogao da doda lek #1");
         }
         Lek lek = (Lek) param;
-        if(lek.getNaziv()== null 
-                || lek.getProizvodjac() == null 
+        if (lek.getNaziv() == null
+                || lek.getProizvodjac() == null
                 || lek.getInn() == null
                 || lek.getAtcKlasifikacija() == null
                 || lek.getFarmakoloskaHemijskaPodgrupa() == null
@@ -30,8 +30,8 @@ public class DodajLekSO extends AbstractGenericOperation{
                 || lek.getTerapijskaGrupa() == null) {
             throw new Exception("Sistem nije mogao da doda lek #2");
         }
-        if(lek.getNaziv().length() > 50 
-                || lek.getProizvodjac().length() > 50 
+        if (lek.getNaziv().length() > 50
+                || lek.getProizvodjac().length() > 50
                 || lek.getInn().length() > 50
                 || lek.getAtcKlasifikacija().length() > 50
                 || lek.getFarmakoloskaHemijskaPodgrupa().length() > 50
@@ -45,7 +45,8 @@ public class DodajLekSO extends AbstractGenericOperation{
 
     @Override
     protected void izvrsiOperaciju(Object param, String kljuc) throws Exception {
+        System.out.println("SO");
         broker.add((Lek) param);
     }
-    
+
 }

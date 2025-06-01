@@ -11,17 +11,20 @@ import operations.AbstractGenericOperation;
  *
  * @author ognje
  */
-public class DodajSpecijalizacijuSO extends AbstractGenericOperation{
-@Override
+public class DodajSpecijalizacijuSO extends AbstractGenericOperation {
+
+    @Override
     protected void preduslovi(Object param) throws Exception {
-         if(param == null || !(param instanceof Specijalizacija)) {
+        if (param == null || !(param instanceof Specijalizacija)) {
             throw new Exception("Sistem nije mogao da doda specijalizaciju #1");
         }
         Specijalizacija Specijalizacija = (Specijalizacija) param;
+
         if(Specijalizacija.getNaziv()== null || Specijalizacija.getNaziv().length() == 0) {
+
             throw new Exception("Sistem nije mogao da doda specijalizaciju #2");
         }
-        if(Specijalizacija.getNaziv().length() > 50) {
+        if (Specijalizacija.getNaziv().length() > 50 || Specijalizacija.getNaziv().length() == 0) {
             throw new Exception("Sistem nije mogao da doda specijalizaciju #3");
         }
     }
@@ -31,6 +34,5 @@ public class DodajSpecijalizacijuSO extends AbstractGenericOperation{
         System.out.println("izvrsiOperaciju");
         broker.add((Specijalizacija) param);
     }
-    
-    
+
 }

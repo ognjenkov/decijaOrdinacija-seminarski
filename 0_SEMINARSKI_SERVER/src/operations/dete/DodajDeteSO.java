@@ -30,6 +30,7 @@ public class DodajDeteSO extends AbstractGenericOperation {
 
     @Override
     protected void izvrsiOperaciju(Object param, String kljuc) throws Exception {
+        System.out.println("SO");
         broker.add((Dete) param);
     }
     

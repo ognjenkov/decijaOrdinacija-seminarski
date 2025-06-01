@@ -11,7 +11,7 @@ import operations.AbstractGenericOperation;
  *
  * @author ognje
  */
-public class DodajDRSPSO extends AbstractGenericOperation{
+public class DodajDRSPSO extends AbstractGenericOperation {
 
     @Override
     protected void preduslovi(Object param) throws Exception {
@@ -19,7 +19,7 @@ public class DodajDRSPSO extends AbstractGenericOperation{
             throw new Exception("Sistem nije mogao da doda drsp #1");
         }
         DrSp drsp = (DrSp) param;
-        if (drsp.getDoktor()== null || drsp.getSpecijalizacija()== null) {
+        if (drsp.getDoktor() == null || drsp.getSpecijalizacija() == null) {
             throw new Exception("Sistem nije mogao da doda drsp #2");
         }
         if (drsp.getSpecijalizacija().getIdSpecijalizacija() < 1 || drsp.getDoktor().getIdDoktor() < 1) {
@@ -29,7 +29,8 @@ public class DodajDRSPSO extends AbstractGenericOperation{
 
     @Override
     protected void izvrsiOperaciju(Object param, String kljuc) throws Exception {
+        System.out.println("SO");
         broker.add((DrSp) param);
     }
-    
+
 }

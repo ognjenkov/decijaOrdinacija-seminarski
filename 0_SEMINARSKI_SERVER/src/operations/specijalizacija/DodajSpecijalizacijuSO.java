@@ -18,7 +18,7 @@ public class DodajSpecijalizacijuSO extends AbstractGenericOperation{
             throw new Exception("Sistem nije mogao da doda specijalizaciju #1");
         }
         Specijalizacija Specijalizacija = (Specijalizacija) param;
-        if(Specijalizacija.getNaziv()== null ) {
+        if(Specijalizacija.getNaziv()== null || Specijalizacija.getNaziv().length() == 0) {
             throw new Exception("Sistem nije mogao da doda specijalizaciju #2");
         }
         if(Specijalizacija.getNaziv().length() > 50) {
@@ -28,6 +28,7 @@ public class DodajSpecijalizacijuSO extends AbstractGenericOperation{
 
     @Override
     protected void izvrsiOperaciju(Object param, String kljuc) throws Exception {
+        System.out.println("izvrsiOperaciju");
         broker.add((Specijalizacija) param);
     }
     

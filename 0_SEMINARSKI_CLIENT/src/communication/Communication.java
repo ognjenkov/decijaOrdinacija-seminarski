@@ -125,6 +125,10 @@ public class Communication {
 
         if (res.getPayload() == null) {
             System.out.println("USPEH");
+            cordinator.Cordinator.getInstance().osveziFormuPrikazObrazovanja();
+            cordinator.Cordinator.getInstance().osveziFormuPrikazDece();
+            cordinator.Cordinator.getInstance().osveziMainFormu();
+
         } else {
 //            TODO mozes da implementiras kod deleta moze da dodje greska da ima constraint u bazi i to da ispises u poruci
             System.out.println("GRESKA");
@@ -143,7 +147,11 @@ public class Communication {
 
         if (res.getPayload() == null) {
             System.out.println("USPEH");
-//            cordinator.Cordinator.getInstance().osveziFormuPrikazDece();
+            cordinator.Cordinator.getInstance().osveziFormuPrikazObrazovanja();
+
+            cordinator.Cordinator.getInstance().osveziFormuPrikazDece();
+            cordinator.Cordinator.getInstance().osveziMainFormu();
+
         } else {
 //            TODO mozes da implementiras kod deleta moze da dodje greska da ima constraint u bazi i to da ispises u poruci
             System.out.println("GRESKA");
@@ -162,7 +170,9 @@ public class Communication {
 
         if (res.getPayload() == null) {
             System.out.println("USPEH");
-//            cordinator.Cordinator.getInstance().osveziFormuPrikazObrazovanja();
+            cordinator.Cordinator.getInstance().osveziFormuPrikazObrazovanja();
+            cordinator.Cordinator.getInstance().osveziFormuPrikazDece();
+            cordinator.Cordinator.getInstance().osveziMainFormu();
         } else {
 //            TODO mozes da implementiras kod deleta moze da dodje greska da ima constraint u bazi i to da ispises u poruci
             System.out.println("GRESKA");

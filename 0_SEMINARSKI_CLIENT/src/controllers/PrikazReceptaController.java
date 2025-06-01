@@ -122,7 +122,7 @@ public class PrikazReceptaController {
                 String dijagnoza = prf.getjTextFieldDIJAGNOZA().getText();
 
                 ModelTabeleRecepti mtr = (ModelTabeleRecepti) prf.getjTableRECEPTI().getModel();
-                mtr.pretrazi(imeDeteta, prezimeDeteta, imeDoktora, prezimeDoktora, imeDoktora, datumIzdavanja, dijagnoza);
+                mtr.pretrazi(imeDeteta, prezimeDeteta, imeDoktora, prezimeDoktora, imeDoktora, datumIzdavanja, dijagnoza, prf);
 
                 List<StavkaRecepta> stavkeRecepata = new ArrayList<>();
                 ModelTabeleStavke mts = new ModelTabeleStavke(stavkeRecepata);

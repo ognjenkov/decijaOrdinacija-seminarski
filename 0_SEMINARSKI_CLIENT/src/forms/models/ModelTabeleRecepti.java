@@ -5,10 +5,12 @@
 package forms.models;
 import domain.Dete;
 import domain.Recept;
+import java.awt.Component;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
+import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 /**
  *
@@ -63,7 +65,7 @@ public class ModelTabeleRecepti extends AbstractTableModel{
         return lista;
     }
 
-    public void pretrazi(String imeDeteta, String prezimeDeteta, String imeDoktora, String prezimeDoktora, String emailDoktora, LocalDate datumIzdavanja, String dijagnoza) {
+    public void pretrazi(String imeDeteta, String prezimeDeteta, String imeDoktora, String prezimeDoktora, String emailDoktora, LocalDate datumIzdavanja, String dijagnoza, Component parentComponent) {
         List<Recept> filteredList = lista.stream()
                 .filter(d -> (imeDeteta == null || imeDeteta.isEmpty() || d.getDete().getIme().toLowerCase().contains(imeDeteta.toLowerCase())))
                 .filter(d -> (prezimeDeteta == null || prezimeDeteta.isEmpty() || d.getDete().getPrezime().toLowerCase().contains(prezimeDeteta.toLowerCase())))
@@ -74,6 +76,12 @@ public class ModelTabeleRecepti extends AbstractTableModel{
                 .filter(d -> (datumIzdavanja == null || datumIzdavanja.isEqual(d.getDatumIzdavanja())))
                 .collect(Collectors.toList());
         this.lista = filteredList;
+        if(filteredList.size() > 0) {
+            JOptionPane.showMessageDialog(parentComponent, "Sistem je nasao recepte po zadatik kriterijumima", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(parentComponent, "Sistem ne moze da nadje recept po zadatik kriterijumima", "Greska", JOptionPane.ERROR_MESSAGE);
+        }
+        
         fireTableChanged(null);
     }
 

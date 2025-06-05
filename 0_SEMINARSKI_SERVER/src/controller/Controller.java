@@ -190,20 +190,11 @@ public class Controller {
         return so.getLekovi();
     }
 
-    public void dodajRecept(StavkaRecepta sr) throws Exception {
+    public void dodajRecept(Recept recept) throws Exception {
         System.out.println("Controller - dodajRecept");
-
-        Recept recept = sr.getRecept();
 
         DodajReceptSO drso = new DodajReceptSO();
         drso.izvrsi(recept, null);
-        int receptId = drso.getReceptId();
-        sr.getRecept().setIdRecept(receptId);
-        sr.setRb(1);
-
-        DodajStavkuReceptaSO dsrso = new DodajStavkuReceptaSO();
-        dsrso.izvrsi(sr, null);
-
     }
     
     public void izmeniRecept(Recept recept) throws Exception {

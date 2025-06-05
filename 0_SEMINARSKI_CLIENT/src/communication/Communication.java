@@ -406,8 +406,8 @@ public class Communication {
         return lista;
     }
 
-    public void dodajRecept(StavkaRecepta stavka) throws Exception {
-        Request req = new Request(Operation.DODAJ_RECEPT, stavka);
+    public void dodajRecept(Recept recept) throws Exception {
+        Request req = new Request(Operation.DODAJ_RECEPT, recept);
         System.out.println("DODAJ_RECEPT komunikacija request SENT");
 
         sender.send(req);

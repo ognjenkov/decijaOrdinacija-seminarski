@@ -20,6 +20,7 @@ public class Recept implements AbstractDomainObject {
     private Dete dete;
     private LocalDate datumIzdavanja;
     private String dijagnoza;
+    private List<StavkaRecepta> stavke;
 
     public Recept() {
     }
@@ -70,6 +71,14 @@ public class Recept implements AbstractDomainObject {
 
     public void setDijagnoza(String dijagnoza) {
         this.dijagnoza = dijagnoza;
+    }
+
+    public List<StavkaRecepta> getStavke() {
+        return stavke;
+    }
+
+    public void setStavke(List<StavkaRecepta> stavke) {
+        this.stavke = stavke;
     }
     
 

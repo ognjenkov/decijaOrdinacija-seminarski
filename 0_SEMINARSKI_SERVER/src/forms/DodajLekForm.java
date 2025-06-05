@@ -95,7 +95,7 @@ public class DodajLekForm extends javax.swing.JFrame {
         jTextFieldTERAPIJSKAGRUPA.setBounds(530, 150, 120, 22);
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\ognje\\Documents\\NetBeansProjects\\decijaOrdinacija_prosoft_seminarski\\dokumentacija\\lek.png")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/forms/lek.png"))); // NOI18N
         jLabel6.setText("jLabel6");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(0, -10, 880, 490);

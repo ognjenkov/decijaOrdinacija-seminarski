@@ -151,7 +151,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\ognje\Documents\NetBeansProjects\decijaOrdinacija_prosoft_seminarski\dokumentacija\lek.png"/>
+          <Image iconType="3" name="/forms/lek.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel6"/>
       </Properties>

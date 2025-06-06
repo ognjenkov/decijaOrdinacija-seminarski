@@ -43,15 +43,13 @@ public class DodajReceptSO extends AbstractGenericOperation {
         System.out.println("SO");
 
         Recept recept = (Recept) param;
-
         List<StavkaRecepta> stavke = recept.getStavke();
-        recept.setDatumIzdavanja(LocalDate.now());
+    
         int receptId = broker.add((Recept) recept);
-        recept.setIdRecept(receptId);
-        recept.setStavke(null);
+
         int rb = 1;
         for (StavkaRecepta stavka : stavke) {
-            stavka.setRecept(recept);
+            stavka.setIdRecept(receptId);
             stavka.setRb(rb);
             broker.add((StavkaRecepta) stavka);
             rb++;

@@ -93,13 +93,22 @@ public class MainController {
                 Doktor doktor = Cordinator.getInstance().getUlogovani();
 
                 Recept recept = new Recept(-1, doktor, dete, LocalDate.now(), dijagnoza);
-                StavkaRecepta stavka = new StavkaRecepta(1, null, lek, terapija, zakljucak);
+                StavkaRecepta stavka = new StavkaRecepta(1, -1, lek, terapija, zakljucak);
                 List<StavkaRecepta> stavke = new ArrayList<>();
                 stavke.add(stavka);
                 recept.setStavke(stavke);
                 System.out.println("get stavke" + recept.getStavke().toString());
 
+                recept.setDatumIzdavanja(LocalDate.now());
                 try {
+                    int godina = recept.getDatumIzdavanja().getYear();
+                    if (dijagnoza.contains(String.valueOf(godina))) {
+                        throw new Exception("Dijagnoza contains the year from datum.");
+                    }
+                    if(stavka.getTerapija().equals(stavka.getZakljucak())){
+                        throw new Exception("stavka.getTerapija() == stavka.getZakljucak()");
+                    }
+
                     communication.Communication.getInstance().dodajRecept(recept);
                     JOptionPane.showMessageDialog(mainForm, "Sistem je kreirao recept", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
                     mainForm.getjTextAreaTERAPIJA().setText("");

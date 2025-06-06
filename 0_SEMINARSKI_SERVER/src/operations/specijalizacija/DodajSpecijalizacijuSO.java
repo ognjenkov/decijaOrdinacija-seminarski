@@ -4,7 +4,9 @@
  */
 package operations.specijalizacija;
 
+import domain.Lek;
 import domain.Specijalizacija;
+import java.util.List;
 import operations.AbstractGenericOperation;
 
 /**
@@ -26,6 +28,12 @@ public class DodajSpecijalizacijuSO extends AbstractGenericOperation {
         }
         if (Specijalizacija.getNaziv().length() > 50 || Specijalizacija.getNaziv().length() == 0) {
             throw new Exception("Sistem nije mogao da doda specijalizaciju #3");
+        }
+        List<Lek> lekovi = broker.getAll(new Lek(), null);
+        for (Lek lek : lekovi) {
+            if(lek.getNaziv().equals(Specijalizacija.getNaziv())) {
+                throw new Exception("Sistem nije mogao da doda specijalizaciju #4");
+            }
         }
     }
 

@@ -47,9 +47,17 @@ public class IzmeniReceptController {
 //                        return; // Exit early if the date is invalid
 //                    }
 //                }
+
+int godina = datum.getYear();
+if (dijagnoza.contains(String.valueOf(godina))) {
+    System.out.println("Dijagnoza contains the year from datum.");
+}
+
                     Recept r = (Recept) cordinator.Cordinator.getInstance().vratiParam("recept");
                     r.setDatumIzdavanja(datum);
                     r.setDijagnoza(dijagnoza);
+                    
+                    
 
                     communication.Communication.getInstance().izmeniRecept(r);
                     JOptionPane.showMessageDialog(irf, "Sistem je zapamtio recept", "Uspeh", JOptionPane.INFORMATION_MESSAGE);

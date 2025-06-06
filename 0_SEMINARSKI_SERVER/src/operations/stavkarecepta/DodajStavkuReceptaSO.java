@@ -19,10 +19,10 @@ public class DodajStavkuReceptaSO extends AbstractGenericOperation {
             throw new Exception("Sistem nije mogao da doda Stavku #1");
         }
         StavkaRecepta stavka = (StavkaRecepta) param;
-        if (stavka.getRecept() == null || stavka.getLek() == null || stavka.getTerapija() == null || stavka.getZakljucak() == null) {
+        if (stavka.getLek() == null || stavka.getTerapija() == null || stavka.getZakljucak() == null) {
             throw new Exception("Sistem nije mogao da doda Stavku #2");
         }
-        if (stavka.getRecept().getIdRecept() < 1 || stavka.getLek().getIdLek() < 1 || stavka.getRb() < 1) {
+        if (stavka.getLek().getIdLek() < 1 || stavka.getRb() < 1) {
             throw new Exception("Sistem nije mogao da doda Stavku #3");
         }
     }

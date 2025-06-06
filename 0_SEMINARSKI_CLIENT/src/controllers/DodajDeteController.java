@@ -36,14 +36,19 @@ public class DodajDeteController {
             }
 
             private void dodaj(ActionEvent e) {
-                String ime = ddf.getjTextIME().getText();
-                String prezime = ddf.getjTextFieldPREZIME().getText();
-                String datumRodjenjaString = ddf.getjTextFieldDATUMRODJENJA().getText();
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.M.yyyy");
-                LocalDate datumRodnjenja = LocalDate.parse(datumRodjenjaString, formatter);
-
-                Dete dete = new Dete(-1, ime, prezime, datumRodnjenja);
                 try {
+                    String ime = ddf.getjTextIME().getText();
+                    String prezime = ddf.getjTextFieldPREZIME().getText();
+                    String datumRodjenjaString = ddf.getjTextFieldDATUMRODJENJA().getText();
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.M.yyyy");
+                    LocalDate datumRodjenja = LocalDate.parse(datumRodjenjaString, formatter);
+
+                    if (!datumRodjenja.isAfter(LocalDate.of(2000, 12, 31))) {
+                        throw new Exception("datumRodjenja is not after 2000-12-31");
+                    }
+                    
+                    Dete dete = new Dete(-1, ime, prezime, datumRodjenja);
+
                     communication.Communication.getInstance().dodajDete(dete);
                     JOptionPane.showMessageDialog(ddf, "Sistem je kreirao dete", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
                     ocistiPolja();
@@ -55,9 +60,7 @@ public class DodajDeteController {
                 }
             }
         });
-        
-        
-        
+
         ddf.azurirajAddActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -65,15 +68,21 @@ public class DodajDeteController {
             }
 
             private void azuriraj(ActionEvent e) {
+                try {
                 String ime = ddf.getjTextIME().getText();
                 String prezime = ddf.getjTextFieldPREZIME().getText();
                 String datumRodjenjaString = ddf.getjTextFieldDATUMRODJENJA().getText();
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.M.yyyy");
-                LocalDate datumRodnjenja = LocalDate.parse(datumRodjenjaString, formatter);
-                int id = Integer.parseInt(ddf.getjLabelID().getText());
+                LocalDate datumRodjenja = LocalDate.parse(datumRodjenjaString, formatter);
                 
-                Dete dete = new Dete(id, ime, prezime, datumRodnjenja);
-                try {
+                if (!datumRodjenja.isAfter(LocalDate.of(2000, 12, 31))) {
+                        throw new Exception("datumRodjenja is not after 2000-12-31");
+                    }
+                
+                int id = Integer.parseInt(ddf.getjLabelID().getText());
+
+                Dete dete = new Dete(id, ime, prezime, datumRodjenja);
+                
                     communication.Communication.getInstance().izmeniDete(dete);
                     JOptionPane.showMessageDialog(ddf, "Sistem je izmenio dete", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
                     ocistiPolja();
@@ -101,24 +110,24 @@ public class DodajDeteController {
     }
 
     private void pripremiFormu(FormMode mode) {
-        if(mode == FormMode.DODAJ) {
-            
+        if (mode == FormMode.DODAJ) {
+
             ddf.getjButtonDODAJ().setVisible(true);
             ddf.getjButtonAZURIRAJ().setVisible(false);
             ddf.getjLabelID().setVisible(false);
             ddf.getjLabelID1().setVisible(false);
-            
+
         } else if (mode == FormMode.IZMENI) {
             ddf.getjButtonDODAJ().setVisible(false);
             ddf.getjButtonAZURIRAJ().setVisible(true);
             ddf.getjLabelID().setVisible(true);
             ddf.getjLabelID1().setVisible(true);
-            Dete d = (Dete)cordinator.Cordinator.getInstance().vratiParam("dete");
-            
+            Dete d = (Dete) cordinator.Cordinator.getInstance().vratiParam("dete");
+
             ddf.getjLabelID().setText(d.getIdDete() + "");
             ddf.getjTextIME().setText(d.getIme());
             ddf.getjTextFieldPREZIME().setText(d.getPrezime());
-            
+
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.M.yyyy");
 
             ddf.getjTextFieldDATUMRODJENJA().setText(d.getDatumRodjenja().format(formatter));

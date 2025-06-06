@@ -45,7 +45,7 @@ public class StavkaRecepta implements AbstractDomainObject {
         return idRecept;
     }
 
-    public void setRecept(int idRecept) {
+    public void setIdRecept(int idRecept) {
         this.idRecept = idRecept;
     }
 
@@ -138,27 +138,9 @@ public class StavkaRecepta implements AbstractDomainObject {
             String terapija = rs.getString("stavkarecepta.terapija");
             String zakljucak = rs.getString("stavkarecepta.zakljucak");
 
-            int idDoktor = rs.getInt("doktor.idDoktor");
-            String ime = rs.getString("doktor.ime");
-            String prezime = rs.getString("doktor.prezime");
-            String email = rs.getString("doktor.email");
-            Doktor doktor = new Doktor(idDoktor, ime, prezime, email, "");
-
             int idRecept = rs.getInt("recept.idRecept");
-            LocalDate datumIzdavanja = rs.getDate("recept.datumIzdavanja").toLocalDate();
-            String dijagnoza = rs.getString("recept.dijagnoza");
 
-            int idDete = rs.getInt("dete.idDete");
-            String imeDete = rs.getString("dete.ime");
-            String prezimeDete = rs.getString("dete.prezime");
-            java.sql.Date sqlDate = rs.getDate("dete.datumRodjenja");
-            LocalDate datumRodjenjaDete = (sqlDate != null) ? sqlDate.toLocalDate() : null;
-
-            Dete dete = new Dete(idDete, imeDete, prezimeDete, datumRodjenjaDete);
-
-            Recept recept = new Recept(idRecept, doktor, dete, datumIzdavanja, dijagnoza);
-
-            list.add(new StavkaRecepta(rb, recept, lek, terapija, zakljucak));
+            list.add(new StavkaRecepta(rb, idRecept, lek, terapija, zakljucak));
         }
         return list;
     }
@@ -183,27 +165,10 @@ public class StavkaRecepta implements AbstractDomainObject {
             String terapija = rs.getString("stavkarecepta.terapija");
             String zakljucak = rs.getString("stavkarecepta.zakljucak");
 
-            int idDoktor = rs.getInt("doktor.idDoktor");
-            String ime = rs.getString("doktor.ime");
-            String prezime = rs.getString("doktor.prezime");
-            String email = rs.getString("doktor.email");
-            Doktor doktor = new Doktor(idDoktor, ime, prezime, email, "");
 
             int idRecept = rs.getInt("recept.idRecept");
-            LocalDate datumIzdavanja = rs.getDate("recept.datumIzdavanja").toLocalDate();
-            String dijagnoza = rs.getString("recept.dijagnoza");
 
-            int idDete = rs.getInt("dete.idDete");
-            String imeDete = rs.getString("dete.ime");
-            String prezimeDete = rs.getString("dete.prezime");
-            java.sql.Date sqlDate = rs.getDate("dete.datumRodjenja");
-            LocalDate datumRodjenjaDete = (sqlDate != null) ? sqlDate.toLocalDate() : null;
-
-            Dete dete = new Dete(idDete, imeDete, prezimeDete, datumRodjenjaDete);
-
-            Recept recept = new Recept(idRecept, doktor, dete, datumIzdavanja, dijagnoza);
-
-            return new StavkaRecepta(rb, recept, lek, terapija, zakljucak);
+            return new StavkaRecepta(rb, idRecept, lek, terapija, zakljucak);
         }
         return null;
     }

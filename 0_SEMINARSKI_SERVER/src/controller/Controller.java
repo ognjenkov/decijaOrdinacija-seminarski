@@ -220,7 +220,7 @@ public class Controller {
 
     public void dodajStavkuRecepta(StavkaRecepta sr) throws Exception {
         System.out.println("Controller - dodajStavkuRecepta");
-        int idRecept = sr.getRecept().getIdRecept();
+        int idRecept = sr.getIdRecept();
 
         UcitajStavkeSO so = new UcitajStavkeSO();
         so.izvrsi(idRecept, null);

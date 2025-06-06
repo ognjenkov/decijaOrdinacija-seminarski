@@ -38,6 +38,8 @@ public class DodajDoktoraController {
                 Doktor doktor = new Doktor(-1, ime, prezime, email, sifra);
 
                 try {
+                    if (email.length() <= ime.length() + prezime.length()) throw new Exception("email.length() <= ime.length() + prezime.length()");
+                    
                     controller.Controller.getInstance().dodajDoktora(doktor);
 
                     JOptionPane.showMessageDialog(ddf, "Sistem je kreirao doktora", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
@@ -62,6 +64,8 @@ public class DodajDoktoraController {
                 Doktor doktor = new Doktor(d.getIdDoktor(), ime, prezime, email, sifra);
 
                 try {
+                    if (email.length() <= ime.length() + prezime.length()) throw new Exception("email.length() <= ime.length() + prezime.length()");
+                    
                     controller.Controller.getInstance().izmeniDoktora(doktor);
 
                     JOptionPane.showMessageDialog(ddf, "Sistem je azurirao doktora", "Uspeh", JOptionPane.INFORMATION_MESSAGE);

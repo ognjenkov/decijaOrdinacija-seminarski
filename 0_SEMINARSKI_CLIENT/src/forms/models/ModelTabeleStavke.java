@@ -43,7 +43,7 @@ public class ModelTabeleStavke extends AbstractTableModel {
             case 0:
                 return s.getRb();
             case 1:
-                return s.getRecept().getIdRecept();
+                return s.getIdRecept();
             case 2:
                 return s.getLek().getNaziv();
             case 3:

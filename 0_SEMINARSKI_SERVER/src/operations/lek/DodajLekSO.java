@@ -6,6 +6,8 @@ package operations.lek;
 
 import operations.AbstractGenericOperation;
 import domain.Lek;
+import domain.Specijalizacija;
+import java.util.List;
 
 /**
  *
@@ -40,6 +42,12 @@ public class DodajLekSO extends AbstractGenericOperation {
                 || lek.getPakovanje().length() > 50
                 || lek.getTerapijskaGrupa().length() > 50) {
             throw new Exception("Sistem nije mogao da doda lek #3");
+        }
+        List<Specijalizacija> specijalizacije = broker.getAll(new Specijalizacija(), null);
+        for (Specijalizacija specijalizacija : specijalizacije) {
+            if(specijalizacija.getNaziv().equals(lek.getNaziv())) {
+                throw new Exception("Sistem nije mogao da doda lek #4");
+            }
         }
     }
 

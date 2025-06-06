@@ -42,6 +42,12 @@ public class DodajLekController {
                 Lek lek = new Lek(-1, naziv, proizvodjac, inn, atcKlasifikacija, farmakoloskaHemijskaPodgrupa, farmaceutskiOblik, sadrzajAktivneSupstance, pakovanje, terapijskaGrupa);
 
                 try {
+                    if (proizvodjac.length() <= naziv.length()
+                            || inn.length() <= proizvodjac.length() + 1
+                            || atcKlasifikacija.length() <= inn.length() + 2) {
+                        throw new Exception("Medjuzavisnost atributa jedne tabele");
+                    }
+
                     controller.Controller.getInstance().dodajLek(lek);
 
                     JOptionPane.showMessageDialog(dlf, "Sistem je kreirao lek", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
@@ -72,7 +78,12 @@ public class DodajLekController {
                 Lek l = (Lek) cordinator.Cordinator.getInstance().vratiParam("lek");
                 Lek lek = new Lek(l.getIdLek(), naziv, proizvodjac, inn, atcKlasifikacija, farmakoloskaHemijskaPodgrupa, farmaceutskiOblik, sadrzajAktivneSupstance, pakovanje, terapijskaGrupa);
                 try {
-
+                    if (proizvodjac.length() <= naziv.length()
+                            || inn.length() <= proizvodjac.length() + 1
+                            || atcKlasifikacija.length() <= inn.length() + 2) {
+                        throw new Exception("Medjuzavisnost atributa jedne tabele");
+                    }
+                    
                     controller.Controller.getInstance().izmeniLek(lek);
 
                     JOptionPane.showMessageDialog(dlf, "Sistem je izmenio lek", "Uspeh", JOptionPane.INFORMATION_MESSAGE);

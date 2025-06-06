@@ -12,9 +12,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import operations.specijalizacija.DodajSpecijalizacijuSO;
-import operations.specijalizacija.ObrisiSpecijalizacijaSO;
-import operations.specijalizacija.UcitajSpecijalizacijeSO;
 
 /**
  *

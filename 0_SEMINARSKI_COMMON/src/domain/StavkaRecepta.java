@@ -17,7 +17,7 @@ import java.util.Objects;
 public class StavkaRecepta implements AbstractDomainObject {
 
     private int rb;
-    private Recept recept;
+    private int idRecept;
     private Lek lek;
     private String terapija;
     private String zakljucak;
@@ -25,9 +25,9 @@ public class StavkaRecepta implements AbstractDomainObject {
     public StavkaRecepta() {
     }
 
-    public StavkaRecepta(int rb, Recept recept, Lek lek, String terapija, String zakljucak) {
+    public StavkaRecepta(int rb, int idRecept, Lek lek, String terapija, String zakljucak) {
         this.rb = rb;
-        this.recept = recept;
+        this.idRecept = idRecept;
         this.lek = lek;
         this.terapija = terapija;
         this.zakljucak = zakljucak;
@@ -41,12 +41,12 @@ public class StavkaRecepta implements AbstractDomainObject {
         this.rb = rb;
     }
 
-    public Recept getRecept() {
-        return recept;
+    public int getIdRecept() {
+        return idRecept;
     }
 
-    public void setRecept(Recept recept) {
-        this.recept = recept;
+    public void setRecept(int idRecept) {
+        this.idRecept = idRecept;
     }
 
     public Lek getLek() {
@@ -75,7 +75,7 @@ public class StavkaRecepta implements AbstractDomainObject {
 
     @Override
     public String toString() {
-        return "StavkaRecepta{" + "rb=" + rb + ", recept=" + recept + ", lek=" + lek + ", terapija=" + terapija + ", zakljucak=" + zakljucak + '}';
+        return "StavkaRecepta{" + "rb=" + rb + ", recept=" + idRecept + ", lek=" + lek + ", terapija=" + terapija + ", zakljucak=" + zakljucak + '}';
     }
 
     @Override
@@ -105,7 +105,7 @@ public class StavkaRecepta implements AbstractDomainObject {
         if (!Objects.equals(this.zakljucak, other.zakljucak)) {
             return false;
         }
-        if (!Objects.equals(this.recept, other.recept)) {
+        if (this.idRecept != other.idRecept) {
             return false;
         }
         return Objects.equals(this.lek, other.lek);
@@ -215,12 +215,12 @@ public class StavkaRecepta implements AbstractDomainObject {
 
     @Override
     public String vratiVrednostZaUbacivanje() {
-        return "'" + recept.getIdRecept() + "','" + rb + "','" + lek.getIdLek() + "','" + terapija + "','" + zakljucak + "'";
+        return "'" + idRecept + "','" + rb + "','" + lek.getIdLek() + "','" + terapija + "','" + zakljucak + "'";
     }
 
     @Override
     public String vratiPrimarniKljuc() {
-        return "stavkarecepta.idRecept = " + recept.getIdRecept() + " AND stavkarecepta.rb = " + rb + " AND stavkarecepta.idLek = " + lek.getIdLek();
+        return "stavkarecepta.idRecept = " + idRecept + " AND stavkarecepta.rb = " + rb + " AND stavkarecepta.idLek = " + lek.getIdLek();
 
     }
 

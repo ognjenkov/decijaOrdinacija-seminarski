@@ -22,7 +22,7 @@ public class UcitajStavkeSO extends AbstractGenericOperation {
 
     @Override
     protected void izvrsiOperaciju(Object param, String kljuc) throws Exception {
-        String uslov = " JOIN lek ON stavkarecepta.idLek = lek.idLek WHERE recept.idRecept="+(int)param;
+        String uslov = " JOIN lek ON stavkarecepta.idLek = lek.idLek WHERE stavkarecepta.idRecept="+(int)param;
         
         stavke = broker.getAll(new StavkaRecepta(), uslov);
         

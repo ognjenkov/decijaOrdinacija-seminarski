@@ -67,6 +67,11 @@ public class PrikazReceptaController {
                 } else {
                     ModelTabeleRecepti mtr = (ModelTabeleRecepti) prf.getjTableRECEPTI().getModel();
                     Recept recept = mtr.getLista().get(red);
+                    
+                    ModelTabeleStavke mts = (ModelTabeleStavke) prf.getjTableStavke().getModel();
+                    List<StavkaRecepta> stavke = mts.getLista();
+                    
+                    recept.setStavke(stavke);
 
                     cordinator.Cordinator.getInstance().dodajParam("recept", recept);
                     cordinator.Cordinator.getInstance().openDodajStavkuRecepta();

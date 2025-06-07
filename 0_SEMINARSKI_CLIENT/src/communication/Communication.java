@@ -426,8 +426,8 @@ public class Communication {
         }
     }
 
-    public void dodajStavkuRecepta(StavkaRecepta stavka) throws Exception {
-        Request req = new Request(Operation.DODAJ_STAVKURECEPTA, stavka);
+    public void dodajStavkuRecepta(Recept recept) throws Exception {
+        Request req = new Request(Operation.DODAJ_STAVKURECEPTA, recept);
         System.out.println("DODAJ_STAVKURECEPTA komunikacija request SENT");
 
         sender.send(req);

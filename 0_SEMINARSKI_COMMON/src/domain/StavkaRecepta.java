@@ -138,7 +138,7 @@ public class StavkaRecepta implements AbstractDomainObject {
             String terapija = rs.getString("stavkarecepta.terapija");
             String zakljucak = rs.getString("stavkarecepta.zakljucak");
 
-            int idRecept = rs.getInt("recept.idRecept");
+            int idRecept = rs.getInt("stavkarecepta.idRecept");
 
             list.add(new StavkaRecepta(rb, idRecept, lek, terapija, zakljucak));
         }
@@ -166,7 +166,7 @@ public class StavkaRecepta implements AbstractDomainObject {
             String zakljucak = rs.getString("stavkarecepta.zakljucak");
 
 
-            int idRecept = rs.getInt("recept.idRecept");
+            int idRecept = rs.getInt("stavkarecepta.idRecept");
 
             return new StavkaRecepta(rb, idRecept, lek, terapija, zakljucak);
         }

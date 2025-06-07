@@ -39,11 +39,11 @@ public class LoginController {
 
                 if (doktor == null) {
                     //TODO
-                    JOptionPane.showMessageDialog(lf, "Login UNsuccessful", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(lf, "Korisnicno ime i sifra nisu ispravni", "Error", JOptionPane.ERROR_MESSAGE);
 
                 } else {
                     Cordinator.getInstance().setUlogovani(doktor);
-                    JOptionPane.showMessageDialog(lf, "Login successful", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(lf, "Korisnicko ime i sifra su ispravni", "Success", JOptionPane.INFORMATION_MESSAGE);
                     Cordinator.getInstance().openMainForm();
                     lf.dispose();
                     //TODO treba da se otvori sledeca forma

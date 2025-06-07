@@ -218,20 +218,11 @@ public class Controller {
         so.izvrsi(stavkaRecepta, null);
     }
 
-    public void dodajStavkuRecepta(StavkaRecepta sr) throws Exception {
+    public void dodajStavkuRecepta(Recept recept) throws Exception {
         System.out.println("Controller - dodajStavkuRecepta");
-        int idRecept = sr.getIdRecept();
-
-        UcitajStavkeSO so = new UcitajStavkeSO();
-        so.izvrsi(idRecept, null);
-        List<StavkaRecepta> stavkeRecepta = so.getStavke();
-
-        int posledjiRb = stavkeRecepta.size();
-
-        sr.setRb(posledjiRb + 1);
-
-        DodajStavkuReceptaSO dsrso = new DodajStavkuReceptaSO();
-        dsrso.izvrsi(sr, null);
+        
+        IzmeniReceptSO irso = new IzmeniReceptSO();
+        irso.izvrsi(recept, null);
     }
 
     public void dodajSpecijalizaciju(Specijalizacija specijalizacija) throws Exception {

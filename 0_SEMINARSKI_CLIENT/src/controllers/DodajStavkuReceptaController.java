@@ -38,9 +38,11 @@ public class DodajStavkuReceptaController {
 
                 Recept r = (Recept) cordinator.Cordinator.getInstance().vratiParam("recept");
 
-                StavkaRecepta stavka = new StavkaRecepta(1, r.getIdRecept(), lek, terapija, zakljucak);
+                StavkaRecepta stavka = new StavkaRecepta(-1, r.getIdRecept(), lek, terapija, zakljucak);
+                
+                r.getStavke().add(stavka);
                 try {
-                    communication.Communication.getInstance().dodajStavkuRecepta(stavka);
+                    communication.Communication.getInstance().dodajStavkuRecepta(r);
                     JOptionPane.showMessageDialog(dsrf, "Sistem je kreirao stavku recepta", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
                     ocistiPolja();
 

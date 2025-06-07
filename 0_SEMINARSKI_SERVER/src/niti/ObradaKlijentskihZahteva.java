@@ -199,8 +199,8 @@ public class ObradaKlijentskihZahteva extends Thread {
                 } else if (req.getOperation() == Operation.DODAJ_STAVKURECEPTA) {
                     System.out.println("Dodaj DODAJ_STAVKURECEPTA operacija");
                     try {
-                        StavkaRecepta sr = (StavkaRecepta) req.getPayload();
-                        Controller.getInstance().dodajStavkuRecepta(sr);
+                        Recept recept = (Recept) req.getPayload();
+                        Controller.getInstance().dodajStavkuRecepta(recept);
                         res.setPayload(null);
 
                     } catch (Exception e) {
